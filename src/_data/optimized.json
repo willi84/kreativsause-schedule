@@ -154,6 +154,7 @@
     "talks": {
         "1381": {
             "id": 1381,
+            "day": "2025-05-30",
             "title": "Flow Engineering: Map and Measure your way to Performance",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -179,6 +180,7 @@
         },
         "1382": {
             "id": 1382,
+            "day": "2025-05-29",
             "title": "Mind Your P’s and Queues",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -204,6 +206,7 @@
         },
         "1383": {
             "id": 1383,
+            "day": "2025-05-29",
             "title": "Lizard Optimization",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -250,6 +253,7 @@
         },
         "1384": {
             "id": 1384,
+            "day": "2025-05-30",
             "title": "Fractal Geometry of Software Design",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -292,6 +296,7 @@
         },
         "1386": {
             "id": 1386,
+            "day": "2025-05-30",
             "title": "Seven Habits of a Highly Successful Team",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -322,6 +327,7 @@
         },
         "1388": {
             "id": 1388,
+            "day": "2025-05-30",
             "title": "Engineering Management Today - Trends, Challenges and Practical Solutions",
             "stage": "Main stage",
             "is_keynote": false,
@@ -356,6 +362,7 @@
         },
         "1389": {
             "id": 1389,
+            "day": "2025-05-30",
             "title": "Beyond Big Ideas: Strategies for Continuous Innovation [Hands-on]",
             "stage": "Green stage",
             "is_keynote": false,
@@ -414,6 +421,7 @@
         },
         "1390": {
             "id": 1390,
+            "day": "2025-05-29",
             "title": "Lambda? You Keep Using that Letter",
             "stage": "Main stage",
             "is_keynote": false,
@@ -456,6 +464,7 @@
         },
         "1391": {
             "id": 1391,
+            "day": "2025-05-30",
             "title": "Learning from History: The Past as a Compass for Systems Engineers in the Age of AI",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -481,6 +490,7 @@
         },
         "1392": {
             "id": 1392,
+            "day": "2025-05-29",
             "title": "Aspect-oriented Architecture",
             "stage": "Main stage",
             "is_keynote": false,
@@ -511,6 +521,7 @@
         },
         "1393": {
             "id": 1393,
+            "day": "2025-05-29",
             "title": "Data Access and Data Sharing in Microservices",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -548,6 +559,7 @@
         },
         "1394": {
             "id": 1394,
+            "day": "2025-05-29",
             "title": "Reducing risk in projects, increasing resilience to unexpected change.",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -568,6 +580,7 @@
         },
         "1395": {
             "id": 1395,
+            "day": "2025-05-30",
             "title": "Practical Modern Enterprise Architecture: modernising architecture & ways of working at Saxo Bank",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -588,6 +601,7 @@
         },
         "1396": {
             "id": 1396,
+            "day": "2025-05-30",
             "title": "The engineering strategist journey",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -629,6 +643,7 @@
         },
         "1397": {
             "id": 1397,
+            "day": "2025-05-30",
             "title": "Open Source, Open Mind: The Cost Of Free Software",
             "stage": "Main stage",
             "is_keynote": false,
@@ -649,6 +664,7 @@
         },
         "1398": {
             "id": 1398,
+            "day": "2025-05-30",
             "title": "Legacy Architecture Migration Patterns",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -688,6 +704,7 @@
         },
         "1400": {
             "id": 1400,
+            "day": "2025-05-29",
             "title": "Crew Resource Management (CRM) - the real secret to high-performing teams",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -708,6 +725,7 @@
         },
         "1401": {
             "id": 1401,
+            "day": "2025-05-29",
             "title": "Behavior and attitude, the new Agile approach",
             "stage": "Main stage",
             "is_keynote": false,
@@ -728,6 +746,7 @@
         },
         "1402": {
             "id": 1402,
+            "day": "2025-05-29",
             "title": "Refactoring from Objects to Functions",
             "stage": "Green stage",
             "is_keynote": false,
@@ -795,6 +814,7 @@
         },
         "1406": {
             "id": 1406,
+            "day": "2025-05-29",
             "title": "Architecture is Designing Knowledge Flow",
             "stage": "Main stage",
             "is_keynote": false,
@@ -840,6 +860,7 @@
         },
         "1407": {
             "id": 1407,
+            "day": "2025-05-29",
             "title": "Process files: Blueprints for Agentic AI",
             "stage": "Green stage",
             "is_keynote": false,
@@ -885,6 +906,7 @@
         },
         "1408": {
             "id": 1408,
+            "day": "2025-05-30",
             "title": "Platform Engineering: Lessons from the Rise and Fall of eBay",
             "stage": "Main stage",
             "is_keynote": false,
@@ -938,6 +960,7 @@
         },
         "1409": {
             "id": 1409,
+            "day": "2025-05-29",
             "title": "Shaped by Demand: the power of fluid teams",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -983,6 +1006,7 @@
         },
         "1410": {
             "id": 1410,
+            "day": "2025-05-29",
             "title": "Framework Agnostic Capacity Planning at Scale",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -1024,6 +1048,7 @@
         },
         "1411": {
             "id": 1411,
+            "day": "2025-05-29",
             "title": "How We Decide",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -1069,6 +1094,7 @@
         },
         "1412": {
             "id": 1412,
+            "day": "2025-05-30",
             "title": "DRIing Your Career",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -1089,6 +1115,7 @@
         },
         "1413": {
             "id": 1413,
+            "day": "2025-05-30",
             "title": "Digital Whiteboarding for Developers",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -1109,6 +1136,7 @@
         },
         "1414": {
             "id": 1414,
+            "day": "2025-05-30",
             "title": "Tame your Product Manager: Connecting Business Goals and User Outcomes with Impact Mapping",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -1138,6 +1166,7 @@
         },
         "1416": {
             "id": 1416,
+            "day": "2025-05-29",
             "title": "A 13 Billion Year Old Photograph",
             "stage": "Main stage",
             "is_keynote": false,
@@ -1158,6 +1187,7 @@
         },
         "1417": {
             "id": 1417,
+            "day": "2025-05-29",
             "title": "From autocomplete to agents:  AI coding assistance state of play",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -1203,6 +1233,7 @@
         },
         "1418": {
             "id": 1418,
+            "day": "2025-05-29",
             "title": "The Psychology of Software Teams",
             "stage": "Main stage",
             "is_keynote": false,
@@ -1252,6 +1283,7 @@
         },
         "1419": {
             "id": 1419,
+            "day": "2025-05-29",
             "title": "Panel about probabilistic forecasting",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -1296,6 +1328,7 @@
         },
         "1420": {
             "id": 1420,
+            "day": "2025-05-30",
             "title": "Panel about system thinking, complexity thinking",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -1334,6 +1367,7 @@
         },
         "1421": {
             "id": 1421,
+            "day": "2025-05-30",
             "title": "Sharpen Your Tools: Building the right Developer Experience",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -1391,6 +1425,7 @@
         },
         "1422": {
             "id": 1422,
+            "day": "2025-05-29",
             "title": "Let Them Eat Code",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -1416,6 +1451,7 @@
         },
         "1423": {
             "id": 1423,
+            "day": "2025-05-30",
             "title": "Platform Team Structures and Concerns",
             "stage": "Main stage",
             "is_keynote": false,
@@ -1461,6 +1497,7 @@
         },
         "1424": {
             "id": 1424,
+            "day": "2025-05-30",
             "title": "This is not a Clojure talk",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -1506,6 +1543,7 @@
         },
         "1425": {
             "id": 1425,
+            "day": "2025-05-29",
             "title": "The Forest & The Desert Are Parallel Universes",
             "stage": "Main stage",
             "is_keynote": true,
@@ -1543,6 +1581,7 @@
         },
         "1426": {
             "id": 1426,
+            "day": "2025-05-30",
             "title": "Telling Better Stories with Tests",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -1630,6 +1669,7 @@
         },
         "1427": {
             "id": 1427,
+            "day": "2025-05-29",
             "title": "Building for Global Engineering Platforms - Let's make an Operator",
             "stage": "Green stage",
             "is_keynote": false,
@@ -1683,6 +1723,7 @@
         },
         "1428": {
             "id": 1428,
+            "day": "2025-05-29",
             "title": "Building Resilience",
             "stage": "Main stage",
             "is_keynote": true,
@@ -1708,6 +1749,7 @@
         },
         "1430": {
             "id": 1430,
+            "day": "2025-05-29",
             "title": "AI Native Development principles and practices",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -1728,6 +1770,7 @@
         },
         "1431": {
             "id": 1431,
+            "day": "2025-05-29",
             "title": "Living your best life as a platform engineer",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -1757,6 +1800,7 @@
         },
         "1432": {
             "id": 1432,
+            "day": "2025-05-29",
             "title": "Evolutionary Architecture: The What. The Why. The How.",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -1802,6 +1846,7 @@
         },
         "1433": {
             "id": 1433,
+            "day": "2025-05-30",
             "title": "Definition Of Insanity",
             "stage": "Main stage",
             "is_keynote": false,
@@ -1835,6 +1880,7 @@
         },
         "1434": {
             "id": 1434,
+            "day": "2025-05-29",
             "title": "Predicting the Future of Distributed Systems",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -1872,6 +1918,7 @@
         },
         "1435": {
             "id": 1435,
+            "day": "2025-05-30",
             "title": "Henrik Kniberg's hands on tutorial",
             "stage": "Green stage",
             "is_keynote": false,
@@ -1897,6 +1944,7 @@
         },
         "1436": {
             "id": 1436,
+            "day": "2025-05-29",
             "title": "Transforming Education: Applying AI to Universities",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -1917,6 +1965,7 @@
         },
         "1437": {
             "id": 1437,
+            "day": "2025-05-30",
             "title": "Why Delivery Projects Fail: Transforming Testing from a Task to a Strategic Mindset",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -1994,6 +2043,7 @@
         },
         "1438": {
             "id": 1438,
+            "day": "2025-05-30",
             "title": "What AI Security means for you as a developer: Time-focused approach",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -2023,6 +2073,7 @@
         },
         "1439": {
             "id": 1439,
+            "day": "2025-05-29",
             "title": "ESSENTIALS - Event Storming for fun and profit",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -2060,6 +2111,7 @@
         },
         "1440": {
             "id": 1440,
+            "day": "2025-05-30",
             "title": "How AI Fuels BrokerChooser’s Growth",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2080,6 +2132,7 @@
         },
         "1441": {
             "id": 1441,
+            "day": "2025-05-29",
             "title": "ESSENTIALS - How to Write a Function",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -2145,6 +2198,7 @@
         },
         "1442": {
             "id": 1442,
+            "day": "2025-05-30",
             "title": "ESSENTIALS - There's No Such Thing As Plain Text",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -2170,6 +2224,7 @@
         },
         "1443": {
             "id": 1443,
+            "day": "2025-05-30",
             "title": "ESSENTIALS - Canon Test-Driven Development",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -2199,6 +2254,7 @@
         },
         "1444": {
             "id": 1444,
+            "day": "2025-05-30",
             "title": "ESSENTIALS - Retrospectives: Shifting Towards Value",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -2232,6 +2288,7 @@
         },
         "1445": {
             "id": 1445,
+            "day": "2025-05-30",
             "title": "From here to there and back again",
             "stage": "Main stage",
             "is_keynote": true,
@@ -2269,6 +2326,7 @@
         },
         "1446": {
             "id": 1446,
+            "day": "2025-05-30",
             "title": "Modernizing legacy through thousands of contextual tools … per system",
             "stage": "Platform 2",
             "is_keynote": false,
@@ -2289,6 +2347,7 @@
         },
         "1447": {
             "id": 1447,
+            "day": "2025-05-30",
             "title": "Warp Speed Web Dev with Astro",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -2322,6 +2381,7 @@
         },
         "1448": {
             "id": 1448,
+            "day": "2025-05-30",
             "title": "The Hive: a scaling and supple architecture style for your growing and complex domain",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -2357,6 +2417,7 @@
         },
         "1449": {
             "id": 1449,
+            "day": "2025-05-30",
             "title": "Lessons learned from introducing Team Topologies",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -2386,6 +2447,7 @@
         },
         "1450": {
             "id": 1450,
+            "day": "2025-05-30",
             "title": "Build “boring” engineering orgs",
             "stage": "Main stage",
             "is_keynote": false,
@@ -2406,6 +2468,7 @@
         },
         "1451": {
             "id": 1451,
+            "day": "2025-05-29",
             "title": "Engineering Management in the AI Era",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -2455,6 +2518,7 @@
         },
         "1452": {
             "id": 1452,
+            "day": "2025-05-29",
             "title": "AI Engineering Anti-patterns",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -2475,6 +2539,7 @@
         },
         "1453": {
             "id": 1453,
+            "day": "2025-05-29",
             "title": "Stop E2E Testing Your Next.js App! Write Better Tests with Contract Tests",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -2524,6 +2589,7 @@
         },
         "1454": {
             "id": 1454,
+            "day": "2025-05-29",
             "title": "Maximizing impact: Measuring the ROI of GenAI in the SDLC",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -2557,6 +2623,7 @@
         },
         "1455": {
             "id": 1455,
+            "day": "2025-05-30",
             "title": "Panel about vibe coding",
             "stage": "Orange stage",
             "is_keynote": false,
@@ -2595,6 +2662,7 @@
         },
         "1456": {
             "id": 1456,
+            "day": "2025-05-29",
             "title": "Machine learning in production",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2615,6 +2683,7 @@
         },
         "1457": {
             "id": 1457,
+            "day": "2025-05-29",
             "title": "ESSENTIALS - Architecture That Works: Essentials from a Real-World Microservices Journey",
             "stage": "Purple stage",
             "is_keynote": false,
@@ -2640,6 +2709,7 @@
         },
         "1459": {
             "id": 1459,
+            "day": "2025-05-29",
             "title": "Solving the documentation problem in a large enterprise –\na journey from static documentation to generative AI",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2666,6 +2736,7 @@
         },
         "1460": {
             "id": 1460,
+            "day": "2025-05-30",
             "title": "Intelligence as Infrastructure: What Developers Must Learn to Build with AI",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2686,6 +2757,7 @@
         },
         "1461": {
             "id": 1461,
+            "day": "2025-05-29",
             "title": "Handling Complexity in Software Development Projects",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2712,6 +2784,7 @@
         },
         "1462": {
             "id": 1462,
+            "day": "2025-05-29",
             "title": "LLM projects: same or different?!",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2732,6 +2805,7 @@
         },
         "1463": {
             "id": 1463,
+            "day": "2025-05-30",
             "title": "Architectural Blueprints for AI Agents",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2752,6 +2826,7 @@
         },
         "1464": {
             "id": 1464,
+            "day": "2025-05-29",
             "title": "Diversity: Two steps forward, one step back (just keep it going)",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2790,6 +2865,7 @@
         },
         "1466": {
             "id": 1466,
+            "day": "2025-05-29",
             "title": "Billion-Scale Triumph: Innovating at the Edge of Cloud Data",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2810,6 +2886,7 @@
         },
         "1467": {
             "id": 1467,
+            "day": "2025-05-30",
             "title": "AI - Autonomous Vehicles and ZalaZone",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2830,6 +2907,7 @@
         },
         "1468": {
             "id": 1468,
+            "day": "2025-05-30",
             "title": "AI as a Catalyst, Not a Replacement: Empowering Developers in the Age of Infinite Input",
             "stage": "Innovation stage",
             "is_keynote": false,
@@ -2850,6 +2928,7 @@
         },
         "1469": {
             "id": 1469,
+            "day": "2025-05-29",
             "title": "Leading Secure AI: Challenges, Risks, and Real Talk",
             "stage": "Tech Leaders Lounge",
             "is_keynote": false,
@@ -2893,6 +2972,7 @@
         },
         "1470": {
             "id": 1470,
+            "day": "2025-05-30",
             "title": "Doing More with Less: Rethinking Engineering Efficiency",
             "stage": "Tech Leaders Lounge",
             "is_keynote": false,
@@ -2936,6 +3016,7 @@
         },
         "1471": {
             "id": 1471,
+            "day": "2025-05-29",
             "title": "Thoughts on (Modern?) Software Development - Observations from a 20 years-long journey",
             "stage": "Pink stage",
             "is_keynote": false,
@@ -3013,6 +3094,7 @@
         },
         "1472": {
             "id": 1472,
+            "day": "2025-05-30",
             "title": "Monolith or Microservices? Designing Deploy-Time Flexibility for Modular Systems",
             "stage": "Green stage",
             "is_keynote": false,

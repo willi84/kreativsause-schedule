@@ -48,6 +48,7 @@ const processData = (data: any) => {
         speakers: {},
     }
     for (const day of data.schedule) {
+        console.log(day.date);
         const stages = day.stages;
         for (const stage of stages) {
             const stageId = stage.name;
@@ -110,6 +111,7 @@ const processData = (data: any) => {
                 const tags = talk.tags.map((tag: any) => { return{ id: tag.id, name: tag.name } });
                 const talk_item = {
                     id: talkId,
+                    day: day.date,
                     title: talk.title,
                     stage: stage.name,
                     is_keynote: talk.is_keynote,

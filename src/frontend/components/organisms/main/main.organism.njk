@@ -81,15 +81,10 @@
               </a>
             </h5>
 
-            <p class="card-text text-muted">
-              <span class="talk-value">{{ talk.description }}</span>
-              <span class="talk-search hidden">{{ talk.description }}</span>
-            </p>
-
             {% if talk.speakers.length %}
-              <div class="mt-auto">
-                <h6 class="text-light">Speakers:</h6>
-                <ul class="list-unstyled d-flex flex-wrap gap-2">
+              <div class="mb-2">
+                <h6 class="text-light mb-1">Speakers:</h6>
+                <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
                   {% for speaker in talk.speakers %}
                     {% set sp = data.speakers[speaker.slug] %}
                     <li class="d-flex align-items-center gap-2 chip level level--{{ sp.level }}" data-talk="{{ sp.name }}">
@@ -104,8 +99,19 @@
               </div>
             {% endif %}
 
+            <div class="mb-2">
+              <small class="text-muted">
+                📅 {{ talk.day }} &nbsp;&nbsp; 🕒 {{ talk.startTime }} – {{ talk.endTime }}
+              </small>
+            </div>
+
+            <p class="card-text text-muted">
+              <span class="talk-value">{{ talk.description }}</span>
+              <span class="talk-search hidden">{{ talk.description }}</span>
+            </p>
+
             {% if talk.tags.length %}
-              <div>
+              <div class="mt-auto">
                 <h6 class="mt-3 text-light">Tags:</h6>
                 <ul class="list-unstyled d-flex flex-wrap gap-2">
                   {% for tag in talk.tags %}
@@ -123,6 +129,7 @@
     {% endfor %}
   </div>
 </div>
-<footer class="container text-center my-5 small text-primary" style="color: var(--bs-body-color, #fff);">
-  Made with <span style="color: red;">♥</span> by <a href="https://robert.berlin">Robert Willemelis</a>
+
+<footer class="container text-center my-5 small text-light">
+  Made with <span style="color: red;">♥</span> by Robert Willemelis
 </footer>

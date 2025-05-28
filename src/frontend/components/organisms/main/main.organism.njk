@@ -2,15 +2,16 @@
 
 <div class="container my-5">
   <h1 class="mb-3">Craft 2025</h1>
-  <p class="text-muted">Search easily through the talks</p>
+  <p class="text-muted">Search through all talks</p>
 
   {{ component("search", {
-    placeholder: "search talks",
+    placeholder: "Search talks...",
     uid: "talks",
     category: "talks",
     no_result: ["Maybe", "that talk is not yet listed or exists"]
   }) }}
 
+  {# ==== FILTER AREA ==== #}
   <div class="my-4">
     {% set filter_groups = { tag: [], stage: [], speaker: [] } %}
     {% for key, talk in data.talks %}
@@ -31,27 +32,32 @@
     {% endfor %}
 
     {% for category in ['tag', 'stage', 'speaker'] %}
-      <div class="filter-group my-3">
-        <strong class="text-capitalize">{{ category }}s:</strong>
-        <div class="d-flex flex-wrap gap-2 mt-2" id="filter-{{ category }}">
-          {% for item in filter_groups[category] %}
-            <button class="btn btn-sm btn-outline-secondary filter-btn"
-                    data-filter-type="{{ category }}"
-                    data-filter-value="{{ item }}"
-                    {% if loop.index > 5 %}style="display:none"{% endif %}>
-              {{ item }}
-            </button>
-          {% endfor %}
+      <div class="filter-group mb-3">
+        <div class="d-flex flex-column flex-md-row align-items-md-start justify-content-between">
+          <strong class="text-capitalize me-md-3 mb-1 mb-md-0" style="min-width: 70px;">{{ category }}s:</strong>
+          <div class="d-flex flex-wrap gap-1" id="filter-{{ category }}">
+            {% for item in filter_groups[category] %}
+              <button class="btn btn-sm btn-light text-dark border filter-btn py-0 px-2"
+                      data-filter-type="{{ category }}"
+                      data-filter-value="{{ item }}"
+                      {% if loop.index > 10 %}style="display:none"{% endif %}>
+                {{ item }}
+              </button>
+            {% endfor %}
+          </div>
         </div>
         {% if filter_groups[category] | length > 10 %}
-          <button class="btn btn-sm btn-link p-0 mt-1" type="button"
-                  data-toggle-filter="{{ category }}">Show more</button>
+          <div class="text-end mt-1">
+            <button class="btn btn-link btn-sm p-0 text-white-50" type="button"
+                    data-toggle-filter="{{ category }}">Show more</button>
+          </div>
         {% endif %}
       </div>
     {% endfor %}
   </div>
 </div>
 
+{# ==== TALK CARDS ==== #}
 <div class="container" data-search="talks">
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     {% for key, talk in data.talks %}
@@ -59,11 +65,17 @@
         <div class="card h-100 talk-card shadow-sm d-flex flex-column" data-talk="{{ talk.title }}">
           <div class="card-body d-flex flex-column">
             <div class="mb-2">
-              <span class="badge bg-primary" style="background-color: #{{data.stages[talk.stage].color}} !important">{{ talk.stage }}</span>
+              <span class="badge text-light"
+                    style="background-color: #{{ data.stages[talk.stage].color }}">
+                {{ talk.stage }}
+              </span>
             </div>
 
             <h5 class="card-title">
-              <a href="https://craft-conf.com/2025/talk/{{ talk.slug }}" target="_blank" class="text-decoration-none">
+              <a href="https://craft-conf.com/2025/talk/{{ talk.slug }}"
+                 class="text-decoration-none"
+                 target="_blank"
+                 rel="noopener">
                 <span class="talk-value">🎙️ {{ talk.title }}</span>
                 <span class="talk-search hidden">🎙️ {{ talk.title }}</span>
               </a>
@@ -76,13 +88,13 @@
 
             {% if talk.speakers.length %}
               <div class="mt-auto">
-                <h6>Speakers:</h6>
+                <h6 class="text-light">Speakers:</h6>
                 <ul class="list-unstyled d-flex flex-wrap gap-2">
                   {% for speaker in talk.speakers %}
                     {% set sp = data.speakers[speaker.slug] %}
                     <li class="d-flex align-items-center gap-2 chip level level--{{ sp.level }}" data-talk="{{ sp.name }}">
                       {% if sp.image %}
-                        <img src="https://craft-conf.com{{ sp.image }}" alt="{{ sp.name }}" width="48" height="48" class="rounded-circle">
+                        <img src="https://craft-conf.com{{ sp.image }}" alt="{{ sp.name }}" width="32" height="32" class="rounded-circle">
                       {% endif %}
                       <span class="talk-value">{{ sp.name }}</span>
                       <span class="talk-search hidden">{{ sp.name }}</span>
@@ -94,7 +106,7 @@
 
             {% if talk.tags.length %}
               <div>
-                <h6 class="mt-3">Tags:</h6>
+                <h6 class="mt-3 text-light">Tags:</h6>
                 <ul class="list-unstyled d-flex flex-wrap gap-2">
                   {% for tag in talk.tags %}
                     <li class="chip chip--small level level--{{ tag.level }}" data-talk="{{ tag.name }}">
@@ -111,3 +123,6 @@
     {% endfor %}
   </div>
 </div>
+<footer class="container text-center my-5 small text-primary" style="color: var(--bs-body-color, #fff);">
+  Made with <span style="color: red;">♥</span> by <a href="https://robert.berlin">Robert Willemelis</a>
+</footer>

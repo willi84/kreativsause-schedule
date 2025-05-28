@@ -1,0 +1,25 @@
+.level--advanced{
+    background-color: darkgreen;
+    color: white;
+}
+.level--medium{
+    background-color: green;
+    color: white;
+}
+.level--basic{
+    background-color: lightgreen;
+    color: black;
+}
+.level--starter{
+    background-color: lightyellow;
+    color: black;
+}
+
+.levels .level{
+    width: 200px;
+    text-align: center;
+}
+.levels .level.level--small{
+    width: 80px;
+    font-size: 10px;
+}

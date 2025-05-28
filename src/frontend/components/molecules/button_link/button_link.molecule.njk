@@ -1,0 +1,34 @@
+{% set dimension = [params.width, params.height] if params.width and params.height else params.size %}
+{% set class_svg = params.class_svg if params.class_svg else "" %}
+{% set class_modifier = params.class_modifier if params.class_modifier else "" %}
+{% set text = params.text if params.text else "" %}
+
+{# set button type #}
+{% set class_modifier = "" %}
+{% if params.type == "link" %}
+    {% set class_modifier = "btn--ghost" %}
+{% endif %}
+{% if params.type == "cta" %}
+    {% set class_modifier = "btn--cta" %}
+{% endif %}
+
+{# set optional attributes #}
+{% set attributes = {} %}
+
+{% if params.focusable is defined %}
+  {% set attributes = attributes | merge({"focusable": params.focusable}) %}
+{% endif %}
+
+{% if params.aria_hidden is defined %}
+  {% set attributes = attributes | merge({"ariaHidden": params.aria_hidden}) %}
+{% endif %}
+
+{{ component("link", {
+    class: "btn ",
+    class_modifier: class_modifier,
+    url: params.link,
+    text: text,
+    post_html: (params.image_url | url | svg(dimension, class_svg, attributes) | safe)
+
+  })
+}}

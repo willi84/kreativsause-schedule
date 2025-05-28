@@ -1,0 +1,145 @@
+{
+    "url": "/2025/talk/cat-hicks",
+    "version": "f120758403c0da941fe09e6ab981651e",
+    "talk": {
+        "title": "The Psychology of Software Teams",
+        "topic": "craft",
+        "slug": "cat-hicks",
+        "abstract": "<p class=\"pb-4\">Developers’ problem-solving, creativity, and collaboration is what grows and maintains functioning software systems–and all the technology that interacts with software. And because modern technology is constantly changing, how well developers <em>keep </em>solving problems, creating and collaborating is at the heart of maintaining any technology organization’s performance and capabilities. <br><br>But designing for developers’ problem-solving<em> </em>simply<em> </em>hasn’t been at the forefront of how we put software teams together or how we run technology organizations. It’s showing up in their stories and in the data. Across decades of research on software teams, one thing is startlingly clear: developers do <em>not </em>feel understood. <br><br>In this talk, we'll explore a mission to change that: how using large-scale empirical research rooted in the psychological sciences brings us new evidence about critical aspects of developer thriving, such as agency, belonging, and learning culture, and can help us build new models for understanding our software teams. Along the way we'll untangle how old misconceptions about developer productivity hold us back, and the alternatives that come from a science-backed model for collaborative and cumulative cultures in software that drive sustainable innovation.</p>",
+        "level": "General",
+        "tags": [
+            {
+                "id": 2383,
+                "conference_year_id": 106,
+                "name": "leadership",
+                "is_trending": false,
+                "created_at": "2024-05-03 04:40:39",
+                "updated_at": "2024-05-03 04:40:39",
+                "pivot": {
+                    "talk_id": 1418,
+                    "tag_id": 2383
+                }
+            },
+            {
+                "id": 2362,
+                "conference_year_id": 106,
+                "name": "organization",
+                "is_trending": false,
+                "created_at": "2024-05-03 04:40:39",
+                "updated_at": "2024-05-03 04:40:39",
+                "pivot": {
+                    "talk_id": 1418,
+                    "tag_id": 2362
+                }
+            },
+            {
+                "id": 2388,
+                "conference_year_id": 106,
+                "name": "psychology",
+                "is_trending": false,
+                "created_at": "2024-05-03 04:40:39",
+                "updated_at": "2024-05-03 04:40:39",
+                "pivot": {
+                    "talk_id": 1418,
+                    "tag_id": 2388
+                }
+            },
+            {
+                "id": 2399,
+                "conference_year_id": 106,
+                "name": "empirical development",
+                "is_trending": false,
+                "created_at": "2024-05-03 04:40:39",
+                "updated_at": "2024-05-03 04:40:39",
+                "pivot": {
+                    "talk_id": 1418,
+                    "tag_id": 2399
+                }
+            },
+            {
+                "id": 2412,
+                "conference_year_id": 106,
+                "name": "programming",
+                "is_trending": false,
+                "created_at": "2024-05-03 04:40:39",
+                "updated_at": "2024-05-03 04:40:39",
+                "pivot": {
+                    "talk_id": 1418,
+                    "tag_id": 2412
+                }
+            },
+            {
+                "id": 2373,
+                "conference_year_id": 106,
+                "name": "software development",
+                "is_trending": false,
+                "created_at": "2024-05-03 04:40:39",
+                "updated_at": "2024-05-03 04:40:39",
+                "pivot": {
+                    "talk_id": 1418,
+                    "tag_id": 2373
+                }
+            },
+            {
+                "id": 2367,
+                "conference_year_id": 106,
+                "name": "technical excellence",
+                "is_trending": false,
+                "created_at": "2024-05-03 04:40:39",
+                "updated_at": "2024-05-03 04:40:39",
+                "pivot": {
+                    "talk_id": 1418,
+                    "tag_id": 2367
+                }
+            }
+        ],
+        "video_url": null,
+        "slides_url": null,
+        "is_keynote": false,
+        "is_online": false
+    },
+    "speakers": [
+        {
+            "id": 1691,
+            "topic": "craft",
+            "name": "Cat Hicks",
+            "image": "/images/2025/craft/speakers/00e71cc24258bb112e3b2e7fbfb48ec6.png",
+            "bio": "<p class=\"pb-4\">Cat Hicks is a psychologist for software teams and defender of the mismeasured. She is the creator of the Developer Thriving framework, the AI Skill Threat framework, and numerous empirical research projects that have created novel empirical evidence about how organizations and individuals can achieve sustainable, resilient innovation in technology and create more wellbeing for technologists. Cat is the founder and principal scientist at Catharsis Consulting, a scientific consultancy for engineering organizations that need human-centered evidence strategies. Cat holds a Ph.D. in Quantitative Experimental Psychology from UC San Diego, serves on the Advisory Council of the University of San Diego Center for Digital Civil Society, and is the author of a forthcoming book on the psychology of software teams.</p>",
+            "title": "Principal Scientist",
+            "company": "Catharsis Consulting",
+            "company_logo": null,
+            "slug": "cat-hicks",
+            "twitter_handle": null,
+            "linkedin_profile": "drcathicks/",
+            "custom_link": "https://bsky.app/profile/grimalkina.bsky.social",
+            "is_online": false,
+            "pivot": {
+                "talk_id": 1418,
+                "speaker_id": 1691
+            },
+            "talks": [
+                {
+                    "id": 1418,
+                    "topic": "craft",
+                    "title": "The Psychology of Software Teams",
+                    "slug": "cat-hicks",
+                    "pivot": {
+                        "speaker_id": 1691,
+                        "talk_id": 1418
+                    }
+                },
+                {
+                    "id": 1455,
+                    "topic": "craft",
+                    "title": "Panel about vibe coding",
+                    "slug": "panel-vibe-coding",
+                    "pivot": {
+                        "speaker_id": 1691,
+                        "talk_id": 1455
+                    }
+                }
+            ],
+            "workshops": []
+        }
+    ]
+}

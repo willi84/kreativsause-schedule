@@ -1,0 +1,22 @@
+{% set item = params.item %}
+
+<a href="{{item.url}}" class="no-underline" aria-label="{{item.name}} on {{item.plattform}}">
+    {{
+      component("image", {
+        item: item,
+        class: "img-size-m circle",
+        alt_prefix: item.plattform + " profile image of ",
+        width: 40,
+        height: 40,
+        lazy: true
+      })
+    }}
+</a>
+
+{# <a href="https://github.com/{{contributor}}" class="no-underline" aria-label="{{contributor}} on GitHub">
+    <img
+        class="img-size-m circle"
+        srcset="/api/user-image/?user={{ contributor }}&size=40 1x,
+                /api/user-image/?user={{ contributor }}&size=80 2x"
+        src="/api/user-image/?user={{ contributor }}" alt="GitHub profile image of {{ contributor }}" loading="lazy" width="40" height="40">
+  </a> #}

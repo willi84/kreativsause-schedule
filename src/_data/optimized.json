@@ -1,0 +1,3890 @@
+{
+    "stages": {
+        "Main stage": {
+            "id": 77,
+            "name": "Main stage",
+            "talks": [
+                1425,
+                1418,
+                1401,
+                1416,
+                1390,
+                1406,
+                1392,
+                1428,
+                1445,
+                1388,
+                1433,
+                1450,
+                1397,
+                1408,
+                1423
+            ]
+        },
+        "Platform 2": {
+            "id": 78,
+            "name": "Platform 2",
+            "talks": [
+                1382,
+                1409,
+                1394,
+                1393,
+                1419,
+                1434,
+                1446,
+                1420,
+                1386,
+                1412,
+                1414,
+                1424
+            ]
+        },
+        "Orange stage": {
+            "id": 79,
+            "name": "Orange stage",
+            "talks": [
+                1430,
+                1410,
+                1422,
+                1400,
+                1383,
+                1452,
+                1384,
+                1437,
+                1426,
+                1381,
+                1391,
+                1455
+            ]
+        },
+        "Purple stage": {
+            "id": 80,
+            "name": "Purple stage",
+            "talks": [
+                1441,
+                1457,
+                1439,
+                1411,
+                1417,
+                1432,
+                1443,
+                1444,
+                1442,
+                1447,
+                1396,
+                1421
+            ]
+        },
+        "Pink stage": {
+            "id": 81,
+            "name": "Pink stage",
+            "talks": [
+                1451,
+                1471,
+                1436,
+                1453,
+                1454,
+                1431,
+                1438,
+                1449,
+                1398,
+                1448,
+                1395,
+                1413
+            ]
+        },
+        "Green stage": {
+            "id": 82,
+            "name": "Green stage",
+            "talks": [
+                1427,
+                1407,
+                1402,
+                1435,
+                1472,
+                1389
+            ]
+        },
+        "Innovation stage": {
+            "id": 83,
+            "name": "Innovation stage",
+            "talks": [
+                1461,
+                1466,
+                1459,
+                1456,
+                1462,
+                1464,
+                1468,
+                1440,
+                1467,
+                1460,
+                1463
+            ]
+        },
+        "Sponsor arena": {
+            "id": 84,
+            "name": "Sponsor arena",
+            "talks": []
+        },
+        "🚂 Train Tracks": {
+            "id": 93,
+            "name": "🚂 Train Tracks",
+            "talks": []
+        },
+        "Tech Leaders Lounge": {
+            "id": 94,
+            "name": "Tech Leaders Lounge",
+            "talks": [
+                1469,
+                1470
+            ]
+        }
+    },
+    "talks": {
+        "1381": {
+            "id": 1381,
+            "title": "Flow Engineering: Map and Measure your way to Performance",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Steve Pereira",
+                    "slug": "steve-pereira",
+                    "topic": "craft",
+                    "id": 1654
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "14:45",
+            "endTime": "15:30",
+            "slug": "steve-pereira",
+            "topic": "craft",
+            "level": "General",
+            "video_url": null,
+            "slides_url": null,
+            "description": ""
+        },
+        "1382": {
+            "id": 1382,
+            "title": "Mind Your P’s and Queues",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Daniel Vacanti",
+                    "slug": "daniel-vacanti",
+                    "topic": "craft",
+                    "id": 1655
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "10:50",
+            "endTime": "11:35",
+            "slug": "daniel-vacanti",
+            "topic": "craft",
+            "level": "Intermediate",
+            "video_url": null,
+            "slides_url": null,
+            "description": "Take 30 seconds and write down all of the “Agile” P-words that you can come up with.&nbsp; How did you do?&nbsp; Product?&nbsp; Planning?&nbsp; Prioritization?&nbsp; Now take a minute and think about what your favourite Agile framework has to say about these terms.&nbsp; In this talk we’ll explore how most of that framework guidance is at best deficient and at worst, well, misguided.&nbsp; We’ll also discuss the one thing that matters most to be successful at those Agile P’s.&nbsp; Hint:&nbsp; that work word begins with the letter “Q”."
+        },
+        "1383": {
+            "id": 1383,
+            "title": "Lizard Optimization",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Gojko Adzic",
+                    "slug": "gojko-adzic",
+                    "topic": "craft",
+                    "id": 1656
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2374,
+                    "name": "product thinking"
+                },
+                {
+                    "id": 2387,
+                    "name": "ux"
+                },
+                {
+                    "id": 2407,
+                    "name": "testing"
+                },
+                {
+                    "id": 2360,
+                    "name": "scaling"
+                },
+                {
+                    "id": 2399,
+                    "name": "empirical development"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:00",
+            "endTime": "16:45",
+            "slug": "gojko-adzic",
+            "topic": "craft",
+            "level": "General",
+            "video_url": null,
+            "slides_url": null,
+            "description": "Lizard Optimization is a way to gain deep understanding of underserved customers by mixing exploratory testing, observability and product experimentation. This talk is a quick overview of the Lizard Optimization process, with a case study of a product where it helped unlock 500 times (not percent) growth year-on-year.&nbsp; Learn how to steer your product growth gently without overcomplicating delivery and focusing on value, and how cheap and dirty observability can provide the necessary information to make informed decisions, understand your audience better and improve your products.&nbsp;"
+        },
+        "1384": {
+            "id": 1384,
+            "title": "Fractal Geometry of Software Design",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Vlad Khononov",
+                    "slug": "vladik-khononov",
+                    "topic": "craft",
+                    "id": 1657
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2403,
+                    "name": "dependency management"
+                },
+                {
+                    "id": 2386,
+                    "name": "design"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "11:15",
+            "slug": "vladik-khononov",
+            "topic": "craft",
+            "level": "Advanced",
+            "video_url": null,
+            "slides_url": null,
+            "description": "Cities, organisms, companies, and other systems share the same underlying structure: all rely on a network-based supply of energy to all of its components. The energy can be calories, water, oxygen, electricity, or other supplies that the system cannot function without. Any hiccup in the delivery of the energy can inadvertently lead to demise of the whole system.Software projects share the same core characteristic. Software also depends on efficient supply of energy. Domain-driven design taught us how to tackle complexity in the heart of software, and I want to discuss how we can tackle complexity in the cardiovascular system of software.The energy that flows through the cardiovascular system of software is knowledge. You are going to learn how it is spread and delivered to the different components of a software system, the inherent complexity of the process, and how we can optimize the distribution of knowledge to design effective software solutions."
+        },
+        "1386": {
+            "id": 1386,
+            "title": "Seven Habits of a Highly Successful Team",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Sander Hoogendoorn",
+                    "slug": "sander-hoogendoorn",
+                    "topic": "craft",
+                    "id": 1659
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "13:40",
+            "endTime": "14:25",
+            "slug": "sander-hoogendoorn",
+            "topic": "craft",
+            "level": "Intermediate",
+            "video_url": null,
+            "slides_url": null,
+            "description": "After four years of building, breaking, and learning at iBOOD, we’ve discovered what makes a development team truly successful. No frameworks, no dogma—just seven practical habits that help teams ship great software, stay motivated, and keep improving.This talk is based on real experiences, not theory. We’ll dive into:Building Microteams – Why smaller, focused teams move faster and collaborate better.Owning the Work – Why autonomy beats process, and how teams can take real ownership.Prioritizing Pragmatically – Balancing business needs, technical debt, and innovation.Delivering Continuously – Making small, frequent releases a habit (without the chaos).Killing Complexity – How to keep architecture, code, and processes simple, even as you scale.Communicating Relentlessly – Why constant, transparent communication makes everything smoother.Having Fun – Because happy teams build better software.I’ll share stories from the trenches—what worked, what failed, and what we’d never do again. If you’ve ever wondered how to build a team that doesn’t just survive but thrives, this talk will give you concrete ideas to take back to your own team."
+        },
+        "1388": {
+            "id": 1388,
+            "title": "Engineering Management Today - Trends, Challenges and Practical Solutions",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Patrick Kua",
+                    "slug": "patrick-kua",
+                    "topic": "craft",
+                    "id": 1661
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "11:15",
+            "slug": "patrick-kua",
+            "topic": "craft",
+            "level": "General",
+            "video_url": null,
+            "slides_url": null,
+            "description": "The transition from a high-performing Individual Contributor to an effective Engineering Manager is hard enough in the best of times, but today, engineering leaders and managers face even greater hurdles in a changing company and technology landscape. In this talk, I will cover some of the trends and challenges engineering leaders and managers face in 2025 and offer advice on how to approach them. "
+        },
+        "1389": {
+            "id": 1389,
+            "title": "Beyond Big Ideas: Strategies for Continuous Innovation [Hands-on]",
+            "stage": "Green stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Zsófi Herendi",
+                    "slug": "zsofi-herendi",
+                    "topic": "craft",
+                    "id": 1662
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2413,
+                    "name": "hands-on"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2384,
+                    "name": "management"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2374,
+                    "name": "product thinking"
+                },
+                {
+                    "id": 2385,
+                    "name": "tools"
+                },
+                {
+                    "id": 2393,
+                    "name": "unlimited potential"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "15:40",
+            "endTime": "17:40",
+            "slug": "hands-on-zsofi-herendi",
+            "topic": "craft",
+            "level": "General",
+            "video_url": null,
+            "slides_url": null,
+            "description": "! Please note: Active participation in this hands-on session is limited to a maximum of 50 people. Everyone is welcome of course to observe from the back rows, but I would like to set expectations in advance: I won’t be able to offer the same level of experience and value to observers, simply because I won’t have the capacity to engage with everyone personally.Successful companies are structured to continually expand their product offerings for success. This entails prioritizing the delivery of value to customers, achieving business objectives, and innovating to stay ahead of competitors, rather than solely concentrating on increasing software output.And when talking about innovation, you shouldn’t just wait to be able to come up with that one big idea that transforms your business and catches up with competitors. No, innovation is not for the creative genius and not about that one great idea but it is about processes and tools (and of course, skills).This workshop is designed to empower you with the skills and strategies necessary to foster continuous innovation within your team.&nbsp;During the workshop, we will explore the intersection of practical tools like the Business Model Canvas, ideation techniques, and insights from historical innovation. Through interactive exercises, we'll cultivate a shared understanding and language to facilitate discussions about the future.Join us and learn how to continuously explore new opportunities while leveraging existing models to drive innovation forward!"
+        },
+        "1390": {
+            "id": 1390,
+            "title": "Lambda? You Keep Using that Letter",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Kevlin Henney",
+                    "slug": "kevlin-henney",
+                    "topic": "craft",
+                    "id": 1663
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2410,
+                    "name": "javascript"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2386,
+                    "name": "design"
+                },
+                {
+                    "id": 2381,
+                    "name": "refactoring"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:55",
+            "endTime": "15:40",
+            "slug": "kevlin-henney",
+            "topic": "craft",
+            "level": "Intermediate",
+            "video_url": "https://www.youtube.com/watch?v=0igQL-zrx-U",
+            "slides_url": null,
+            "description": "Lambdas. All the cool kids have them in their languages. But does 'lambda' mean what Java, C#, Python, C++, etc. mean by 'lambda'? Where did lambdas come from? What were they originally for? What is their relationship to data abstraction?In this talk we will dive into the history, the syntax and the uses of lambdas and the way in which lambda constructs in various languages do (or do not) match the original construct introduced in lambda calculus."
+        },
+        "1391": {
+            "id": 1391,
+            "title": "Learning from History: The Past as a Compass for Systems Engineers in the Age of AI",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "John Micheal Willis",
+                    "slug": "john-willis",
+                    "topic": "craft",
+                    "id": 1664
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "15:40",
+            "endTime": "16:25",
+            "slug": "john-micheal-willis",
+            "topic": "craft",
+            "level": "General",
+            "video_url": null,
+            "slides_url": null,
+            "description": "The evolution of artificial intelligence (AI) provides a compelling narrative of innovation and cautionary lessons. Drawing on the themes explored in Rebels of Reason, a new book by John Willis, this presentation emphasizes the critical importance of historical context for systems engineers navigating AI's rapid advancements. From the mechanical wonders of the Industrial Age to Turing’s computational breakthroughs and Frank Rosenblatt's early neural network experiments, the story of AI is a testament to the ingenuity and persistent challenges that shape technological progress.Understanding these milestones offers systems engineers a foundation to anticipate future challenges, including ethical considerations, societal impact, and technological limitations. By reflecting on the successes and missteps of AI pioneers, engineers can draw valuable insights to balance innovation with responsibility. This presentation underscores that the road forward is guided by the lessons of the past—lessons that advocate for cautious optimism, interdisciplinary collaboration, and a commitment to ethical innovation in creating systems that truly serve humanity.This talk is essential for those seeking to harness AI's potential while mitigating its risks. It ensures that the past informs strategies to build a more equitable, sustainable, and intelligent future."
+        },
+        "1392": {
+            "id": 1392,
+            "title": "Aspect-oriented Architecture",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Neal Ford",
+                    "slug": "neal-ford",
+                    "topic": "craft",
+                    "id": 1665
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "neal-ford",
+            "topic": "craft",
+            "level": "Intermediate",
+            "video_url": null,
+            "slides_url": null,
+            "description": "Aspect-oriented Programming (AOP) defined much of the plumbing of modern software frameworks like Spring – it defines a way to address cross-cutting concerns that are orthogonal to the object hierarchy/domain design; the classic example is a way to enforce logging across an object hierarchy. Architects also need to address cross-cutting concerns: operations like monitoring, logging, and others; the separation of operational and analytical data, and governance in general. This session describes Aspect-Oriented Architecture (AOA) and the extensive parallels in both goal and patterns with AOP. This session defines join points (where advice runs), pointcuts (where a joint point matches), and advice (code to run when the pointcut matches). Using AOA allows architects to build a Governance Mesh, allowing architects to build holistic governance policies using architectural fitness functions to ensure compliance and consistency. Come see the future of architecture as code and how to objectively define governance in architecture."
+        },
+        "1393": {
+            "id": 1393,
+            "title": "Data Access and Data Sharing in Microservices",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Mark Richards",
+                    "slug": "mark-richards",
+                    "topic": "craft",
+                    "id": 1666
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2386,
+                    "name": "design"
+                },
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                },
+                {
+                    "id": 2398,
+                    "name": "domain model"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:55",
+            "endTime": "15:40",
+            "slug": "mark-richards"
+        },
+        "1394": {
+            "id": 1394,
+            "title": "Reducing risk in projects, increasing resilience to unexpected change.",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Dave Snowden",
+                    "slug": "dave-snowden",
+                    "topic": "craft",
+                    "id": 1667
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "14:45",
+            "slug": "dave-snowden"
+        },
+        "1395": {
+            "id": 1395,
+            "title": "Practical Modern Enterprise Architecture: modernising architecture & ways of working at Saxo Bank",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Simon Rohrer",
+                    "slug": "simon-rohrer",
+                    "topic": "craft",
+                    "id": 1668
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "15:40",
+            "endTime": "16:25",
+            "slug": "simon-rohrer"
+        },
+        "1396": {
+            "id": 1396,
+            "title": "The engineering strategist journey",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Aleix Morgadas",
+                    "slug": "aleix-morgadas",
+                    "topic": "craft",
+                    "id": 1669
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                },
+                {
+                    "id": 2384,
+                    "name": "management"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "15:40",
+            "endTime": "16:25",
+            "slug": "aleix-morgadas"
+        },
+        "1397": {
+            "id": 1397,
+            "title": "Open Source, Open Mind: The Cost Of Free Software",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Dylan Beattie",
+                    "slug": "dylan-beattie",
+                    "topic": "craft",
+                    "id": 1670
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "14:45",
+            "endTime": "15:30",
+            "slug": "dylan-beattie"
+        },
+        "1398": {
+            "id": 1398,
+            "title": "Legacy Architecture Migration Patterns",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Nick Tune",
+                    "slug": "nick-tune",
+                    "topic": "craft",
+                    "id": 1671
+                },
+                {
+                    "name": "Guillaume Rahbari",
+                    "slug": "guillaume-rahbari",
+                    "topic": "craft",
+                    "id": 1726
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2395,
+                    "name": "domain-driven design"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "13:40",
+            "endTime": "14:25",
+            "slug": "nick-tune"
+        },
+        "1400": {
+            "id": 1400,
+            "title": "Crew Resource Management (CRM) - the real secret to high-performing teams",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Joseph Pelrine",
+                    "slug": "joseph-pelrine",
+                    "topic": "craft",
+                    "id": 1673
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "14:55",
+            "endTime": "15:40",
+            "slug": "joseph-pelrine"
+        },
+        "1401": {
+            "id": 1401,
+            "title": "Behavior and attitude, the new Agile approach",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Nigel Thurlow",
+                    "slug": "nigel-thurlow",
+                    "topic": "craft",
+                    "id": 1674
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "11:55",
+            "endTime": "12:40",
+            "slug": "nigel-thurlow"
+        },
+        "1402": {
+            "id": 1402,
+            "title": "Refactoring from Objects to Functions",
+            "stage": "Green stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Duncan McGregor",
+                    "slug": "duncan-mcgregor",
+                    "topic": "craft",
+                    "id": 1675
+                },
+                {
+                    "name": "Nat Pryce",
+                    "slug": "nat-pryce",
+                    "topic": "craft",
+                    "id": 1672
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2386,
+                    "name": "design"
+                },
+                {
+                    "id": 2398,
+                    "name": "domain model"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2381,
+                    "name": "refactoring"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2363,
+                    "name": "technical debt"
+                },
+                {
+                    "id": 2405,
+                    "name": "technical debt management"
+                },
+                {
+                    "id": 2413,
+                    "name": "hands-on"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:00",
+            "endTime": "17:40",
+            "slug": "hands-on-duncan-mcgregor"
+        },
+        "1406": {
+            "id": 1406,
+            "title": "Architecture is Designing Knowledge Flow",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Diana Montalion",
+                    "slug": "diana-montalion",
+                    "topic": "craft",
+                    "id": 1679
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2402,
+                    "name": "design patterns"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                },
+                {
+                    "id": 2394,
+                    "name": "vital skills"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:00",
+            "endTime": "16:45",
+            "slug": "diana-montalion"
+        },
+        "1407": {
+            "id": 1407,
+            "title": "Process files: Blueprints for Agentic AI",
+            "stage": "Green stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Llewellyn Falco",
+                    "slug": "llewellyn-falco",
+                    "topic": "craft",
+                    "id": 1680
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2378,
+                    "name": "ai"
+                },
+                {
+                    "id": 2413,
+                    "name": "hands-on"
+                },
+                {
+                    "id": 2380,
+                    "name": "llms"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2381,
+                    "name": "refactoring"
+                },
+                {
+                    "id": 2406,
+                    "name": "tdd"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "15:40",
+            "slug": "hands-on-llewellyn-falco"
+        },
+        "1408": {
+            "id": 1408,
+            "title": "Platform Engineering: Lessons from the Rise and Fall of eBay",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Randy Shoup",
+                    "slug": "randy-scott-shoup",
+                    "topic": "craft",
+                    "id": 1681
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2367,
+                    "name": "technical excellence"
+                },
+                {
+                    "id": 2407,
+                    "name": "testing"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "15:40",
+            "endTime": "16:25",
+            "slug": "randy-shoup"
+        },
+        "1409": {
+            "id": 1409,
+            "title": "Shaped by Demand: the power of fluid teams",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Daniel Terhorst-North",
+                    "slug": "daniel-terhorst-north",
+                    "topic": "craft",
+                    "id": 1682
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                },
+                {
+                    "id": 2403,
+                    "name": "dependency management"
+                },
+                {
+                    "id": 2366,
+                    "name": "failure demand"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2360,
+                    "name": "scaling"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "11:55",
+            "endTime": "12:40",
+            "slug": "daniel-terhorst-north"
+        },
+        "1410": {
+            "id": 1410,
+            "title": "Framework Agnostic Capacity Planning at Scale",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Nick Brown",
+                    "slug": "nicolas-brown",
+                    "topic": "craft",
+                    "id": 1683
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2384,
+                    "name": "management"
+                },
+                {
+                    "id": 2361,
+                    "name": "agile"
+                },
+                {
+                    "id": 2360,
+                    "name": "scaling"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2385,
+                    "name": "tools"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "11:55",
+            "endTime": "12:40",
+            "slug": "nick-brown"
+        },
+        "1411": {
+            "id": 1411,
+            "title": "How We Decide",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Andrew Harmel-Law",
+                    "slug": "andrew-harmel-law",
+                    "topic": "craft",
+                    "id": 1684
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2361,
+                    "name": "agile"
+                },
+                {
+                    "id": 2401,
+                    "name": "adrs"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2400,
+                    "name": "architecture decision records"
+                },
+                {
+                    "id": 2386,
+                    "name": "design"
+                },
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:55",
+            "endTime": "15:40",
+            "slug": "andrew-harmel-law"
+        },
+        "1412": {
+            "id": 1412,
+            "title": "DRIing Your Career",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Cate Huston",
+                    "slug": "cate-huston",
+                    "topic": "craft",
+                    "id": 1685
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "14:45",
+            "endTime": "15:30",
+            "slug": "cate-huston"
+        },
+        "1413": {
+            "id": 1413,
+            "title": "Digital Whiteboarding for Developers",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Susan Fung",
+                    "slug": "susan-fung",
+                    "topic": "craft",
+                    "id": 1686
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "susan-fung"
+        },
+        "1414": {
+            "id": 1414,
+            "title": "Tame your Product Manager: Connecting Business Goals and User Outcomes with Impact Mapping",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Büşra Coşkuner",
+                    "slug": "busra-coskuner",
+                    "topic": "craft",
+                    "id": 1687
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2374,
+                    "name": "product thinking"
+                },
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "15:40",
+            "endTime": "16:25",
+            "slug": "busra-coskuner"
+        },
+        "1416": {
+            "id": 1416,
+            "title": "A 13 Billion Year Old Photograph",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Kenneth Harris",
+                    "slug": "kenneth-harris",
+                    "topic": "craft",
+                    "id": 1689
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "14:45",
+            "slug": "kenneth-harris"
+        },
+        "1417": {
+            "id": 1417,
+            "title": "From autocomplete to agents:  AI coding assistance state of play",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Birgitta Böckeler",
+                    "slug": "birgitta-bockeler",
+                    "topic": "craft",
+                    "id": 1690
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2361,
+                    "name": "agile"
+                },
+                {
+                    "id": 2378,
+                    "name": "ai"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2385,
+                    "name": "tools"
+                },
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:00",
+            "endTime": "16:45",
+            "slug": "birgitta-bockeler"
+        },
+        "1418": {
+            "id": 1418,
+            "title": "The Psychology of Software Teams",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Cat Hicks",
+                    "slug": "cat-hicks",
+                    "topic": "craft",
+                    "id": 1691
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2388,
+                    "name": "psychology"
+                },
+                {
+                    "id": 2399,
+                    "name": "empirical development"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2367,
+                    "name": "technical excellence"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "10:50",
+            "endTime": "11:35",
+            "slug": "cat-hicks"
+        },
+        "1419": {
+            "id": 1419,
+            "title": "Panel about probabilistic forecasting",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Daniel Terhorst-North",
+                    "slug": "daniel-terhorst-north",
+                    "topic": "craft",
+                    "id": 1682
+                },
+                {
+                    "name": "Nigel Thurlow",
+                    "slug": "nigel-thurlow",
+                    "topic": "craft",
+                    "id": 1674
+                },
+                {
+                    "name": "Colleen Johnson",
+                    "slug": "colleen-johnson",
+                    "topic": "craft",
+                    "id": 1696
+                },
+                {
+                    "name": "Daniel Vacanti",
+                    "slug": "daniel-vacanti",
+                    "topic": "craft",
+                    "id": 1655
+                },
+                {
+                    "name": "Gaia Becheri",
+                    "slug": "gaia-becheri",
+                    "topic": "craft",
+                    "id": 1751
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "16:00",
+            "endTime": "16:45",
+            "slug": "panel-probabilistic-forecasting"
+        },
+        "1420": {
+            "id": 1420,
+            "title": "Panel about system thinking, complexity thinking",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Nigel Thurlow",
+                    "slug": "nigel-thurlow",
+                    "topic": "craft",
+                    "id": 1674
+                },
+                {
+                    "name": "Dave Snowden",
+                    "slug": "dave-snowden",
+                    "topic": "craft",
+                    "id": 1667
+                },
+                {
+                    "name": "Diana Montalion",
+                    "slug": "diana-montalion",
+                    "topic": "craft",
+                    "id": 1679
+                },
+                {
+                    "name": "Daniel Terhorst-North",
+                    "slug": "daniel-terhorst-north",
+                    "topic": "craft",
+                    "id": 1682
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "11:25",
+            "endTime": "12:10",
+            "slug": "panel-system-thinking"
+        },
+        "1421": {
+            "id": 1421,
+            "title": "Sharpen Your Tools: Building the right Developer Experience",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Suhail Patel",
+                    "slug": "suhail-patel",
+                    "topic": "craft",
+                    "id": 1695
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2378,
+                    "name": "ai"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2413,
+                    "name": "hands-on"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2387,
+                    "name": "ux"
+                },
+                {
+                    "id": 2367,
+                    "name": "technical excellence"
+                },
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "suhail-patel"
+        },
+        "1422": {
+            "id": 1422,
+            "title": "Let Them Eat Code",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Colleen Johnson",
+                    "slug": "colleen-johnson",
+                    "topic": "craft",
+                    "id": 1696
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "14:45",
+            "slug": "colleen-johnson"
+        },
+        "1423": {
+            "id": 1423,
+            "title": "Platform Team Structures and Concerns",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Adrian Cockcroft",
+                    "slug": "adrian-cockcroft",
+                    "topic": "craft",
+                    "id": 1692
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2395,
+                    "name": "domain-driven design"
+                },
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                },
+                {
+                    "id": 2384,
+                    "name": "management"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2374,
+                    "name": "product thinking"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "adrian-cockcroft"
+        },
+        "1424": {
+            "id": 1424,
+            "title": "This is not a Clojure talk",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Jack Rusher",
+                    "slug": "jack-rusher",
+                    "topic": "craft",
+                    "id": 1693
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2359,
+                    "name": "fast"
+                },
+                {
+                    "id": 2404,
+                    "name": "iterative refinement"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2381,
+                    "name": "refactoring"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2367,
+                    "name": "technical excellence"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "jack-rusher"
+        },
+        "1425": {
+            "id": 1425,
+            "title": "The Forest & The Desert Are Parallel Universes",
+            "stage": "Main stage",
+            "is_keynote": true,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Kent Beck",
+                    "slug": "kent-beck",
+                    "topic": "craft",
+                    "id": 1694
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                },
+                {
+                    "id": 2399,
+                    "name": "empirical development"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "09:40",
+            "endTime": "10:40",
+            "slug": "kent-beck"
+        },
+        "1426": {
+            "id": 1426,
+            "title": "Telling Better Stories with Tests",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Lada Kesseler",
+                    "slug": "lada-kesseler",
+                    "topic": "craft",
+                    "id": 1697
+                },
+                {
+                    "name": "Llewellyn Falco",
+                    "slug": "llewellyn-falco",
+                    "topic": "craft",
+                    "id": 1680
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2404,
+                    "name": "iterative refinement"
+                },
+                {
+                    "id": 2370,
+                    "name": "maintenance"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2381,
+                    "name": "refactoring"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2406,
+                    "name": "tdd"
+                },
+                {
+                    "id": 2363,
+                    "name": "technical debt"
+                },
+                {
+                    "id": 2367,
+                    "name": "technical excellence"
+                },
+                {
+                    "id": 2364,
+                    "name": "technical neglect"
+                },
+                {
+                    "id": 2407,
+                    "name": "testing"
+                },
+                {
+                    "id": 2385,
+                    "name": "tools"
+                },
+                {
+                    "id": 2405,
+                    "name": "technical debt management"
+                },
+                {
+                    "id": 2414,
+                    "name": "unit tests"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "13:40",
+            "endTime": "14:25",
+            "slug": "lada-kesseler"
+        },
+        "1427": {
+            "id": 1427,
+            "title": "Building for Global Engineering Platforms - Let's make an Operator",
+            "stage": "Green stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Bryan Oliver",
+                    "slug": "bryan-oliver",
+                    "topic": "craft",
+                    "id": 1698
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2413,
+                    "name": "hands-on"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2402,
+                    "name": "design patterns"
+                },
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2367,
+                    "name": "technical excellence"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "10:50",
+            "endTime": "12:40",
+            "slug": "hands-on-bryan-oliver"
+        },
+        "1428": {
+            "id": 1428,
+            "title": "Building Resilience",
+            "stage": "Main stage",
+            "is_keynote": true,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Tricia Broderick",
+                    "slug": "tricia-broderick",
+                    "topic": "craft",
+                    "id": 1699
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "17:50",
+            "endTime": "18:50",
+            "slug": "tricia-broderick"
+        },
+        "1430": {
+            "id": 1430,
+            "title": "AI Native Development principles and practices",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Patrick Debois",
+                    "slug": "patrick-debois",
+                    "topic": "craft",
+                    "id": 1701
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "10:50",
+            "endTime": "11:35",
+            "slug": "patrick-debois"
+        },
+        "1431": {
+            "id": 1431,
+            "title": "Living your best life as a platform engineer",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Daniel Bolívar",
+                    "slug": "daniel-bolivar",
+                    "topic": "craft",
+                    "id": 1705
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "daniel-bolivar"
+        },
+        "1432": {
+            "id": 1432,
+            "title": "Evolutionary Architecture: The What. The Why. The How.",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Maciej Jedrzejewski",
+                    "slug": "maciej-jedrzejewski",
+                    "topic": "craft",
+                    "id": 1706
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2395,
+                    "name": "domain-driven design"
+                },
+                {
+                    "id": 2397,
+                    "name": "modular monolith"
+                },
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "maciej-jedrzejewski"
+        },
+        "1433": {
+            "id": 1433,
+            "title": "Definition Of Insanity",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Sam Newman",
+                    "slug": "sam-newman",
+                    "topic": "craft",
+                    "id": 1700
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "11:25",
+            "endTime": "12:10",
+            "slug": "sam-newman"
+        },
+        "1434": {
+            "id": 1434,
+            "title": "Predicting the Future of Distributed Systems",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Colin Breck",
+                    "slug": "colin-breck",
+                    "topic": "craft",
+                    "id": 1702
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2402,
+                    "name": "design patterns"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2388,
+                    "name": "psychology"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "colin-breck"
+        },
+        "1435": {
+            "id": 1435,
+            "title": "Henrik Kniberg's hands on tutorial",
+            "stage": "Green stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Henrik Kniberg",
+                    "slug": "henrik-kniberg",
+                    "topic": "craft",
+                    "id": 1703
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2413,
+                    "name": "hands-on"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "12:10",
+            "slug": "hands-on-henrik-kniberg"
+        },
+        "1436": {
+            "id": 1436,
+            "title": "Transforming Education: Applying AI to Universities",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Zach Pendleton",
+                    "slug": "zach-pendleton",
+                    "topic": "craft",
+                    "id": 1707
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "14:45",
+            "slug": "zach-pendleton"
+        },
+        "1437": {
+            "id": 1437,
+            "title": "Why Delivery Projects Fail: Transforming Testing from a Task to a Strategic Mindset",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Chisara Nwabara",
+                    "slug": "chisara-nwabara",
+                    "topic": "craft",
+                    "id": 1704
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2361,
+                    "name": "agile"
+                },
+                {
+                    "id": 2407,
+                    "name": "testing"
+                },
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2374,
+                    "name": "product thinking"
+                },
+                {
+                    "id": 2394,
+                    "name": "vital skills"
+                },
+                {
+                    "id": 2404,
+                    "name": "iterative refinement"
+                },
+                {
+                    "id": 2399,
+                    "name": "empirical development"
+                },
+                {
+                    "id": 2366,
+                    "name": "failure demand"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2390,
+                    "name": "self confidence"
+                },
+                {
+                    "id": 2406,
+                    "name": "tdd"
+                },
+                {
+                    "id": 2534,
+                    "name": "TECH LEADERS"
+                },
+                {
+                    "id": 2392,
+                    "name": "youbelong"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "11:25",
+            "endTime": "12:10",
+            "slug": "chisara-nwabara"
+        },
+        "1438": {
+            "id": 1438,
+            "title": "What AI Security means for you as a developer: Time-focused approach",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Yossi Sassi",
+                    "slug": "yossi-sassi",
+                    "topic": "craft",
+                    "id": 1708
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2378,
+                    "name": "ai"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "11:15",
+            "slug": "yossy-sassi"
+        },
+        "1439": {
+            "id": 1439,
+            "title": "ESSENTIALS - Event Storming for fun and profit",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Daniel Terhorst-North",
+                    "slug": "daniel-terhorst-north",
+                    "topic": "craft",
+                    "id": 1682
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2398,
+                    "name": "domain model"
+                },
+                {
+                    "id": 2533,
+                    "name": "ESSENTIALS*"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                },
+                {
+                    "id": 2394,
+                    "name": "vital skills"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "14:45",
+            "slug": "essentials-dan-north"
+        },
+        "1440": {
+            "id": 1440,
+            "title": "How AI Fuels BrokerChooser’s Growth",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Alex Nasli",
+                    "slug": "alex-nasli",
+                    "topic": "craft",
+                    "id": 1712
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "11:25",
+            "endTime": "12:10",
+            "slug": "alex-nasli"
+        },
+        "1441": {
+            "id": 1441,
+            "title": "ESSENTIALS - How to Write a Function",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Kevlin Henney",
+                    "slug": "kevlin-henney",
+                    "topic": "craft",
+                    "id": 1663
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2533,
+                    "name": "ESSENTIALS*"
+                },
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2403,
+                    "name": "dependency management"
+                },
+                {
+                    "id": 2398,
+                    "name": "domain model"
+                },
+                {
+                    "id": 2402,
+                    "name": "design patterns"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2381,
+                    "name": "refactoring"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2406,
+                    "name": "tdd"
+                },
+                {
+                    "id": 2414,
+                    "name": "unit tests"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "10:50",
+            "endTime": "11:35",
+            "slug": "essentials-kevlin-henney"
+        },
+        "1442": {
+            "id": 1442,
+            "title": "ESSENTIALS - There's No Such Thing As Plain Text",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Dylan Beattie",
+                    "slug": "dylan-beattie",
+                    "topic": "craft",
+                    "id": 1670
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2533,
+                    "name": "ESSENTIALS*"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "13:40",
+            "endTime": "14:25",
+            "slug": "essentials-dylan-beattie"
+        },
+        "1443": {
+            "id": 1443,
+            "title": "ESSENTIALS - Canon Test-Driven Development",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Kent Beck",
+                    "slug": "kent-beck",
+                    "topic": "craft",
+                    "id": 1694
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2533,
+                    "name": "ESSENTIALS*"
+                },
+                {
+                    "id": 2406,
+                    "name": "tdd"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "11:15",
+            "slug": "essentials-kent-beck"
+        },
+        "1444": {
+            "id": 1444,
+            "title": "ESSENTIALS - Retrospectives: Shifting Towards Value",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Tricia Broderick",
+                    "slug": "tricia-broderick",
+                    "topic": "craft",
+                    "id": 1699
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2533,
+                    "name": "ESSENTIALS*"
+                },
+                {
+                    "id": 2361,
+                    "name": "agile"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "11:25",
+            "endTime": "12:10",
+            "slug": "essentials-tricia-broderick"
+        },
+        "1445": {
+            "id": 1445,
+            "title": "From here to there and back again",
+            "stage": "Main stage",
+            "is_keynote": true,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Simon Wardley",
+                    "slug": "simon-wardley",
+                    "topic": "craft",
+                    "id": 1713
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2361,
+                    "name": "agile"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                },
+                {
+                    "id": 2378,
+                    "name": "ai"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "09:10",
+            "endTime": "10:10",
+            "slug": "simon-wardley"
+        },
+        "1446": {
+            "id": 1446,
+            "title": "Modernizing legacy through thousands of contextual tools … per system",
+            "stage": "Platform 2",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Tudor Girba",
+                    "slug": "tudor-girba",
+                    "topic": "craft",
+                    "id": 1714
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "11:15",
+            "slug": "tudor-girba"
+        },
+        "1447": {
+            "id": 1447,
+            "title": "Warp Speed Web Dev with Astro",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Florian Rappl",
+                    "slug": "florian-rappl",
+                    "topic": "craft",
+                    "id": 1715
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2410,
+                    "name": "javascript"
+                },
+                {
+                    "id": 2372,
+                    "name": "architecture"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "14:45",
+            "endTime": "15:30",
+            "slug": "florian-rappl"
+        },
+        "1448": {
+            "id": 1448,
+            "title": "The Hive: a scaling and supple architecture style for your growing and complex domain",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Julien Topçu",
+                    "slug": "julien-topcu",
+                    "topic": "craft",
+                    "id": 1716
+                },
+                {
+                    "name": "Thomas Pierrain",
+                    "slug": "thomas-pierrain",
+                    "topic": "craft",
+                    "id": 1717
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2397,
+                    "name": "modular monolith"
+                },
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "14:45",
+            "endTime": "15:30",
+            "slug": "julien-topcu"
+        },
+        "1449": {
+            "id": 1449,
+            "title": "Lessons learned from introducing Team Topologies",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Michael Plöd",
+                    "slug": "michael-plod",
+                    "topic": "craft",
+                    "id": 1718
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2361,
+                    "name": "agile"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "11:25",
+            "endTime": "12:10",
+            "slug": "michael-plod"
+        },
+        "1450": {
+            "id": 1450,
+            "title": "Build “boring” engineering orgs",
+            "stage": "Main stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Charity Majors",
+                    "slug": "charity-majors",
+                    "topic": "craft",
+                    "id": 1709
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "13:40",
+            "endTime": "14:25",
+            "slug": "charity-majors"
+        },
+        "1451": {
+            "id": 1451,
+            "title": "Engineering Management in the AI Era",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Dennis Nerush",
+                    "slug": "dennis-nerush",
+                    "topic": "craft",
+                    "id": 1719
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2378,
+                    "name": "ai"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2384,
+                    "name": "management"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2388,
+                    "name": "psychology"
+                },
+                {
+                    "id": 2375,
+                    "name": "race against the machine"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "10:50",
+            "endTime": "11:35",
+            "slug": "dennis-nerush"
+        },
+        "1452": {
+            "id": 1452,
+            "title": "AI Engineering Anti-patterns",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Chip Huyen",
+                    "slug": "chip-huyen",
+                    "topic": "craft",
+                    "id": 1720
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "chip-huyen"
+        },
+        "1453": {
+            "id": 1453,
+            "title": "Stop E2E Testing Your Next.js App! Write Better Tests with Contract Tests",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Markus Oberlehner",
+                    "slug": "markus-oberlehner",
+                    "topic": "craft",
+                    "id": 1721
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2410,
+                    "name": "javascript"
+                },
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                },
+                {
+                    "id": 2408,
+                    "name": "mocks"
+                },
+                {
+                    "id": 2406,
+                    "name": "tdd"
+                },
+                {
+                    "id": 2407,
+                    "name": "testing"
+                },
+                {
+                    "id": 2411,
+                    "name": "typescript"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:55",
+            "endTime": "15:40",
+            "slug": "markus-oberlehner"
+        },
+        "1454": {
+            "id": 1454,
+            "title": "Maximizing impact: Measuring the ROI of GenAI in the SDLC",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Bruno Passos",
+                    "slug": "bruno-passos",
+                    "topic": "craft",
+                    "id": 1722
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2378,
+                    "name": "ai"
+                },
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "16:00",
+            "endTime": "16:45",
+            "slug": "bruno-passos"
+        },
+        "1455": {
+            "id": 1455,
+            "title": "Panel about vibe coding",
+            "stage": "Orange stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Jose Roca",
+                    "slug": "jose-roca",
+                    "topic": "craft",
+                    "id": 1752
+                },
+                {
+                    "name": "Büşra Coşkuner",
+                    "slug": "busra-coskuner",
+                    "topic": "craft",
+                    "id": 1687
+                },
+                {
+                    "name": "Lada Kesseler",
+                    "slug": "lada-kesseler",
+                    "topic": "craft",
+                    "id": 1697
+                },
+                {
+                    "name": "Cat Hicks",
+                    "slug": "cat-hicks",
+                    "topic": "craft",
+                    "id": 1691
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "panel-vibe-coding"
+        },
+        "1456": {
+            "id": 1456,
+            "title": "Machine learning in production",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Adam Pelle",
+                    "slug": "adam-pelle",
+                    "topic": "craft",
+                    "id": 1723
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "14:55",
+            "endTime": "15:40",
+            "slug": "adam-pelle"
+        },
+        "1457": {
+            "id": 1457,
+            "title": "ESSENTIALS - Architecture That Works: Essentials from a Real-World Microservices Journey",
+            "stage": "Purple stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Sander Hoogendoorn",
+                    "slug": "sander-hoogendoorn",
+                    "topic": "craft",
+                    "id": 1659
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2533,
+                    "name": "ESSENTIALS*"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "11:55",
+            "endTime": "12:40",
+            "slug": "essentials-sander-hoogendorn"
+        },
+        "1459": {
+            "id": 1459,
+            "title": "Solving the documentation problem in a large enterprise –\na journey from static documentation to generative AI",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Csaba Gecse",
+                    "slug": "csaba-gecse",
+                    "topic": "craft",
+                    "id": 1728
+                },
+                {
+                    "name": "Zsófia Sárközi",
+                    "slug": "zsofia-sarkozi",
+                    "topic": "craft",
+                    "id": 1729
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "14:45",
+            "slug": "solving-the-documentation-problem-in-a-large-enterprise-a-journey-from-static-documentation-to-generative-ai"
+        },
+        "1460": {
+            "id": 1460,
+            "title": "Intelligence as Infrastructure: What Developers Must Learn to Build with AI",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Igor Ševo",
+                    "slug": "igor-sevo",
+                    "topic": "craft",
+                    "id": 1732
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "14:45",
+            "endTime": "15:30",
+            "slug": "intelligence-as-infrastructure-what-developers-must-learn-to-build-with-ai"
+        },
+        "1461": {
+            "id": 1461,
+            "title": "Handling Complexity in Software Development Projects",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Balázs Lóránd",
+                    "slug": "balazs-lorand",
+                    "topic": "craft",
+                    "id": 1733
+                },
+                {
+                    "name": "Árpád Maróti",
+                    "slug": "arpad-maroti",
+                    "topic": "craft",
+                    "id": 1734
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "10:50",
+            "endTime": "11:35",
+            "slug": "handling-complexity-in-software-development-projects"
+        },
+        "1462": {
+            "id": 1462,
+            "title": "LLM projects: same or different?!",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Sandor Kazi",
+                    "slug": "sandor-kazi",
+                    "topic": "craft",
+                    "id": 1735
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "16:00",
+            "endTime": "16:45",
+            "slug": "llm-projects-same-or-different"
+        },
+        "1463": {
+            "id": 1463,
+            "title": "Architectural Blueprints for AI Agents",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Zsolt Batorfi",
+                    "slug": "batorfi-zsolt",
+                    "topic": "craft",
+                    "id": 1736
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "15:40",
+            "endTime": "16:25",
+            "slug": "architectural-blueprints-for-ai-agents"
+        },
+        "1464": {
+            "id": 1464,
+            "title": "Diversity: Two steps forward, one step back (just keep it going)",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Noémi Mislyenácz",
+                    "slug": "noemi-mislyenacz",
+                    "topic": "craft",
+                    "id": 1738
+                },
+                {
+                    "name": "Irina Loginova",
+                    "slug": "irina-loginova",
+                    "topic": "craft",
+                    "id": 1737
+                },
+                {
+                    "name": "Zach Pendleton",
+                    "slug": "zach-pendleton",
+                    "topic": "craft",
+                    "id": 1707
+                },
+                {
+                    "name": "Mátyás-Kollár Gabriella",
+                    "slug": "matyas-kollar-gabriella",
+                    "topic": "craft",
+                    "id": 1745
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "16:55",
+            "endTime": "17:40",
+            "slug": "panel-about-diversity"
+        },
+        "1466": {
+            "id": 1466,
+            "title": "Billion-Scale Triumph: Innovating at the Edge of Cloud Data",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Balázs Szántó",
+                    "slug": "balazs-szanto",
+                    "topic": "craft",
+                    "id": 1741
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-29",
+            "startTime": "11:55",
+            "endTime": "12:40",
+            "slug": "billion-scale-triumph-innovating-at-the-edge-of-cloud-data"
+        },
+        "1467": {
+            "id": 1467,
+            "title": "AI - Autonomous Vehicles and ZalaZone",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Prof. Dr. Palkovics László",
+                    "slug": "prof-dr-palkovics-laszlo",
+                    "topic": "craft",
+                    "id": 1742
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "13:40",
+            "endTime": "14:25",
+            "slug": "ai-autonomous-vehicles-and-zalazone"
+        },
+        "1468": {
+            "id": 1468,
+            "title": "AI as a Catalyst, Not a Replacement: Empowering Developers in the Age of Infinite Input",
+            "stage": "Innovation stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Erik Slooten",
+                    "slug": "erik-slooten",
+                    "topic": "craft",
+                    "id": 1743
+                }
+            ],
+            "tags": [],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "11:15",
+            "slug": "ai-as-a-catalyst-not-a-replacement-empowering-developers-in-the-age-of-infinite-input"
+        },
+        "1469": {
+            "id": 1469,
+            "title": "Leading Secure AI: Challenges, Risks, and Real Talk",
+            "stage": "Tech Leaders Lounge",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Péter Szász",
+                    "slug": "peter-szasz",
+                    "topic": "craft",
+                    "id": 1746
+                },
+                {
+                    "name": "Zsolt Németh",
+                    "slug": "zsolt-nemeth",
+                    "topic": "craft",
+                    "id": 1747
+                },
+                {
+                    "name": "Judit Firniksz",
+                    "slug": "dr-firniksz-judit",
+                    "topic": "craft",
+                    "id": 1748
+                },
+                {
+                    "name": "Jose Roca",
+                    "slug": "jose-roca",
+                    "topic": "craft",
+                    "id": 1752
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2534,
+                    "name": "TECH LEADERS"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "14:00",
+            "endTime": "14:45",
+            "slug": "leading-secure-ai-challenges-risks-and-real-talk"
+        },
+        "1470": {
+            "id": 1470,
+            "title": "Doing More with Less: Rethinking Engineering Efficiency",
+            "stage": "Tech Leaders Lounge",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Péter Szász",
+                    "slug": "peter-szasz",
+                    "topic": "craft",
+                    "id": 1746
+                },
+                {
+                    "name": "Bruno Passos",
+                    "slug": "bruno-passos",
+                    "topic": "craft",
+                    "id": 1722
+                },
+                {
+                    "name": "Ferenc Kárász",
+                    "slug": "ferenc-karasz",
+                    "topic": "craft",
+                    "id": 1749
+                },
+                {
+                    "name": "Charity Majors",
+                    "slug": "charity-majors",
+                    "topic": "craft",
+                    "id": 1709
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2534,
+                    "name": "TECH LEADERS"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "10:30",
+            "endTime": "11:15",
+            "slug": "doing-more-with-less-rethinking-engineering-efficiency"
+        },
+        "1471": {
+            "id": 1471,
+            "title": "Thoughts on (Modern?) Software Development - Observations from a 20 years-long journey",
+            "stage": "Pink stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Alexander Thurow",
+                    "slug": "alexander-thurow",
+                    "topic": "craft",
+                    "id": 1750
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2371,
+                    "name": "agile development"
+                },
+                {
+                    "id": 2369,
+                    "name": "code quality"
+                },
+                {
+                    "id": 2365,
+                    "name": "legacy code"
+                },
+                {
+                    "id": 2370,
+                    "name": "maintenance"
+                },
+                {
+                    "id": 2362,
+                    "name": "organization"
+                },
+                {
+                    "id": 2412,
+                    "name": "programming"
+                },
+                {
+                    "id": 2388,
+                    "name": "psychology"
+                },
+                {
+                    "id": 2375,
+                    "name": "race against the machine"
+                },
+                {
+                    "id": 2381,
+                    "name": "refactoring"
+                },
+                {
+                    "id": 2373,
+                    "name": "software development"
+                },
+                {
+                    "id": 2363,
+                    "name": "technical debt"
+                },
+                {
+                    "id": 2367,
+                    "name": "technical excellence"
+                },
+                {
+                    "id": 2364,
+                    "name": "technical neglect"
+                },
+                {
+                    "id": 2394,
+                    "name": "vital skills"
+                }
+            ],
+            "date": "2025-05-29",
+            "startTime": "11:55",
+            "endTime": "12:40",
+            "slug": "alexander-thurow"
+        },
+        "1472": {
+            "id": 1472,
+            "title": "Monolith or Microservices? Designing Deploy-Time Flexibility for Modular Systems",
+            "stage": "Green stage",
+            "is_keynote": false,
+            "is_live": true,
+            "speakers": [
+                {
+                    "name": "Florin Coros",
+                    "slug": "florin-coros",
+                    "topic": "craft",
+                    "id": 1753
+                }
+            ],
+            "tags": [
+                {
+                    "id": 2396,
+                    "name": "microservices"
+                },
+                {
+                    "id": 2397,
+                    "name": "modular monolith"
+                },
+                {
+                    "id": 2368,
+                    "name": "software architecture"
+                },
+                {
+                    "id": 2365,
+                    "name": "legacy code"
+                },
+                {
+                    "id": 2382,
+                    "name": "modernization"
+                },
+                {
+                    "id": 2386,
+                    "name": "design"
+                }
+            ],
+            "date": "2025-05-30",
+            "startTime": "13:40",
+            "endTime": "15:30",
+            "slug": "monolith-or-microservices-designing-deploy-time-flexibility-for-modular-systems"
+        }
+    },
+    "tags": {
+        "agile development": {
+            "id": 2371,
+            "name": "agile development"
+        },
+        "empirical development": {
+            "id": 2399,
+            "name": "empirical development"
+        },
+        "leadership": {
+            "id": 2383,
+            "name": "leadership"
+        },
+        "software development": {
+            "id": 2373,
+            "name": "software development"
+        },
+        "organization": {
+            "id": 2362,
+            "name": "organization"
+        },
+        "psychology": {
+            "id": 2388,
+            "name": "psychology"
+        },
+        "programming": {
+            "id": 2412,
+            "name": "programming"
+        },
+        "technical excellence": {
+            "id": 2367,
+            "name": "technical excellence"
+        },
+        "javascript": {
+            "id": 2410,
+            "name": "javascript"
+        },
+        "design": {
+            "id": 2386,
+            "name": "design"
+        },
+        "refactoring": {
+            "id": 2381,
+            "name": "refactoring"
+        },
+        "software architecture": {
+            "id": 2368,
+            "name": "software architecture"
+        },
+        "architecture": {
+            "id": 2372,
+            "name": "architecture"
+        },
+        "design patterns": {
+            "id": 2402,
+            "name": "design patterns"
+        },
+        "modernization": {
+            "id": 2382,
+            "name": "modernization"
+        },
+        "vital skills": {
+            "id": 2394,
+            "name": "vital skills"
+        },
+        "dependency management": {
+            "id": 2403,
+            "name": "dependency management"
+        },
+        "failure demand": {
+            "id": 2366,
+            "name": "failure demand"
+        },
+        "scaling": {
+            "id": 2360,
+            "name": "scaling"
+        },
+        "microservices": {
+            "id": 2396,
+            "name": "microservices"
+        },
+        "domain model": {
+            "id": 2398,
+            "name": "domain model"
+        },
+        "management": {
+            "id": 2384,
+            "name": "management"
+        },
+        "agile": {
+            "id": 2361,
+            "name": "agile"
+        },
+        "tools": {
+            "id": 2385,
+            "name": "tools"
+        },
+        "product thinking": {
+            "id": 2374,
+            "name": "product thinking"
+        },
+        "ux": {
+            "id": 2387,
+            "name": "ux"
+        },
+        "testing": {
+            "id": 2407,
+            "name": "testing"
+        },
+        "ESSENTIALS*": {
+            "id": 2533,
+            "name": "ESSENTIALS*"
+        },
+        "code quality": {
+            "id": 2369,
+            "name": "code quality"
+        },
+        "tdd": {
+            "id": 2406,
+            "name": "tdd"
+        },
+        "unit tests": {
+            "id": 2414,
+            "name": "unit tests"
+        },
+        "adrs": {
+            "id": 2401,
+            "name": "adrs"
+        },
+        "architecture decision records": {
+            "id": 2400,
+            "name": "architecture decision records"
+        },
+        "ai": {
+            "id": 2378,
+            "name": "ai"
+        },
+        "domain-driven design": {
+            "id": 2395,
+            "name": "domain-driven design"
+        },
+        "modular monolith": {
+            "id": 2397,
+            "name": "modular monolith"
+        },
+        "race against the machine": {
+            "id": 2375,
+            "name": "race against the machine"
+        },
+        "legacy code": {
+            "id": 2365,
+            "name": "legacy code"
+        },
+        "maintenance": {
+            "id": 2370,
+            "name": "maintenance"
+        },
+        "technical debt": {
+            "id": 2363,
+            "name": "technical debt"
+        },
+        "technical neglect": {
+            "id": 2364,
+            "name": "technical neglect"
+        },
+        "mocks": {
+            "id": 2408,
+            "name": "mocks"
+        },
+        "typescript": {
+            "id": 2411,
+            "name": "typescript"
+        },
+        "hands-on": {
+            "id": 2413,
+            "name": "hands-on"
+        },
+        "llms": {
+            "id": 2380,
+            "name": "llms"
+        },
+        "technical debt management": {
+            "id": 2405,
+            "name": "technical debt management"
+        },
+        "TECH LEADERS": {
+            "id": 2534,
+            "name": "TECH LEADERS"
+        },
+        "fast": {
+            "id": 2359,
+            "name": "fast"
+        },
+        "iterative refinement": {
+            "id": 2404,
+            "name": "iterative refinement"
+        },
+        "self confidence": {
+            "id": 2390,
+            "name": "self confidence"
+        },
+        "youbelong": {
+            "id": 2392,
+            "name": "youbelong"
+        },
+        "unlimited potential": {
+            "id": 2393,
+            "name": "unlimited potential"
+        }
+    },
+    "speakers": {
+        "kent-beck": {
+            "id": 1694,
+            "topic": "craft",
+            "name": "Kent Beck",
+            "bio": "",
+            "slug": "kent-beck"
+        },
+        "cat-hicks": {
+            "id": 1691,
+            "topic": "craft",
+            "name": "Cat Hicks",
+            "bio": "",
+            "slug": "cat-hicks"
+        },
+        "nigel-thurlow": {
+            "id": 1674,
+            "topic": "craft",
+            "name": "Nigel Thurlow",
+            "bio": "",
+            "slug": "nigel-thurlow"
+        },
+        "kenneth-harris": {
+            "id": 1689,
+            "topic": "craft",
+            "name": "Kenneth Harris",
+            "bio": "",
+            "slug": "kenneth-harris"
+        },
+        "kevlin-henney": {
+            "id": 1663,
+            "topic": "craft",
+            "name": "Kevlin Henney",
+            "bio": "<p class=\"pb-4\">Kevlin is an independent consultant, speaker, writer and trainer. His development interests, contributions and work with companies covers programming, people and practice. He is co-author of two volumes in the Pattern-Oriented Software Architecture series and contributor to a number of sites and books. He is also editor of 97 Things Every Programmer Should Know and co-editor of 97 Things Every Java Programmer Should Know. He lives in Bristol and online.</p>",
+            "image": "/images/2025/craft/speakers/c2a25d735e72422584478e3bd834af83.png",
+            "slug": "kevlin-henney",
+            "company": "Curbralan",
+            "twitter": "KevlinHenney",
+            "linkedin": "kevlin"
+        },
+        "diana-montalion": {
+            "id": 1679,
+            "topic": "craft",
+            "name": "Diana Montalion",
+            "bio": "",
+            "slug": "diana-montalion"
+        },
+        "neal-ford": {
+            "id": 1665,
+            "topic": "craft",
+            "name": "Neal Ford",
+            "bio": "<p class=\"pb-4\">Neal is a Distinguished Engineer at&nbsp;Thoughtworks, a software company and a community of passionate, purpose-led individuals, delivering technology to address the toughest challenges, all while seeking to revolutionize the IT industry and create positive social change. He speaks at many conferences.</p><p class=\"pb-4\"></p>",
+            "image": "/images/2025/craft/speakers/cdaf3068563461ef5eaa052afbd55500.png",
+            "slug": "neal-ford",
+            "company": "Thoughtworks",
+            "twitter": null,
+            "linkedin": null
+        },
+        "tricia-broderick": {
+            "id": 1699,
+            "topic": "craft",
+            "name": "Tricia Broderick",
+            "bio": "",
+            "slug": "tricia-broderick"
+        },
+        "daniel-vacanti": {
+            "id": 1655,
+            "topic": "craft",
+            "name": "Daniel Vacanti",
+            "bio": "<p class=\"pb-4\">Daniel Vacanti is a software industry veteran who has spent most of his career focusing on Lean and Agile practices.&nbsp; In 2007, he helped to develop the Kanban as a strategy for knowledge work and managed the world’s first project implementation of Kanban that year.&nbsp; He has been conducting Lean-Agile training, coaching, and consulting ever since. In 2011 he founded ActionableAgileTM which provides industry-leading predictive analytics tools and services organizations that utilize Lean-Agile practices.&nbsp; In 2015 he published his first book, “Actionable Agile Metrics for Predictability”, which is the definitive guide to flow-based metrics and analytics.&nbsp; In 2017, he helped to develop the “Professional Scrum with Kanban” class with <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://Scrum.org\">Scrum.org</a>.&nbsp; In 2018, he published his second book, “When Will It Be Done?”.&nbsp; In 2020, he co-founded <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://Prokanban.org\">Prokanban.org</a> whose aim is to provide an inclusive, safe, and diverse community to learn about flow practices.&nbsp; Most recently in 2024 he published his third book, “Actionable Agile Metrics for Predictability Vol II”.</p>",
+            "image": "/images/2025/craft/speakers/514d5af640d633f8047c9fdc17d1ca6b.png",
+            "slug": "daniel-vacanti",
+            "company": "ProKanban.org",
+            "twitter": null,
+            "linkedin": "danielvacanti"
+        },
+        "daniel-terhorst-north": {
+            "id": 1682,
+            "topic": "craft",
+            "name": "Daniel Terhorst-North",
+            "bio": "",
+            "slug": "daniel-terhorst-north"
+        },
+        "dave-snowden": {
+            "id": 1667,
+            "topic": "craft",
+            "name": "Dave Snowden",
+            "bio": "",
+            "slug": "dave-snowden"
+        },
+        "mark-richards": {
+            "id": 1666,
+            "topic": "craft",
+            "name": "Mark Richards",
+            "bio": "",
+            "slug": "mark-richards"
+        },
+        "colleen-johnson": {
+            "id": 1696,
+            "topic": "craft",
+            "name": "Colleen Johnson",
+            "bio": "",
+            "slug": "colleen-johnson"
+        },
+        "gaia-becheri": {
+            "id": 1751,
+            "topic": "craft",
+            "name": "Gaia Becheri",
+            "bio": "",
+            "slug": "gaia-becheri"
+        },
+        "colin-breck": {
+            "id": 1702,
+            "topic": "craft",
+            "name": "Colin Breck",
+            "bio": "",
+            "slug": "colin-breck"
+        },
+        "patrick-debois": {
+            "id": 1701,
+            "topic": "craft",
+            "name": "Patrick Debois",
+            "bio": "",
+            "slug": "patrick-debois"
+        },
+        "nicolas-brown": {
+            "id": 1683,
+            "topic": "craft",
+            "name": "Nick Brown",
+            "bio": "",
+            "slug": "nicolas-brown"
+        },
+        "joseph-pelrine": {
+            "id": 1673,
+            "topic": "craft",
+            "name": "Joseph Pelrine",
+            "bio": "",
+            "slug": "joseph-pelrine"
+        },
+        "gojko-adzic": {
+            "id": 1656,
+            "topic": "craft",
+            "name": "Gojko Adzic",
+            "bio": "<p class=\"pb-4\">Gojko Adzic the author of <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://amzn.to/3N9ca7S\">Lizard Optimization</a>, <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://amzn.to/4dtKDJ4\">Impact Mapping</a>, <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://amzn.to/4epkzQA\">Specification by Example</a> and a few more books… He is the founder or co-founder of <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://www.narakeet.com/\">Narakeet</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://www.votito.com/\">Votito</a>, and a partner at <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://neuri.co.uk/\">Neuri Consulting LLP</a>.</p><p class=\"pb-4\" style=\"text-align: start\">Gojko is one of the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://aws.amazon.com/developer/community/heroes/gojko-adzic/\">2019 AWS Serverless Heroes</a>, the winner of the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://www.softwaretestingnews.co.uk/the-european-software-testing-awards-2016-winners-announced-during-gala-dinner/\">2016 European Software Testing Outstanding Achievement Award</a>, and the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://agiletestingdays.com/miatpp/\">2011 Most Influential Agile Testing Professional Award</a>. Gojko’s book <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://www.amazon.com/Specification-Example-Successful-Deliver-Software/dp/1617290084\">Specification by Example</a> won the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://www.drdobbs.com/joltawards/jolt-awards-the-best-books/240007480?pgno=7\">Jolt Award for the best book of 2012</a>, and his blog won the UK Agile Award for the best online publication in 2010.</p>",
+            "image": "/images/2025/craft/speakers/bd7392fbfa7b800ee6e511c24307025b.png",
+            "slug": "gojko-adzic",
+            "company": "Neuri Consulting LLP",
+            "twitter": "gojkoadzic",
+            "linkedin": "gojko"
+        },
+        "chip-huyen": {
+            "id": 1720,
+            "topic": "craft",
+            "name": "Chip Huyen",
+            "bio": "",
+            "slug": "chip-huyen"
+        },
+        "sander-hoogendoorn": {
+            "id": 1659,
+            "topic": "craft",
+            "name": "Sander Hoogendoorn",
+            "bio": "<p class=\"pb-4\">Sander Hoogendoorn is an independent dad, traveler, and lifelong software craftsman. With over four decades of hands-on coding experience, he continues to write code daily, demonstrating that real developers never stop learning. Throughout his career, he has navigated the tech world in roles ranging from CTO at companies like iBOOD (currently), ANVA, and Klaverblad to serving as Capgemini's global agile thought leader.</p><p class=\"pb-4\">Known for his post-agile mindset and fearless approach to challenging the status quo, Sander helps organizations and teams break free from outdated practices and embrace innovation. He’s not just about writing code—he’s about rewriting the rules.</p><p class=\"pb-4\">As an author and dynamic international speaker, Sander shares his insights at conferences worldwide, covering topics such as disruption, culture, life beyond agile, continuous delivery, microteams, software architecture, monads, microservices, and the art of writing elegant code. He champions critical thinking, strategic design, and mindful development to help teams build better software, faster.</p><p class=\"pb-4\">Discover Sander—the coding rebel who believes in small steps, big impact, and the mind as the ultimate tool for success.</p>",
+            "image": "/images/2025/craft/speakers/d101ea6702d61633203761f051854b04.png",
+            "slug": "sander-hoogendoorn",
+            "company": "ibood.com",
+            "twitter": "aahoogendoorn",
+            "linkedin": "aahoogendoorn"
+        },
+        "andrew-harmel-law": {
+            "id": 1684,
+            "topic": "craft",
+            "name": "Andrew Harmel-Law",
+            "bio": "",
+            "slug": "andrew-harmel-law"
+        },
+        "birgitta-bockeler": {
+            "id": 1690,
+            "topic": "craft",
+            "name": "Birgitta Böckeler",
+            "bio": "",
+            "slug": "birgitta-bockeler"
+        },
+        "maciej-jedrzejewski": {
+            "id": 1706,
+            "topic": "craft",
+            "name": "Maciej Jedrzejewski",
+            "bio": "",
+            "slug": "maciej-jedrzejewski"
+        },
+        "dennis-nerush": {
+            "id": 1719,
+            "topic": "craft",
+            "name": "Dennis Nerush",
+            "bio": "",
+            "slug": "dennis-nerush"
+        },
+        "alexander-thurow": {
+            "id": 1750,
+            "topic": "craft",
+            "name": "Alexander Thurow",
+            "bio": "",
+            "slug": "alexander-thurow"
+        },
+        "zach-pendleton": {
+            "id": 1707,
+            "topic": "craft",
+            "name": "Zach Pendleton",
+            "bio": "",
+            "slug": "zach-pendleton"
+        },
+        "markus-oberlehner": {
+            "id": 1721,
+            "topic": "craft",
+            "name": "Markus Oberlehner",
+            "bio": "",
+            "slug": "markus-oberlehner"
+        },
+        "bruno-passos": {
+            "id": 1722,
+            "topic": "craft",
+            "name": "Bruno Passos",
+            "bio": "",
+            "slug": "bruno-passos"
+        },
+        "daniel-bolivar": {
+            "id": 1705,
+            "topic": "craft",
+            "name": "Daniel Bolívar",
+            "bio": "",
+            "slug": "daniel-bolivar"
+        },
+        "bryan-oliver": {
+            "id": 1698,
+            "topic": "craft",
+            "name": "Bryan Oliver",
+            "bio": "",
+            "slug": "bryan-oliver"
+        },
+        "llewellyn-falco": {
+            "id": 1680,
+            "topic": "craft",
+            "name": "Llewellyn Falco",
+            "bio": "",
+            "slug": "llewellyn-falco"
+        },
+        "duncan-mcgregor": {
+            "id": 1675,
+            "topic": "craft",
+            "name": "Duncan McGregor",
+            "bio": "",
+            "slug": "duncan-mcgregor"
+        },
+        "nat-pryce": {
+            "id": 1672,
+            "topic": "craft",
+            "name": "Nat Pryce",
+            "bio": "",
+            "slug": "nat-pryce"
+        },
+        "balazs-lorand": {
+            "id": 1733,
+            "topic": "craft",
+            "name": "Balázs Lóránd",
+            "bio": "",
+            "slug": "balazs-lorand"
+        },
+        "arpad-maroti": {
+            "id": 1734,
+            "topic": "craft",
+            "name": "Árpád Maróti",
+            "bio": "",
+            "slug": "arpad-maroti"
+        },
+        "balazs-szanto": {
+            "id": 1741,
+            "topic": "craft",
+            "name": "Balázs Szántó",
+            "bio": "",
+            "slug": "balazs-szanto"
+        },
+        "csaba-gecse": {
+            "id": 1728,
+            "topic": "craft",
+            "name": "Csaba Gecse",
+            "bio": "",
+            "slug": "csaba-gecse"
+        },
+        "zsofia-sarkozi": {
+            "id": 1729,
+            "topic": "craft",
+            "name": "Zsófia Sárközi",
+            "bio": "",
+            "slug": "zsofia-sarkozi"
+        },
+        "adam-pelle": {
+            "id": 1723,
+            "topic": "craft",
+            "name": "Adam Pelle",
+            "bio": "",
+            "slug": "adam-pelle"
+        },
+        "sandor-kazi": {
+            "id": 1735,
+            "topic": "craft",
+            "name": "Sandor Kazi",
+            "bio": "",
+            "slug": "sandor-kazi"
+        },
+        "noemi-mislyenacz": {
+            "id": 1738,
+            "topic": "craft",
+            "name": "Noémi Mislyenácz",
+            "bio": "",
+            "slug": "noemi-mislyenacz"
+        },
+        "irina-loginova": {
+            "id": 1737,
+            "topic": "craft",
+            "name": "Irina Loginova",
+            "bio": "",
+            "slug": "irina-loginova"
+        },
+        "matyas-kollar-gabriella": {
+            "id": 1745,
+            "topic": "craft",
+            "name": "Mátyás-Kollár Gabriella",
+            "bio": "",
+            "slug": "matyas-kollar-gabriella"
+        },
+        "peter-szasz": {
+            "id": 1746,
+            "topic": "craft",
+            "name": "Péter Szász",
+            "bio": "",
+            "slug": "peter-szasz"
+        },
+        "zsolt-nemeth": {
+            "id": 1747,
+            "topic": "craft",
+            "name": "Zsolt Németh",
+            "bio": "",
+            "slug": "zsolt-nemeth"
+        },
+        "dr-firniksz-judit": {
+            "id": 1748,
+            "topic": "craft",
+            "name": "Judit Firniksz",
+            "bio": "",
+            "slug": "dr-firniksz-judit"
+        },
+        "jose-roca": {
+            "id": 1752,
+            "topic": "craft",
+            "name": "Jose Roca",
+            "bio": "",
+            "slug": "jose-roca"
+        },
+        "simon-wardley": {
+            "id": 1713,
+            "topic": "craft",
+            "name": "Simon Wardley",
+            "bio": "",
+            "slug": "simon-wardley"
+        },
+        "patrick-kua": {
+            "id": 1661,
+            "topic": "craft",
+            "name": "Patrick Kua",
+            "bio": "<p class=\"pb-4\">Patrick Kua is a seasoned technology leader with 20+ years of experience. His current mission is accelerating the growth of technical leaders through coaching, mentoring and training. He has had many years of hands-on experience, leading, managing and improving complex organisations and software systems as the <strong>CTO</strong> and <strong>Chief Scientist</strong> of <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://n26.com/\">N26</a> (Berlin, Germany) and as a <strong>Technical Principal Consultant</strong> at <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://thoughtworks.com/\">ThoughtWorks</a>. He is a frequent keynote and conference speaker, author of three books including <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://thekua.io/retrobook\">The Retrospective Handbook</a>, <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://thekua.io/twtl\">Talking with Tech Leads</a> and <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://thekua.io/evolarch\">Building Evolutionary Architectures</a> and runs the free popular newsletter for leaders in tech, “Level Up” (<a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://levelup.patkua.com\">http://levelup.patkua.com</a>) and the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"http://techlead.academy/\">Tech Lead Academy</a>, offering online training for technical leaders. You can find him online on twitter as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://twitter.com/patkua\">@patkua</a> or running his very popular “<a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"text-blue-600\" href=\"https://www.patkua.com/shortcut-to-tech-leadership/\">Shortcut to Tech Leadership</a>” workshop.</p>",
+            "image": "/images/2025/craft/speakers/dd698016a5a35f59d8d671965f25a7ec.png",
+            "slug": "patrick-kua",
+            "company": "patkua.com",
+            "twitter": "patkua",
+            "linkedin": "patkua"
+        },
+        "sam-newman": {
+            "id": 1700,
+            "topic": "craft",
+            "name": "Sam Newman",
+            "bio": "",
+            "slug": "sam-newman"
+        },
+        "charity-majors": {
+            "id": 1709,
+            "topic": "craft",
+            "name": "Charity Majors",
+            "bio": "",
+            "slug": "charity-majors"
+        },
+        "dylan-beattie": {
+            "id": 1670,
+            "topic": "craft",
+            "name": "Dylan Beattie",
+            "bio": "",
+            "slug": "dylan-beattie"
+        },
+        "randy-scott-shoup": {
+            "id": 1681,
+            "topic": "craft",
+            "name": "Randy Shoup",
+            "bio": "",
+            "slug": "randy-scott-shoup"
+        },
+        "adrian-cockcroft": {
+            "id": 1692,
+            "topic": "craft",
+            "name": "Adrian Cockcroft",
+            "bio": "",
+            "slug": "adrian-cockcroft"
+        },
+        "tudor-girba": {
+            "id": 1714,
+            "topic": "craft",
+            "name": "Tudor Girba",
+            "bio": "",
+            "slug": "tudor-girba"
+        },
+        "cate-huston": {
+            "id": 1685,
+            "topic": "craft",
+            "name": "Cate Huston",
+            "bio": "",
+            "slug": "cate-huston"
+        },
+        "busra-coskuner": {
+            "id": 1687,
+            "topic": "craft",
+            "name": "Büşra Coşkuner",
+            "bio": "",
+            "slug": "busra-coskuner"
+        },
+        "jack-rusher": {
+            "id": 1693,
+            "topic": "craft",
+            "name": "Jack Rusher",
+            "bio": "",
+            "slug": "jack-rusher"
+        },
+        "vladik-khononov": {
+            "id": 1657,
+            "topic": "craft",
+            "name": "Vlad Khononov",
+            "bio": "",
+            "image": "/images/2025/craft/speakers/f22034a7c20c057c4db9322cac5e9f98.png",
+            "slug": "vladik-khononov",
+            "company": null,
+            "twitter": null,
+            "linkedin": null
+        },
+        "chisara-nwabara": {
+            "id": 1704,
+            "topic": "craft",
+            "name": "Chisara Nwabara",
+            "bio": "",
+            "slug": "chisara-nwabara"
+        },
+        "lada-kesseler": {
+            "id": 1697,
+            "topic": "craft",
+            "name": "Lada Kesseler",
+            "bio": "",
+            "slug": "lada-kesseler"
+        },
+        "steve-pereira": {
+            "id": 1654,
+            "topic": "craft",
+            "name": "Steve Pereira",
+            "bio": "<p class=\"pb-4\">Steve Pereira has spent over two decades improving the flow of work across organizations. He’s worked through tech support, IT management, build and release engineering, and as a founding CTO for enterprise SaaS. He serves as lead consultant for Visible Value Stream Consulting, as a board advisor to the Value Stream Management Consortium, Chair of the OASIS Value Stream Management Interoperability technical committee, and co-founder of the Flow Collective to bring flow-focused professionals together. Since 2017, he has been developing and facilitating Flow Engineering to make flow improvement in large organizations accessible, collaborative, and actionable.</p>",
+            "image": "/images/2025/craft/speakers/22e8beba99a7d32fa8fded1bb5a14dcf.png",
+            "slug": "steve-pereira",
+            "company": "Visible Flow Consulting",
+            "twitter": "steveelsewhere",
+            "linkedin": "devopsto"
+        },
+        "john-willis": {
+            "id": 1664,
+            "topic": "craft",
+            "name": "John Micheal Willis",
+            "bio": "<p class=\"pb-4\">John Willis has worked in IT management for over 40 years. He is researching DevOps, DevSecOps, IT risk, modern governance, and audit compliance. Previously, he was an Evangelist at Docker Inc., VP of Solutions for Socketplane (sold to Docker) and Enstratius (sold to Dell), and VP of Training &amp; Services at Opscode, where he formalized the training, evangelism, and professional services functions at the firm. Additionally, Willis founded Gulf Breeze Software, an award-winning IBM business partner specializing in Tivoli technology deployment. As an author, Willis has written six IBM Redbooks on enterprise systems management and four books for IT Revolution, including the DevOps Handbook. He is working on his latest book, The Operational History of Generative AI.</p>",
+            "image": "/images/2025/craft/speakers/c905258b82458600b1f21976ebafecd2.png",
+            "slug": "john-willis",
+            "company": "Botchagalupe Technologies",
+            "twitter": null,
+            "linkedin": "https://www.linkedin.com/in/johnwillisatlanta/"
+        },
+        "florian-rappl": {
+            "id": 1715,
+            "topic": "craft",
+            "name": "Florian Rappl",
+            "bio": "",
+            "slug": "florian-rappl"
+        },
+        "aleix-morgadas": {
+            "id": 1669,
+            "topic": "craft",
+            "name": "Aleix Morgadas",
+            "bio": "",
+            "slug": "aleix-morgadas"
+        },
+        "suhail-patel": {
+            "id": 1695,
+            "topic": "craft",
+            "name": "Suhail Patel",
+            "bio": "",
+            "slug": "suhail-patel"
+        },
+        "yossi-sassi": {
+            "id": 1708,
+            "topic": "craft",
+            "name": "Yossi Sassi",
+            "bio": "",
+            "slug": "yossi-sassi"
+        },
+        "michael-plod": {
+            "id": 1718,
+            "topic": "craft",
+            "name": "Michael Plöd",
+            "bio": "",
+            "slug": "michael-plod"
+        },
+        "nick-tune": {
+            "id": 1671,
+            "topic": "craft",
+            "name": "Nick Tune",
+            "bio": "",
+            "slug": "nick-tune"
+        },
+        "guillaume-rahbari": {
+            "id": 1726,
+            "topic": "craft",
+            "name": "Guillaume Rahbari",
+            "bio": "",
+            "slug": "guillaume-rahbari"
+        },
+        "julien-topcu": {
+            "id": 1716,
+            "topic": "craft",
+            "name": "Julien Topçu",
+            "bio": "",
+            "slug": "julien-topcu"
+        },
+        "thomas-pierrain": {
+            "id": 1717,
+            "topic": "craft",
+            "name": "Thomas Pierrain",
+            "bio": "",
+            "slug": "thomas-pierrain"
+        },
+        "simon-rohrer": {
+            "id": 1668,
+            "topic": "craft",
+            "name": "Simon Rohrer",
+            "bio": "",
+            "slug": "simon-rohrer"
+        },
+        "susan-fung": {
+            "id": 1686,
+            "topic": "craft",
+            "name": "Susan Fung",
+            "bio": "",
+            "slug": "susan-fung"
+        },
+        "henrik-kniberg": {
+            "id": 1703,
+            "topic": "craft",
+            "name": "Henrik Kniberg",
+            "bio": "",
+            "slug": "henrik-kniberg"
+        },
+        "florin-coros": {
+            "id": 1753,
+            "topic": "craft",
+            "name": "Florin Coros",
+            "bio": "",
+            "slug": "florin-coros"
+        },
+        "zsofi-herendi": {
+            "id": 1662,
+            "topic": "craft",
+            "name": "Zsófi Herendi",
+            "bio": "<p class=\"pb-4\">Zsófia is a system- sol﻿ution- and visual thinker who has spent 20 years bringing developers and business people together, 12+ years working on different teams in an agile environment. She is a skilled modeler with a passion for diagramming and an addiction to optimizing flow. She is not just passionate about solving problems but finding the right problems to solve is one of the key things for her. Probably that’s why she’s been an ambassador of strategic Domain-driven Design (DDD) for 8 years now, which also makes it essential for her to be able to develop a shared understanding be it at work or in personal life.</p>",
+            "image": "/images/2025/craft/speakers/5c48c1e0addcbbf8cd813dd616316655.png",
+            "slug": "zsofi-herendi",
+            "company": "Tesco Technology",
+            "twitter": null,
+            "linkedin": "zsófia-herendi-2296b48/"
+        },
+        "erik-slooten": {
+            "id": 1743,
+            "topic": "craft",
+            "name": "Erik Slooten",
+            "bio": "",
+            "slug": "erik-slooten"
+        },
+        "alex-nasli": {
+            "id": 1712,
+            "topic": "craft",
+            "name": "Alex Nasli",
+            "bio": "",
+            "slug": "alex-nasli"
+        },
+        "prof-dr-palkovics-laszlo": {
+            "id": 1742,
+            "topic": "craft",
+            "name": "Prof. Dr. Palkovics László",
+            "bio": "",
+            "slug": "prof-dr-palkovics-laszlo"
+        },
+        "igor-sevo": {
+            "id": 1732,
+            "topic": "craft",
+            "name": "Igor Ševo",
+            "bio": "",
+            "slug": "igor-sevo"
+        },
+        "batorfi-zsolt": {
+            "id": 1736,
+            "topic": "craft",
+            "name": "Zsolt Batorfi",
+            "bio": "",
+            "slug": "batorfi-zsolt"
+        },
+        "ferenc-karasz": {
+            "id": 1749,
+            "topic": "craft",
+            "name": "Ferenc Kárász",
+            "bio": "",
+            "slug": "ferenc-karasz"
+        }
+    }
+}

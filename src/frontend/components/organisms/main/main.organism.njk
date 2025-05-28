@@ -1,0 +1,77 @@
+
+{# {% set tech = params.portfolio.tech %} #}
+{% set data = params.data %}
+
+{# {{params.talks | dump}} #}
+<div class="container my-5">
+  <h1>craft 2025</h1>
+  <p> Search easily through the talks </p>
+</div>
+{{
+  component("search", {
+    placeholder: "search talks",
+    uid: "talks",
+    category: "talks",
+    no_result: ["Maybe", "that talk is not yet listed or exists" ]
+  })
+}}
+{# TALKS: {{ talks | dump}} #}
+  <div class="container my-5">
+    <div class="col-lXg-8 px-0">
+      <ul role="list" class="list--no-bullets">
+        {% for talk_key, talk_item in data.talks %}
+          <li data-talk="{{talk_item.title}}" class="talk" role="listitem" tabindex="1">
+            <h6>
+              <span class="talk-value">🎙️ {{talk_item.title}}</span>
+              <span class="talk-search hidden">🎙️ {{talk_item.title}}</span>
+            </h6>
+            <p class="talk-description" data-talk="{{talk_item.description}}">
+              <span class="talk-value">{{talk_item.description}}</span>
+              <span class="talk-search hidden">{{talk_item.description}}</span>
+            </p>
+            <ul role="list">
+              {% for speaker in talk_item.speakers %}
+              <li class="chip level level--{{value.level}}" data-talk="{{speaker.name}}" role="listitem" tabindex="1">
+                  {% if data.speakers[speaker.slug].image and data.speakers[speaker.slug].image != "" %}
+                    <img src="https://craft-conf.com{{data.speakers[speaker.slug].image}}" alt="Icon of {{speaker.name}}" width="96" height="96">
+                  {% endif %}
+                  <span class="talk-value">{{speaker.name}}</span>
+                  <span class="talk-search hidden">{{speaker.name}}</span>
+          
+                </li>
+              {% endfor %}
+            </ul>
+            <ul role="list">
+              {% for tag in talk_item.tags %}
+                <li class="chip chip--small level level--{{value.level}}" data-talk="{{tag.name}}" role="listitem" tabindex="1">
+                  {# <img src="/assets/tech/{{value.icon}}" alt="Icon of {{value.name}}" width="96" height="96"> #}
+                  <span class="talk-value">{{tag.name}}</span>
+                  <span class="talk-search hidden">{{tag.name}}</span>
+          
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+</ul>
+      
+
+    </div>
+    <div class="container my-5">
+      <small>Legende:</small>
+      <div class="levels">
+        {% for key, value in params.portfolio.levels %}
+        <div class="chip level level--{{value}} level--small chip--small d-block">
+          {{key}}
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+        
+
+
+      {# <a href="https://getbootstrap.com" class="btn btn-primary">Read the Bootstrap docs</a>
+      <a href="https://github.com/twbs/examples" class="btn btn-secondary">View on GitHub</a> #}
+  </div>

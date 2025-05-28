@@ -1,0 +1,1 @@
+export const CURL_CONFIG_STATUS = `-m 0.4 --silent`;

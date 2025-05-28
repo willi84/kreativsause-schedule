@@ -1,0 +1,8 @@
+{% set aria_label = 'aria_label="' + params.aria_label +'"' if params.aria_label is defined else "" %}
+<a  data-component="atom" {{aria_label | safe }}
+    class="{{params.class}} {{params.class_modifier}}" href="{{ params.url | url | safe}}">
+    {{ params.text }} 
+    {% if params.post_html %} 
+        {{params.post_html | safe}} 
+    {% endif %}
+</a>

@@ -1,0 +1,63 @@
+{
+  "name": "craft-schedule",
+  "version": "1.0.0",
+  "description": "optimized craft schedule page",
+  "author": "Robert Willemelis (robert.dev@gmx.de)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/willi84/craft-schedule"
+  },
+  "apps": {
+    "check_urls": "backend/apps/check_urls"
+  },
+  "bugs": {
+    "url": "https://github.com/willi84/craft-schedule"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@babel/standalone": "7.13.14",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.6.0",
+    "chokidar-cli": "^3.0.0",
+    "dotenv-cli": "^7.4.2",
+    "env-cmd": "^10.1.0",
+    "jest": "^29.6.2",
+    "jest-environment-jsdom": "^29.6.2",
+    "npm-run-all": "^4.1.5",
+    "serve": "^14.2.1",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.15.5",
+    "typescript": "^4.2.3",
+    "vite": "^2.1.4",
+    "vscode": "^1.1.37"
+  },
+  "scripts": {
+    "test": "jest --env=jsdom --coverage --runInBand",
+    "test:watch": "jest --env=jsdom --watchAll  --coverage",
+    "test:watch:strict": "jest --env=jsdom --watchAll  --coverage --runInBand --unhandled-rejections=strict",
+    "test: clear": "jest --clearCache",
+    "re-install": "rm -rf node_modules && rm -rf _site && rm -f package-lock.json && npm install && du -sh node_modules",
+    "re-install_cache": "rm -rf node_modules && rm -rf _site && rm -f package-lock.json && npm cache verify && npm install && du -sh node_modules",
+    "dev": "NODE_ENV=development npm run start_app -- api & npm-run-all --parallel dev:eleventy dev:vite",
+    "dev:eleventy": "eleventy --serve",
+    "dev:vite": "vite",
+    "build_app": "sh -c 'tsx src/backend/apps/$1/index.ts' --",
+    "start_app": "sh -c 'tsx watch --clear-screen=false src/backend/apps/$1/index.ts' --",
+    "start_app:api": "npm run start_app -- api",
+    "build:api": "npm run build_app -- api",
+    "dev_build:api": "NODE_ENV=development npm run build_app -- api",
+    "build_all": "npm run build:api && npm run build:vite && npm run build:eleventy",
+    "build": "NODE_ENV=production npm run build_all",
+    "build:prod": "NODE_ENV=production npm run build",
+    "build:eleventy": "eleventy",
+    "build:debug_eleventy": "DEBUG=Eleventy* eleventy",
+    "build:vite": "vite build --config vite.config.js",
+    "prod_serve": "NODE_ENV=production npm run build && serve _site"
+  },
+  "dependencies": {
+    "node-html-parser": "^7.0.1"
+  }
+}

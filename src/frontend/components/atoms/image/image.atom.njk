@@ -1,0 +1,29 @@
+{# VARIABLES #}
+{% set item = params.item %}
+{% set alt_text = 'alt="' + params.alt_prefix + item.name +'"' %}
+{% set lazy_loading = 'loading="lazy" ' | safe if params.lazy else '' %}
+{% set width = 'width="' + params.width + '"' %}
+{% set height = 'height="' + params.height + '"' %}
+{% set image_url = params.image or item.image %}
+{% set class = params.class or "" %}
+
+{# TEMPLATE #}
+<img
+        class="{{class}} x"
+        src="{{image_url}}" 
+        {{alt_text | safe}} {{width | safe}} {{height | safe}} {{lazy_loading | safe}}>
+
+{# TODO #}
+{# <img
+srcset="/api/screenshot/?url={{item.url}}&ratio=1,
+        /api/screenshot/?url={{item.url}}&ratio=2"
+src="/api/screenshot/?url={{item.url}}&ratio=1" alt="Screenshot of {{item.name}}"
+width="1000"
+height="600"
+loading="lazy"> #}
+
+{# <img
+class="img-size-m circle"
+srcset="/api/user-image/?user={{ maintainer }}&size=40 1x,
+        /api/user-image/?user={{ maintainer }}&size=80 2x"
+src="/api/user-image/?user={{ maintainer }}" alt="GitHub profile image of {{ maintainer }}" loading="lazy" width="40" height="40"> #}

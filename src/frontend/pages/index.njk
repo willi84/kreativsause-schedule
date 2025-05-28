@@ -1,0 +1,15 @@
+---
+layout: base.template.njk
+title: Eleventy with Vite
+---
+{%- from "./../templates/_setup/macros/component.macro.njk" import component -%}
+
+{% set data = params.data %}
+{% set config = params.config %}
+
+{{
+    component("main", {
+        data: optimized,
+        config: config
+    })
+}}

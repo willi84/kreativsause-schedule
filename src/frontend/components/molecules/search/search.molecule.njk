@@ -1,0 +1,10 @@
+
+{% set uid = params.uid or 'default' %}
+<form>
+  <div class="mb-3" data-search="{{uid}}">
+    {# <label for="exampleInputEmail1" class="form-label">Email address</label> #}
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" aria-role="input" placeholder="{{params.placeholder}}">
+    <div id="emailHelp" class="form-text search__no-result search__info--hidden">{{params.no_result[0]}} <span class="search__value"></span> {{params.no_result[1]}}</div>
+  </div>
+  
+</form>

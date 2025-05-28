@@ -1,0 +1,89 @@
+{%- from "./_setup/macros/component.macro.njk" import component -%}
+
+{# Base HTML, compatible with what Vite expects #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title or metadata.title}}</title>
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
+
+    {% if build.env == "production" %}
+        {# Add any CSS from the main script #}
+        {% viteLinkStylesheetTags config.ENTRY_FILE %}
+    {% endif %}
+
+</head>
+<body>
+    <div class="container">
+        {{
+            component("navigation", {
+                data: optimized,
+                config: config
+            })
+        }}
+
+        {# {{
+            component("main", {
+                portfolio: portfolio,
+                config: config
+            })
+        }} #}
+        {% if content %}
+        {{ content | safe }}
+        {% else %}
+
+        {% endif %}
+        {# header
+        {{
+            component("header", {
+                project: project,
+                config: config
+            })
+        }}
+
+        {# navigation #}
+        {# {{
+            component("navigation", {
+                project: project,
+                config: config,
+                tag: tag
+            })
+        }} #}
+
+        {# content #}
+        {# <main id="main-content">
+            {{
+                component("list", {
+                    project: project,
+                    config: config,
+                    tag: tag
+                })
+            }}
+        </main> #}
+    </div>
+
+    {# footer #}
+    {# {{
+        component("footer", {
+            projects: projects
+        })
+    }} #}
+
+    <script src="/assets/bootstrap.bundle.min.js"></script>
+
+    {#  scripts #}
+    {% if build.env == "production" %}
+        {# We must read the production scripts from the Vite manifest. We defer that logic to a custom shortcode #}
+        {% viteScriptTag config.ENTRY_FILE %}
+    {% else %}
+        {# The vite development client #}
+        <script type="module" src="{{config.HOST_VITE}}/@vite/client"></script>
+
+        {# The main script entry for development (pointing to vite) #}
+        <script type="module" src="{{config.HOST_VITE}}/{{config.ENTRY_FILE}}"></script>
+    {% endif %}
+</body>
+</html>

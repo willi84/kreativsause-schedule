@@ -1,0 +1,28 @@
+.search__value{
+    color: yellowgreen;
+    font-weight: bold;
+}
+.search-match{
+    background-color: lightsalmon;
+}
+.search__area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+}
+.form-control {
+    height: 50px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.search__no-result{
+    color: green;
+}
+.search__info--hidden{
+    opacity: 0;
+}

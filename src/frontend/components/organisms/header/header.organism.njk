@@ -1,0 +1,33 @@
+
+{% set PROJECT = params.project[params.config.CONFIG_ID] %}
+
+{# logo #}
+<div class="c-logo thin-border-bottom padding-sidebar bg-medium shadow-left">
+    <a href="{{ 'home' | route({ listIsSortedBy: renderData.listIsSortedBy }) }}" class="flex-x-start no-underline">
+      {{ config.LOGO | url  | svg(147, "img-size-s margin-right-m", { ariaHidden: true}) | safe }}
+      <div class="color-primary fw-bold fsi-1-5 ff-fancy margin-top-xs">{{config.PROJECT_NAME}}</div>
+    </a>
+    <button type="button" class="hide-large btn--reset margin-top-s" data-menu-button>
+        <span class="btn--ghost">
+            Menu
+            {{ config.MENU_ICON | url  | svg | safe }}
+        </span>
+    </button>
+</div>
+
+{# socials #}
+<div class="social-grid thin-border-bottom bg-light">
+    {% for social_link in PROJECT.socials %}
+      {{
+        component("button_link", {
+          "type": social_link.type,
+          "image_url": social_link.image,
+          "text": social_link.text,
+          "link": social_link.link,
+          "size": social_link.size,
+          "focusable": social_link.focusable,
+          "aria_hidden": social_link.aria_hidden
+        })
+      }}
+    {% endfor%}
+  </div>

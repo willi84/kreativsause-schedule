@@ -55,6 +55,7 @@ const processData = (data: any) => {
                 finalData.stages[stageId] = {
                     id: stage.id,
                     name: stage.name,
+                    color: stage.color,
                     description: stage.description,
                     slug: stage.slug,
                     talks: []
@@ -185,12 +186,33 @@ const processData = (data: any) => {
     return finalData;
 }
 
+const createMarkdownFile = (data: any) => {
+    let markdownContent = '';
+    for (const stageId in data.stages) {
+        const stage = data.stages[stageId];
+        markdownContent += `## Stage: ${stage.name}\n\n`;
+        markdownContent += `${stage.description}\n\n`;
+        markdownContent += `### Talks:\n\n`;
+        for (const talkId of stage.talks) {
+            const talk = data.talks[talkId];
+            markdownContent += `- **${talk.title}** by ${talk.speakers.map(s => s.name).join(', ')}\n`;
+            markdownContent += `  - Date: ${talk.date}\n`;
+            markdownContent += `  - Time: ${talk.startTime} - ${talk.endTime}\n`;
+            markdownContent += `  - Tags: ${talk.tags.map(t => t.name).join(', ')}\n`;
+            markdownContent += `  - [Details](${PAGE}/talk/${talk.slug})\n\n`;
+        }
+    }
+    return markdownContent;
+
+}
+
 LOG(OK, ' API is running...more!!!');
 const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
 const optimizedData = processData(origData);
 const cwd = process.cwd();
+const markdownContent = createMarkdownFile(optimizedData);
 // const talkData= getWebsiteData('https://craft-conf.com/2025/talk/cat-hicks', ['talk', 'speakers', 'tags']);
 // writeFileSync(`${cwd}/src/_data/talk_sample.json`, JSON.stringify(talkData, null, 4));
 writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(optimizedData, null, 4));
-
+writeFileSync(`${cwd}/src/_data/markdown.md`, markdownContent);
 writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(origData, null, 4));

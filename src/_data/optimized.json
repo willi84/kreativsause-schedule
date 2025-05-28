@@ -3,6 +3,7 @@
         "Main stage": {
             "id": 77,
             "name": "Main stage",
+            "color": "000000",
             "talks": [
                 1425,
                 1418,
@@ -24,6 +25,7 @@
         "Platform 2": {
             "id": 78,
             "name": "Platform 2",
+            "color": "0F766E",
             "talks": [
                 1382,
                 1409,
@@ -42,6 +44,7 @@
         "Orange stage": {
             "id": 79,
             "name": "Orange stage",
+            "color": "ff4d00",
             "talks": [
                 1430,
                 1410,
@@ -60,6 +63,7 @@
         "Purple stage": {
             "id": 80,
             "name": "Purple stage",
+            "color": "6E359F",
             "talks": [
                 1441,
                 1457,
@@ -78,6 +82,7 @@
         "Pink stage": {
             "id": 81,
             "name": "Pink stage",
+            "color": "e6007e",
             "talks": [
                 1451,
                 1471,
@@ -96,6 +101,7 @@
         "Green stage": {
             "id": 82,
             "name": "Green stage",
+            "color": "00a75d",
             "talks": [
                 1427,
                 1407,
@@ -108,6 +114,7 @@
         "Innovation stage": {
             "id": 83,
             "name": "Innovation stage",
+            "color": "ffa414",
             "talks": [
                 1461,
                 1466,
@@ -125,16 +132,19 @@
         "Sponsor arena": {
             "id": 84,
             "name": "Sponsor arena",
+            "color": "52525B",
             "talks": []
         },
         "🚂 Train Tracks": {
             "id": 93,
             "name": "🚂 Train Tracks",
+            "color": "52525B",
             "talks": []
         },
         "Tech Leaders Lounge": {
             "id": 94,
             "name": "Tech Leaders Lounge",
+            "color": "000000",
             "talks": [
                 1469,
                 1470

@@ -1,65 +1,99 @@
+type FilterMap = { [key: string]: Set<string> };
+
 export const createSearch = (target: string, uid: string, source: string) => {
+  const searchArea = document.querySelector(`[${target}="${uid}"]`);
+  const urlParams = new URLSearchParams(window.location.search);
+  const activeFilters: FilterMap = { tag: new Set(), stage: new Set(), speaker: new Set() };
 
-    const searchArea = document.querySelector(`[${target}="${uid}"]`);
-    if(searchArea){
-        const input: HTMLInputElement | null = searchArea?.querySelector('input')
-        input?.addEventListener('keyup', (e) => {
-            const skills = document.querySelectorAll(source);
-            const target = e.target as HTMLInputElement;
-            if(target.value === '') {
-                // reset search
-                for(const skill of skills) {
-                    skill.classList.remove('hidden');
-                    const valueItem = skill.querySelector('.talk-value');
-                    const placeholder = skill.querySelector('.talk-search');
-                    valueItem?.classList.remove('hidden');
-                    placeholder?.classList.add('hidden')
-                }
-            } else {
-                let i = 0
-                for(const skill of skills) {
-                    const valueItem = skill.querySelector('.talk-value') as HTMLElement;
-                    const placeholder = skill.querySelector('.talk-search') as HTMLElement;
-                    const skillValue: string = valueItem?.innerText;
-                    if(skill.textContent?.toLowerCase().includes(target.value.toLowerCase())) {
-                        skill.classList.remove('hidden');
-                        valueItem?.classList.add('hidden')
-                        skill.querySelector('.talk-search')?.classList.remove('hidden')
-                        if(placeholder){
-                            const html = getHighlightedText(skillValue, target.value)
-                            placeholder.innerHTML = `${html}`
-                        }
-                        i += 1;
-                    } else {
-                        valueItem?.classList.remove('hidden')
-                        placeholder?.classList.add('hidden');
-                        skill.classList.add('hidden');
-                        // placeholder.innerHTML = '';
-                    }
-                }
-                const noResultItem: HTMLElement | null = searchArea?.querySelector('.search__no-result');
-                if(noResultItem){
-                    console.log('noresult')
-                    const searchItem: HTMLElement | null = noResultItem.querySelector('.search__value');
-                    if(i === 0){
-                        if(searchItem !== null){
-                            searchItem.innerText = `${target.value}`;
-                        }
-                        noResultItem?.classList.remove('search__info--hidden');
-                    } else {
-                        noResultItem?.classList.add('search__info--hidden')
-                    }
-                }
-            }
+  const updateSearch = (term: string) => {
+    const value = term.toLowerCase();
+    const cards = document.querySelectorAll('.talk-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const searchable = card.querySelectorAll<HTMLElement>('.talk-value');
+      const texts = Array.from(searchable).map(el => el.textContent?.toLowerCase() || '');
+      const matchesSearch = value === '' || texts.some(t => t.includes(value));
+
+      const matchesFilters = Object.entries(activeFilters).every(([key, values]) => {
+        if (values.size === 0) return true;
+        return Array.from(values).some(v => card.innerHTML.toLowerCase().includes(v.toLowerCase()));
+      });
+
+      const show = matchesSearch && matchesFilters;
+      card.classList.toggle('hidden', !show);
+
+      if (show) {
+        visibleCount++;
+        searchable.forEach(el => el.classList.add('hidden'));
+        card.querySelectorAll('.talk-search').forEach((el, i) => {
+          const original = searchable[i]?.textContent || '';
+          el.classList.remove('hidden');
+          el.innerHTML = getHighlightedText(original, value);
         });
-    }
-}
+      } else {
+        searchable.forEach(el => el.classList.remove('hidden'));
+        card.querySelectorAll('.talk-search').forEach(el => {
+          el.classList.add('hidden');
+          el.innerHTML = '';
+        });
+      }
+    });
 
-export const getHighlightedText = (text: string, searchTerm: string) => {
-    if(searchTerm === '') return text;
-    // Split the text by the highlight term
-    const parts = text.split(new RegExp(`(${searchTerm})`, 'gi'));
-    return parts.map((part, i) => 
-        part.toLowerCase() === searchTerm.toLowerCase() ? `<span class="search-match">${part}</span>` : part
-    ).join('');
-}
+    const noResult = searchArea?.querySelector('.search__no-result') as HTMLElement | null;
+    const searchItem = noResult?.querySelector('.search__value') as HTMLElement | null;
+    if (noResult) {
+      noResult.classList.toggle('search__info--hidden', visibleCount > 0);
+      if (searchItem) searchItem.textContent = value;
+    }
+
+    const url = new URL(window.location.href);
+    value ? url.searchParams.set('search', value) : url.searchParams.delete('search');
+    history.replaceState({}, '', url);
+  };
+
+  const input = searchArea?.querySelector('input') as HTMLInputElement;
+  input?.addEventListener('keyup', e => updateSearch((e.target as HTMLInputElement).value));
+  if (urlParams.has('search')) {
+    const val = urlParams.get('search')!;
+    input!.value = val;
+    updateSearch(val);
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.filterType!;
+      const value = btn.dataset.filterValue!;
+      const set = activeFilters[type];
+
+      if (set.has(value)) {
+        set.delete(value);
+        btn.classList.remove('active');
+      } else {
+        set.add(value);
+        btn.classList.add('active');
+      }
+
+      updateSearch(input?.value || '');
+    });
+  });
+
+  document.querySelectorAll('[data-toggle-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-toggle-filter')!;
+      const container = document.getElementById(`filter-${type}`)!;
+      container.querySelectorAll('.filter-btn').forEach((btn, i) => {
+        if (i >= 10) btn.setAttribute('style', 'display: inline-block');
+      });
+      btn.remove();
+    });
+  });
+};
+
+export const getHighlightedText = (text: string, searchTerm: string): string => {
+  if (!searchTerm) return text;
+  return text.split(new RegExp(`(${searchTerm})`, 'gi')).map(part =>
+    part.toLowerCase() === searchTerm.toLowerCase()
+      ? `<span class="search-match">${part}</span>` : part
+  ).join('');
+};

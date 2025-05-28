@@ -19,3 +19,10 @@ body{
     padding: 0;
     margin: 0;
 }
+
+.talk-card {
+  transition: all 0.2s ease;
+}
+.talk-card.hidden {
+  display: none !important;
+}

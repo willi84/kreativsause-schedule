@@ -1,0 +1,12 @@
+---
+permalink: "talks.csv"
+eleventyExcludeFromCollections: true
+layout: null
+eleventyComputed:
+  contentType: "text/csv"
+---
+Title;Description;Speakers;Stage;Tags;Start Time;End Time
+{% set data = optimized %}
+{% for key, talk in data.talks %}
+{{ talk.title | replace(";", ",") }};{{ talk.description | replace(";", ",") }};{% for s in talk.speakers %}{{ s.name }}{% if not loop.last %}, {% endif %}{% endfor %};{{ talk.stage }};{% for t in talk.tags %}{{ t.name }}{% if not loop.last %}, {% endif %}{% endfor %};{{ talk.startTime }};{{ talk.endTime }}
+{% endfor %}

@@ -1,77 +1,113 @@
-
-{# {% set tech = params.portfolio.tech %} #}
 {% set data = params.data %}
 
-{# {{params.talks | dump}} #}
 <div class="container my-5">
-  <h1>craft 2025</h1>
-  <p> Search easily through the talks </p>
-</div>
-{{
-  component("search", {
+  <h1 class="mb-3">Craft 2025</h1>
+  <p class="text-muted">Search easily through the talks</p>
+
+  {{ component("search", {
     placeholder: "search talks",
     uid: "talks",
     category: "talks",
-    no_result: ["Maybe", "that talk is not yet listed or exists" ]
-  })
-}}
-{# TALKS: {{ talks | dump}} #}
-  <div class="container my-5">
-    <div class="col-lXg-8 px-0">
-      <ul role="list" class="list--no-bullets">
-        {% for talk_key, talk_item in data.talks %}
-          <li data-talk="{{talk_item.title}}" class="talk" role="listitem" tabindex="1">
-            <h6>
-              <span class="talk-value">🎙️ {{talk_item.title}}</span>
-              <span class="talk-search hidden">🎙️ {{talk_item.title}}</span>
-            </h6>
-            <p class="talk-description" data-talk="{{talk_item.description}}">
-              <span class="talk-value">{{talk_item.description}}</span>
-              <span class="talk-search hidden">{{talk_item.description}}</span>
-            </p>
-            <ul role="list">
-              {% for speaker in talk_item.speakers %}
-              <li class="chip level level--{{value.level}}" data-talk="{{speaker.name}}" role="listitem" tabindex="1">
-                  {% if data.speakers[speaker.slug].image and data.speakers[speaker.slug].image != "" %}
-                    <img src="https://craft-conf.com{{data.speakers[speaker.slug].image}}" alt="Icon of {{speaker.name}}" width="96" height="96">
-                  {% endif %}
-                  <span class="talk-value">{{speaker.name}}</span>
-                  <span class="talk-search hidden">{{speaker.name}}</span>
-          
-                </li>
-              {% endfor %}
-            </ul>
-            <ul role="list">
-              {% for tag in talk_item.tags %}
-                <li class="chip chip--small level level--{{value.level}}" data-talk="{{tag.name}}" role="listitem" tabindex="1">
-                  {# <img src="/assets/tech/{{value.icon}}" alt="Icon of {{value.name}}" width="96" height="96"> #}
-                  <span class="talk-value">{{tag.name}}</span>
-                  <span class="talk-search hidden">{{tag.name}}</span>
-          
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% endfor %}
-</ul>
-      
+    no_result: ["Maybe", "that talk is not yet listed or exists"]
+  }) }}
 
-    </div>
-    <div class="container my-5">
-      <small>Legende:</small>
-      <div class="levels">
-        {% for key, value in params.portfolio.levels %}
-        <div class="chip level level--{{value}} level--small chip--small d-block">
-          {{key}}
+  <div class="my-4">
+    {% set filter_groups = { tag: [], stage: [], speaker: [] } %}
+    {% for key, talk in data.talks %}
+      {% for tag in talk.tags %}
+        {% if tag.name not in filter_groups.tag %}
+          {% set filter_groups = filter_groups | merge({ tag: filter_groups.tag.concat([tag.name]) }) %}
+        {% endif %}
+      {% endfor %}
+      {% if talk.stage and talk.stage not in filter_groups.stage %}
+        {% set filter_groups = filter_groups | merge({ stage: filter_groups.stage.concat([talk.stage]) }) %}
+      {% endif %}
+      {% for speaker in talk.speakers %}
+        {% set sp = data.speakers[speaker.slug] %}
+        {% if sp.name not in filter_groups.speaker %}
+          {% set filter_groups = filter_groups | merge({ speaker: filter_groups.speaker.concat([sp.name]) }) %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    {% for category in ['tag', 'stage', 'speaker'] %}
+      <div class="filter-group my-3">
+        <strong class="text-capitalize">{{ category }}s:</strong>
+        <div class="d-flex flex-wrap gap-2 mt-2" id="filter-{{ category }}">
+          {% for item in filter_groups[category] %}
+            <button class="btn btn-sm btn-outline-secondary filter-btn"
+                    data-filter-type="{{ category }}"
+                    data-filter-value="{{ item }}"
+                    {% if loop.index > 5 %}style="display:none"{% endif %}>
+              {{ item }}
+            </button>
+          {% endfor %}
         </div>
-        {% endfor %}
+        {% if filter_groups[category] | length > 10 %}
+          <button class="btn btn-sm btn-link p-0 mt-1" type="button"
+                  data-toggle-filter="{{ category }}">Show more</button>
+        {% endif %}
       </div>
-
-    </div>
-
-        
-
-
-      {# <a href="https://getbootstrap.com" class="btn btn-primary">Read the Bootstrap docs</a>
-      <a href="https://github.com/twbs/examples" class="btn btn-secondary">View on GitHub</a> #}
+    {% endfor %}
   </div>
+</div>
+
+<div class="container" data-search="talks">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for key, talk in data.talks %}
+      <div class="col">
+        <div class="card h-100 talk-card shadow-sm d-flex flex-column" data-talk="{{ talk.title }}">
+          <div class="card-body d-flex flex-column">
+            <div class="mb-2">
+              <span class="badge bg-primary" style="background-color: #{{data.stages[talk.stage].color}} !important">{{ talk.stage }}</span>
+            </div>
+
+            <h5 class="card-title">
+              <a href="https://craft-conf.com/2025/talk/{{ talk.slug }}" target="_blank" class="text-decoration-none">
+                <span class="talk-value">🎙️ {{ talk.title }}</span>
+                <span class="talk-search hidden">🎙️ {{ talk.title }}</span>
+              </a>
+            </h5>
+
+            <p class="card-text text-muted">
+              <span class="talk-value">{{ talk.description }}</span>
+              <span class="talk-search hidden">{{ talk.description }}</span>
+            </p>
+
+            {% if talk.speakers.length %}
+              <div class="mt-auto">
+                <h6>Speakers:</h6>
+                <ul class="list-unstyled d-flex flex-wrap gap-2">
+                  {% for speaker in talk.speakers %}
+                    {% set sp = data.speakers[speaker.slug] %}
+                    <li class="d-flex align-items-center gap-2 chip level level--{{ sp.level }}" data-talk="{{ sp.name }}">
+                      {% if sp.image %}
+                        <img src="https://craft-conf.com{{ sp.image }}" alt="{{ sp.name }}" width="48" height="48" class="rounded-circle">
+                      {% endif %}
+                      <span class="talk-value">{{ sp.name }}</span>
+                      <span class="talk-search hidden">{{ sp.name }}</span>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            {% if talk.tags.length %}
+              <div>
+                <h6 class="mt-3">Tags:</h6>
+                <ul class="list-unstyled d-flex flex-wrap gap-2">
+                  {% for tag in talk.tags %}
+                    <li class="chip chip--small level level--{{ tag.level }}" data-talk="{{ tag.name }}">
+                      <span class="talk-value">{{ tag.name }}</span>
+                      <span class="talk-search hidden">{{ tag.name }}</span>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

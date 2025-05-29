@@ -4,7 +4,7 @@ export const command = (command: string, doLog = false, showError = false) => {
   let output: string = '';
   let errorText: string = '';
   try {
-    output = execSync(`${command}`, {timeout: 3000});
+    output = execSync(`${command}`, {timeout: 10000});
   } catch (e: any) {
     errorText = e;
   }

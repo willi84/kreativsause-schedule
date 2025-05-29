@@ -223,7 +223,7 @@ const versionLive = getVersion('https://craft-schedule.vercel.app/');
 
 LOG(OK, ' API is running...more!!!');
 const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
-const doUpdate = versionLive === origData.version;
+const doUpdate = versionLive?.toString() !== origData.version?.toString();
 let proceed = true;
 console.log(`live version: ${versionLive}, page version: ${origData.version}, doUpdate: ${doUpdate}`);
 if(!IS_DEV){

@@ -7,6 +7,13 @@ const HTMLParser = require('node-html-parser');
 const PAGE = 'https://craft-conf.com/2025'
 const scheduleUrl = [`${PAGE}/schedule`]
 
+const getVersion = (url: string) => {
+        const html = command(`curl -s ${url}`);
+    var root = HTMLParser.parse(html);
+    const data = root.querySelector('[data-version]');
+    return data ?  data.getAttribute('data-version') : 'null';
+}
+
 const getPageData = (url: string) => {
     const httpStatus = getHttpStatusItem(url, true);
 
@@ -40,12 +47,13 @@ const removeHtmlTags = (htmlString: string) => {
     return htmlString.replace(/<[^>]*>/g, '');
 }
 
-const processData = (data: any) => {
+const processData = (data: any, doUpdate: boolean) => {
     const finalData: any = {
         stages: {},
         talks: {},
         tags: {},
         speakers: {},
+        version: data.version
     }
     for (const day of data.schedule) {
         console.log(day.date);
@@ -156,6 +164,9 @@ const processData = (data: any) => {
     LOG(OK, `isDEV: ${IS_DEV}`);
     const numAllTalks = Object.keys(finalData.talks).length;
     let numTalk = 0;
+    if(!IS_DEV && !doUpdate){
+        return
+    }
     // get details of each talk
     for (const talkId in finalData.talks) {
         numTalk++;
@@ -207,14 +218,29 @@ const createMarkdownFile = (data: any) => {
     return markdownContent;
 
 }
+const IS_DEV = process.env.NODE_ENV === 'development';
+const versionLive = getVersion('https://craft-schedule.vercel.app/');
+console.log(versionLive)
 
 LOG(OK, ' API is running...more!!!');
 const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
-const optimizedData = processData(origData);
-const cwd = process.cwd();
-const markdownContent = createMarkdownFile(optimizedData);
-// const talkData= getWebsiteData('https://craft-conf.com/2025/talk/cat-hicks', ['talk', 'speakers', 'tags']);
-// writeFileSync(`${cwd}/src/_data/talk_sample.json`, JSON.stringify(talkData, null, 4));
-writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(optimizedData, null, 4));
-writeFileSync(`${cwd}/src/_data/markdown.md`, markdownContent);
-writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(origData, null, 4));
+const doUpdate = versionLive === origData.version;
+let proceed = true;
+if(!IS_DEV){
+    if(!doUpdate){
+        proceed = false;
+    } else {
+        
+    }
+}
+if(proceed){
+    const optimizedData = processData(origData, versionLive === origData.version);
+    const cwd = process.cwd();
+    const markdownContent = createMarkdownFile(optimizedData);
+    // const talkData= getWebsiteData('https://craft-conf.com/2025/talk/cat-hicks', ['talk', 'speakers', 'tags']);
+    // writeFileSync(`${cwd}/src/_data/talk_sample.json`, JSON.stringify(talkData, null, 4));
+    writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(optimizedData, null, 4));
+    writeFileSync(`${cwd}/src/_data/markdown.md`, markdownContent);
+    writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(origData, null, 4));
+
+}

@@ -388,7 +388,7 @@ undefined
   - Tags: architecture, domain-driven design, modernization
   - [Details](https://craft-conf.com/2025/talk/nick-tune)
 
-- **The Hive: a scaling and supple architecture style for your growing and complex domain** by Julien Topçu, Thomas Pierrain
+- **The Hive: a modularization strategy for your modular monolith or microservices** by Julien Topçu, Thomas Pierrain
   - Date: 2025-05-30
   - Time: 14:45 - 15:30
   - Tags: modular monolith, microservices
@@ -488,7 +488,7 @@ a journey from static documentation to generative AI** by Csaba Gecse, Zsófia S
 - **Diversity: Two steps forward, one step back (just keep it going)** by Noémi Mislyenácz, Irina Loginova, Zach Pendleton, Mátyás-Kollár Gabriella
   - Date: 2025-05-29
   - Time: 16:55 - 17:40
-  - Tags: 
+  - Tags: ai, leadership, youbelong
   - [Details](https://craft-conf.com/2025/talk/panel-about-diversity)
 
 - **AI as a Catalyst, Not a Replacement: Empowering Developers in the Age of Infinite Input** by Erik Slooten

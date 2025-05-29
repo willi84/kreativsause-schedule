@@ -3385,7 +3385,44 @@
                                 "slides_url": null,
                                 "is_keynote": false,
                                 "is_online": false,
-                                "tags": [],
+                                "tags": [
+                                    {
+                                        "id": 2378,
+                                        "conference_year_id": 106,
+                                        "name": "ai",
+                                        "is_trending": false,
+                                        "created_at": "2024-05-03 04:40:39",
+                                        "updated_at": "2024-05-03 04:40:39",
+                                        "pivot": {
+                                            "talk_id": 1464,
+                                            "tag_id": 2378
+                                        }
+                                    },
+                                    {
+                                        "id": 2383,
+                                        "conference_year_id": 106,
+                                        "name": "leadership",
+                                        "is_trending": false,
+                                        "created_at": "2024-05-03 04:40:39",
+                                        "updated_at": "2024-05-03 04:40:39",
+                                        "pivot": {
+                                            "talk_id": 1464,
+                                            "tag_id": 2383
+                                        }
+                                    },
+                                    {
+                                        "id": 2392,
+                                        "conference_year_id": 106,
+                                        "name": "youbelong",
+                                        "is_trending": false,
+                                        "created_at": "2024-05-03 04:40:39",
+                                        "updated_at": "2024-05-03 04:40:39",
+                                        "pivot": {
+                                            "talk_id": 1464,
+                                            "tag_id": 2392
+                                        }
+                                    }
+                                ],
                                 "speakers": [
                                     {
                                         "name": "Noémi Mislyenácz",
@@ -6081,7 +6118,7 @@
                             "talk": {
                                 "id": 1448,
                                 "topic": "craft",
-                                "title": "The Hive: a scaling and supple architecture style for your growing and complex domain",
+                                "title": "The Hive: a modularization strategy for your modular monolith or microservices",
                                 "slug": "julien-topcu",
                                 "video_url": null,
                                 "slides_url": "https://slides.com/julientopcu/the-hive-a-scaling-and-supple-architecture-style-for-your-growing-and-complex-domain",

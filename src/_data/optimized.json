@@ -2382,7 +2382,7 @@
         "1448": {
             "id": 1448,
             "day": "2025-05-30",
-            "title": "The Hive: a scaling and supple architecture style for your growing and complex domain",
+            "title": "The Hive: a modularization strategy for your modular monolith or microservices",
             "stage": "Pink stage",
             "is_keynote": false,
             "is_live": true,
@@ -2857,7 +2857,20 @@
                     "id": 1745
                 }
             ],
-            "tags": [],
+            "tags": [
+                {
+                    "id": 2378,
+                    "name": "ai"
+                },
+                {
+                    "id": 2383,
+                    "name": "leadership"
+                },
+                {
+                    "id": 2392,
+                    "name": "youbelong"
+                }
+            ],
             "date": "2025-05-29",
             "startTime": "16:55",
             "endTime": "17:40",
@@ -3324,6 +3337,10 @@
             "id": 2405,
             "name": "technical debt management"
         },
+        "youbelong": {
+            "id": 2392,
+            "name": "youbelong"
+        },
         "TECH LEADERS": {
             "id": 2534,
             "name": "TECH LEADERS"
@@ -3339,10 +3356,6 @@
         "self confidence": {
             "id": 2390,
             "name": "self confidence"
-        },
-        "youbelong": {
-            "id": 2392,
-            "name": "youbelong"
         },
         "unlimited potential": {
             "id": 2393,
@@ -3978,5 +3991,6 @@
             "bio": "",
             "slug": "ferenc-karasz"
         }
-    }
+    },
+    "version": "f120758403c0da941fe09e6ab981651e"
 }

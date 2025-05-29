@@ -32,3 +32,9 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: ./
           prod: true
+      - name: 🧱 Upload JSON as release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: src/_data/optimized.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

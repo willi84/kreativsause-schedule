@@ -220,12 +220,12 @@ const createMarkdownFile = (data: any) => {
 }
 const IS_DEV = process.env.NODE_ENV === 'development';
 const versionLive = getVersion('https://craft-schedule.vercel.app/');
-console.log(versionLive)
 
 LOG(OK, ' API is running...more!!!');
 const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
 const doUpdate = versionLive === origData.version;
 let proceed = true;
+console.log(`live version: ${versionLive}, page version: ${origData.version}, doUpdate: ${doUpdate}`);
 if(!IS_DEV){
     if(!doUpdate){
         proceed = false;

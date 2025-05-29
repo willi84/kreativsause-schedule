@@ -229,6 +229,7 @@ let proceed = true;
 if(!IS_DEV){
     if(!doUpdate){
         proceed = false;
+        LOG(OK, 'no update needed')
     } else {
         
     }

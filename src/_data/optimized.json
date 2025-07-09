@@ -176,7 +176,7 @@
             "level": "General",
             "video_url": null,
             "slides_url": null,
-            "description": ""
+            "description": "Before you invest in AI, do you know where it will actually make a difference? Flow Engineering is a fast, fun, collaborative program for teams who want to get more done,&nbsp;faster, and with less effort. It could save you from wasting months and millions on AI investments that don't help, or help you gain buy-in for the investments that will help.It's a series of mapping workshops to visualize and assess value creation and flow, and reveal opportunities for performance improvement. By creating its 5 Key Maps, you can build and share your vision, save hours of toil every week, and confidently invest in what's next.Takeaways:- How to begin with the end in mind- How to diagnose and improve workflow, starting in 90 minutes- How collaborative mapping boosts alignment, clarity, and confidence- How to build actionable, data-driven maps that make the path clea"
         },
         "1382": {
             "id": 1382,
@@ -1137,7 +1137,7 @@
         "1414": {
             "id": 1414,
             "day": "2025-05-30",
-            "title": "Tame your Product Manager: Connecting Business Goals and User Outcomes with Impact Mapping",
+            "title": "Tame your Product Manager: Connect Business Goals and Your Daily Work with Impact Mapping",
             "stage": "Platform 2",
             "is_keynote": false,
             "is_live": true,
@@ -1919,16 +1919,16 @@
         "1435": {
             "id": 1435,
             "day": "2025-05-30",
-            "title": "Henrik Kniberg's hands on tutorial",
+            "title": "The Intersection of Architecture and Implementation",
             "stage": "Green stage",
             "is_keynote": false,
             "is_live": true,
             "speakers": [
                 {
-                    "name": "Henrik Kniberg",
-                    "slug": "henrik-kniberg",
+                    "name": "Mark Richards",
+                    "slug": "mark-richards",
                     "topic": "craft",
-                    "id": 1703
+                    "id": 1666
                 }
             ],
             "tags": [
@@ -3923,13 +3923,6 @@
             "name": "Susan Fung",
             "bio": "",
             "slug": "susan-fung"
-        },
-        "henrik-kniberg": {
-            "id": 1703,
-            "topic": "craft",
-            "name": "Henrik Kniberg",
-            "bio": "",
-            "slug": "henrik-kniberg"
         },
         "florin-coros": {
             "id": 1753,

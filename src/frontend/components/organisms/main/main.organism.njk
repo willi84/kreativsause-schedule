@@ -1,5 +1,10 @@
 {% set data = params.data %}
 
+{# {% set all_times = data.talks  | unique | sort  %} #}
+{% set all_times = data.talks | entries %}
+{% set all_stages = data.stages  %}
+{# {% set all_stages = data.talks | map(attribute='stage') | unique | sort %} #}
+
 <div class="container my-5">
   <h1 class="mb-3">Craft 2025</h1>
   <p class="text-muted">Search through all talks</p>
@@ -11,74 +16,72 @@
     no_result: ["Maybe", "that talk is not yet listed or exists"]
   }) }}
 
-  {# ==== FILTER AREA ==== #}
-  <div class="my-4">
-    {% set filter_groups = { tag: [], stage: [], speaker: [] } %}
-    {% for key, talk in data.talks %}
-      {% for tag in talk.tags %}
-        {% if tag.name not in filter_groups.tag %}
-          {% set filter_groups = filter_groups | merge({ tag: filter_groups.tag.concat([tag.name]) }) %}
-        {% endif %}
-      {% endfor %}
-      {% if talk.stage and talk.stage not in filter_groups.stage %}
-        {% set filter_groups = filter_groups | merge({ stage: filter_groups.stage.concat([talk.stage]) }) %}
-      {% endif %}
-      {% for speaker in talk.speakers %}
-        {% set sp = data.speakers[speaker.slug] %}
-        {% if sp.name not in filter_groups.speaker %}
-          {% set filter_groups = filter_groups | merge({ speaker: filter_groups.speaker.concat([sp.name]) }) %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
+  {# Filter-Erzeugung aus data.talks #}
+{% set filter_groups = { tag: [], stage: [], speaker: [] } %}
+{% for key, talk in data.talks %}
+  {% for tag in talk.tags %}
+    {% if tag.name not in filter_groups.tag %}
+      {% set filter_groups = filter_groups | merge({ tag: filter_groups.tag.concat([tag.name]) }) %}
+    {% endif %}
+  {% endfor %}
+  {% if talk.stage and talk.stage not in filter_groups.stage %}
+    {% set filter_groups = filter_groups | merge({ stage: filter_groups.stage.concat([talk.stage]) }) %}
+  {% endif %}
+  {% for speaker in talk.speakers %}
+    {% set sp = data.speakers[speaker.slug] %}
+    {% if sp and sp.name not in filter_groups.speaker %}
+      {% set filter_groups = filter_groups | merge({ speaker: filter_groups.speaker.concat([sp.name]) }) %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
 
-    {% for category in ['tag', 'stage', 'speaker'] %}
-      <div class="filter-group mb-3">
-        <div class="d-flex flex-column flex-md-row align-items-md-start justify-content-between">
-          <strong class="text-capitalize me-md-3 mb-1 mb-md-0" style="min-width: 70px;">{{ category }}s:</strong>
-          <div class="d-flex flex-wrap gap-1" id="filter-{{ category }}">
-            {% for item in filter_groups[category] %}
-              <button class="btn btn-sm btn-light text-dark border filter-btn py-0 px-2"
-                      data-filter-type="{{ category }}"
-                      data-filter-value="{{ item }}"
-                      {% if loop.index > 10 %}style="display:none"{% endif %}>
-                {{ item }}
-              </button>
-            {% endfor %}
-          </div>
+<div class="filters mt-4 mb-5">
+  {% for category in ['tag', 'stage', 'speaker'] %}
+    <div class="filter-group mb-3">
+      <div class="d-flex flex-wrap align-items-center">
+        <strong class="me-2 text-light text-capitalize">{{ category }}:</strong>
+        <div class="d-flex flex-wrap gap-1" id="filter-{{ category }}">
+          {% for item in filter_groups[category] %}
+            <button class="btn btn-sm btn-outline-secondary filter-btn"
+                    data-filter-type="{{ category }}"
+                    data-filter-value="{{ item }}"
+                    {% if loop.index > 10 %}style="display:none"{% endif %}>
+              {{ item }}
+            </button>
+          {% endfor %}
         </div>
         {% if filter_groups[category] | length > 10 %}
-          <div class="text-end mt-1">
-            <button class="btn btn-link btn-sm p-0 text-white-50" type="button"
-                    data-toggle-filter="{{ category }}">Show more</button>
-          </div>
+          <button class="btn btn-link btn-sm text-light ms-auto" data-toggle-filter="{{ category }}">Show more</button>
         {% endif %}
       </div>
-    {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+
+  <div class="d-flex justify-content-end my-3">
+    <button id="switchView" class="btn btn-outline-light btn-sm">🔀 Switch to Slot View</button>
   </div>
 </div>
 
-{# ==== TALK CARDS ==== #}
-<div class="container" data-search="talks">
+<div class="container" id="talks-card-view" data-search="talks">
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     {% for key, talk in data.talks %}
       <div class="col">
         <div class="card h-100 talk-card shadow-sm d-flex flex-column" data-talk="{{ talk.title }}">
           <div class="card-body d-flex flex-column">
-            <div class="mb-2">
-              <span class="badge text-light"
-                    style="background-color: #{{ data.stages[talk.stage].color }}">
-                {{ talk.stage }}
-              </span>
-            </div>
+            {% if talk.stage and data.stages[talk.stage] %}
+              <div class="mb-2">
+                <span class="badge text-light"
+                      style="background-color: #{{ data.stages[talk.stage].color }}">
+                  {{ talk.stage }}
+                </span>
+              </div>
+            {% endif %}
 
-            <h5 class="card-title">
-              <a href="https://craft-conf.com/2025/talk/{{ talk.slug }}"
-                 class="text-decoration-none"
-                 target="_blank"
-                 rel="noopener">
-                <span class="talk-value">🎙️ {{ talk.title }}</span>
-                <span class="talk-search hidden">🎙️ {{ talk.title }}</span>
-              </a>
+            <h5 class="card-title textX-light">
+              <span class="talk-value">🎙️ {{ talk.title }}</span>
+              <span class="talk-search hidden">🎙️ {{ talk.title }}</span>
             </h5>
 
             {% if talk.speakers.length %}
@@ -87,13 +90,15 @@
                 <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
                   {% for speaker in talk.speakers %}
                     {% set sp = data.speakers[speaker.slug] %}
-                    <li class="d-flex align-items-center gap-2 chip level level--{{ sp.level }}" data-talk="{{ sp.name }}">
-                      {% if sp.image %}
-                        <img src="https://craft-conf.com{{ sp.image }}" alt="{{ sp.name }}" width="32" height="32" class="rounded-circle">
-                      {% endif %}
-                      <span class="talk-value">{{ sp.name }}</span>
-                      <span class="talk-search hidden">{{ sp.name }}</span>
-                    </li>
+                    {% if sp %}
+                      <li class="d-flex align-items-center gap-2 chip level" data-talk="{{ sp.name }}">
+                        {% if sp.image %}
+                          <img src="https://craft-conf.com{{ sp.image }}" alt="{{ sp.name }}" width="32" height="32" class="rounded-circle">
+                        {% endif %}
+                        <span class="talk-value">{{ sp.name }}</span>
+                        <span class="talk-search hidden">{{ sp.name }}</span>
+                      </li>
+                    {% endif %}
                   {% endfor %}
                 </ul>
               </div>
@@ -105,17 +110,19 @@
               </small>
             </div>
 
-            <p class="card-text text-muted">
-              <span class="talk-value">{{ talk.description }}</span>
-              <span class="talk-search hidden">{{ talk.description }}</span>
-            </p>
+            {% if talk.description %}
+              <p class="card-text text-muted">
+                <span class="talk-value">{{ talk.description }}</span>
+                <span class="talk-search hidden">{{ talk.description }}</span>
+              </p>
+            {% endif %}
 
             {% if talk.tags.length %}
               <div class="mt-auto">
                 <h6 class="mt-3 text-light">Tags:</h6>
                 <ul class="list-unstyled d-flex flex-wrap gap-2">
                   {% for tag in talk.tags %}
-                    <li class="chip chip--small level level--{{ tag.level }}" data-talk="{{ tag.name }}">
+                    <li class="chip chip--small level" data-talk="{{ tag.name }}">
                       <span class="talk-value">{{ tag.name }}</span>
                       <span class="talk-search hidden">{{ tag.name }}</span>
                     </li>
@@ -130,9 +137,64 @@
   </div>
 </div>
 
+{{all_times | dump}}
+<div class="container d-none" id="talks-slot-view">
+  <h2 class="mt-5 mb-4 text-light">Slot View</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-dark align-middle">
+      <thead>
+        <tr>
+          <th>Time</th>
+          {% for k, stage in all_stages %}
+            <th>{{ stage.name }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for t, time in all_times %}
+          <tr>
+            <td><strong>{{ time }}</strong></td>
+            {% for k, stage in all_stages %}
+              <td>
+                {% for key, talk in data.talks %}
+                  {% if talk.startTime == time and talk.stage == stage and talk.stage in data.stages %}
+                    <div class="talk-card mb-2" data-talk="{{ talk.title }}">
+                      <div class="text-light talk-value"><strong>{{ talk.title }}</strong></div>
+                      <div class="text-muted small">{{ talk.day }} – {{ talk.startTime }}–{{ talk.endTime }}</div>
+                      {% for speaker in talk.speakers %}
+                        {% set sp = data.speakers[speaker.slug] %}
+                        {% if sp %}
+                          <div class="small text-light talk-value">{{ sp.name }}</div>
+                        {% endif %}
+                      {% endfor %}
+                      <div class="talk-value small text-muted">{{ talk.description }}</div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <footer class="container text-center my-5 small text-light">
   Made with <span style="color: red;">♥</span> by Robert Willemelis<br />
-  built from version <span data-version="{{data.version}}">#{{data.version}}</span><br />
+  built from version <span data-version="{{ data.version }}">#{{ data.version }}</span><br />
   <img src="/assets/tech/github.svg" width="16" height="16" class="rounded-circle">
-  <a class="text-light" href="https://github.com/willi84/craft-schedule">Github</a>
+  <a class="text-light" href="https://github.com/willi84/craft-schedule" target="_blank">Github</a>
 </footer>
+
+<script>
+document.getElementById("switchView")?.addEventListener("click", () => {
+  const card = document.getElementById("talks-card-view");
+  const slot = document.getElementById("talks-slot-view");
+  const btn = document.getElementById("switchView");
+  const isCard = !card.classList.contains("d-none");
+  card.classList.toggle("d-none", isCard);
+  slot.classList.toggle("d-none", !isCard);
+  btn.innerText = isCard ? "🔀 Switch to Card View" : "🔀 Switch to Slot View";
+});
+</script>

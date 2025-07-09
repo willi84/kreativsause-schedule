@@ -160,7 +160,7 @@ undefined
   - Tags: 
   - [Details](https://craft-conf.com/2025/talk/cate-huston)
 
-- **Tame your Product Manager: Connecting Business Goals and User Outcomes with Impact Mapping** by Büşra Coşkuner
+- **Tame your Product Manager: Connect Business Goals and Your Daily Work with Impact Mapping** by Büşra Coşkuner
   - Date: 2025-05-30
   - Time: 15:40 - 16:25
   - Tags: product thinking, agile development
@@ -430,7 +430,7 @@ undefined
   - Tags: code quality, design, domain model, programming, refactoring, software architecture, software development, technical debt, technical debt management, hands-on
   - [Details](https://craft-conf.com/2025/talk/hands-on-duncan-mcgregor)
 
-- **Henrik Kniberg's hands on tutorial** by Henrik Kniberg
+- **The Intersection of Architecture and Implementation** by Mark Richards
   - Date: 2025-05-30
   - Time: 10:30 - 12:10
   - Tags: hands-on

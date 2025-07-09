@@ -39,6 +39,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksFilter("merge", mergeFilter);
   eleventyConfig.addNunjucksFilter("svg", svgFilter);
   eleventyConfig.addNunjucksFilter("dateTime", dateTimeFilter);
+  eleventyConfig.addNunjucksFilter("entries", obj => Object.entries(obj));
+   eleventyConfig.addNunjucksFilter("map", function(arr, prop) {
+    if (!Array.isArray(arr)) return [];
+    return arr.map(item => item?.[prop]);
+  });
+ eleventyConfig.addNunjucksFilter("unique", function(array) {
+    if (!Array.isArray(array)) return [];
+    return [...new Set(array)];
+  });
 
   // Read Vite's manifest.json, and add script tags for the entry files
   // You could decide to do more things here, such as adding preload/prefetch tags

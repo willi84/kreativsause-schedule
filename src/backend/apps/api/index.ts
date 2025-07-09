@@ -1,3 +1,4 @@
+import { write } from 'fs';
 import { command } from "../../_shared/cmd/cmd";
 import { readFile, writeFileSync } from "../../_shared/fs/fs";
 import { getHttpStatusItem } from "../../_shared/http/http";
@@ -16,12 +17,15 @@ const getVersion = (url: string) => {
 
 const getPageData = (url: string) => {
     const httpStatus = getHttpStatusItem(url, true);
-
+    const cmd = `curl -s ${url}`;
+    console.log(cmd)
     const html = command(`curl -s ${url}`);
+    // writeFileSync('tmp.html', html);
     var root = HTMLParser.parse(html);
     const data = root.querySelector('#app');
     const jsonText = data.getAttribute('data-page');
     const json = JSON.parse(jsonText);
+    // writeFileSync('tmp.json', JSON.stringify(json, null, 4));
     
     return json;
 }
@@ -56,7 +60,6 @@ const processData = (data: any, doUpdate: boolean) => {
         version: data.version
     }
     for (const day of data.schedule) {
-        console.log(day.date);
         const stages = day.stages;
         for (const stage of stages) {
             const stageId = stage.name;
@@ -161,12 +164,11 @@ const processData = (data: any, doUpdate: boolean) => {
         }
     }
     const IS_DEV = process.env.NODE_ENV === 'development';
-    LOG(OK, `isDEV: ${IS_DEV}`);
     const numAllTalks = Object.keys(finalData.talks).length;
     let numTalk = 0;
-    if(!IS_DEV && !doUpdate){
-        return
-    }
+    // if(!IS_DEV && !doUpdate){
+    //     return
+    // }
     // get details of each talk
     for (const talkId in finalData.talks) {
         numTalk++;
@@ -196,6 +198,7 @@ const processData = (data: any, doUpdate: boolean) => {
             }
         }
     }
+    console.log(`Processed ${numTalk} talks out of ${numAllTalks}`);
     return finalData;
 }
 
@@ -235,11 +238,15 @@ if(!IS_DEV){
     }
 }
 if(proceed){
-    const optimizedData = processData(origData, versionLive === origData.version);
+    const optimizedData = processData(origData, versionLive !== origData.version);
     const cwd = process.cwd();
     const markdownContent = createMarkdownFile(optimizedData);
+    
+    
     // const talkData= getWebsiteData('https://craft-conf.com/2025/talk/cat-hicks', ['talk', 'speakers', 'tags']);
     // writeFileSync(`${cwd}/src/_data/talk_sample.json`, JSON.stringify(talkData, null, 4));
+
+
     writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(optimizedData, null, 4));
     writeFileSync(`${cwd}/src/_data/markdown.md`, markdownContent);
     writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(origData, null, 4));

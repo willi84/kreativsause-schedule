@@ -4219,7 +4219,7 @@
                                 "title": "Platform Team Structures and Concerns",
                                 "slug": "adrian-cockcroft",
                                 "video_url": null,
-                                "slides_url": "https://github.com/adrianco/slides/blob/master/Platform_Engineering_Craft25.pdf",
+                                "slides_url": "https://www.dropbox.com/scl/fi/vqamyckny91craec9dlol/Platform_Engineering_Craft25.pptx?rlkey=mfimkkux48nsw20iqwi2x3ig8&st=r355jd2s&dl=0",
                                 "is_keynote": false,
                                 "is_online": false,
                                 "tags": [
@@ -4554,7 +4554,7 @@
                             "talk": {
                                 "id": 1414,
                                 "topic": "craft",
-                                "title": "Tame your Product Manager: Connecting Business Goals and User Outcomes with Impact Mapping",
+                                "title": "Tame your Product Manager: Connect Business Goals and Your Daily Work with Impact Mapping",
                                 "slug": "busra-coskuner",
                                 "video_url": null,
                                 "slides_url": null,
@@ -6271,7 +6271,7 @@
                             "talk": {
                                 "id": 1435,
                                 "topic": "craft",
-                                "title": "Henrik Kniberg's hands on tutorial",
+                                "title": "The Intersection of Architecture and Implementation",
                                 "slug": "hands-on-henrik-kniberg",
                                 "video_url": null,
                                 "slides_url": null,
@@ -6293,12 +6293,12 @@
                                 ],
                                 "speakers": [
                                     {
-                                        "name": "Henrik Kniberg",
+                                        "name": "Mark Richards",
                                         "topic": "craft",
-                                        "slug": "henrik-kniberg",
+                                        "slug": "mark-richards",
                                         "pivot": {
                                             "talk_id": 1435,
-                                            "speaker_id": 1703
+                                            "speaker_id": 1666
                                         }
                                     }
                                 ]

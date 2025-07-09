@@ -7,7 +7,7 @@ export const createSearch = (target: string, uid: string, source: string) => {
 
   const updateSearch = (term: string) => {
     const value = term.toLowerCase();
-    const cards = document.querySelectorAll('.talk-card');
+    const cards = document.querySelectorAll<HTMLElement>('.talk-card');
     let visibleCount = 0;
 
     cards.forEach(card => {
@@ -26,22 +26,22 @@ export const createSearch = (target: string, uid: string, source: string) => {
       if (show) {
         visibleCount++;
         searchable.forEach(el => el.classList.add('hidden'));
-        card.querySelectorAll('.talk-search').forEach((el, i) => {
+        card.querySelectorAll<HTMLElement>('.talk-search').forEach((el, i) => {
           const original = searchable[i]?.textContent || '';
           el.classList.remove('hidden');
           el.innerHTML = getHighlightedText(original, value);
         });
       } else {
         searchable.forEach(el => el.classList.remove('hidden'));
-        card.querySelectorAll('.talk-search').forEach(el => {
+        card.querySelectorAll<HTMLElement>('.talk-search').forEach(el => {
           el.classList.add('hidden');
           el.innerHTML = '';
         });
       }
     });
 
-    const noResult = searchArea?.querySelector('.search__no-result') as HTMLElement | null;
-    const searchItem = noResult?.querySelector('.search__value') as HTMLElement | null;
+    const noResult = searchArea?.querySelector<HTMLElement>('.search__no-result');
+    const searchItem = noResult?.querySelector<HTMLElement>('.search__value');
     if (noResult) {
       noResult.classList.toggle('search__info--hidden', visibleCount > 0);
       if (searchItem) searchItem.textContent = value;
@@ -52,12 +52,14 @@ export const createSearch = (target: string, uid: string, source: string) => {
     history.replaceState({}, '', url);
   };
 
-  const input = searchArea?.querySelector('input') as HTMLInputElement;
+  const input = searchArea?.querySelector<HTMLInputElement>('input');
   input?.addEventListener('keyup', e => updateSearch((e.target as HTMLInputElement).value));
   if (urlParams.has('search')) {
     const val = urlParams.get('search')!;
-    input!.value = val;
-    updateSearch(val);
+    if (input) {
+      input.value = val;
+      updateSearch(val);
+    }
   }
 
   document.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach(btn => {
@@ -78,13 +80,16 @@ export const createSearch = (target: string, uid: string, source: string) => {
     });
   });
 
-  document.querySelectorAll('[data-toggle-filter]').forEach(btn => {
+  document.querySelectorAll<HTMLElement>('[data-toggle-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
       const type = btn.getAttribute('data-toggle-filter')!;
-      const container = document.getElementById(`filter-${type}`)!;
-      container.querySelectorAll('.filter-btn').forEach((btn, i) => {
-        if (i >= 10) btn.setAttribute('style', 'display: inline-block');
+      const container = document.getElementById(`filter-${type}`);
+      if (!container) return;
+
+      container.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach((btn, i) => {
+        if (i >= 10) btn.style.display = 'inline-block';
       });
+
       btn.remove();
     });
   });
@@ -94,6 +99,7 @@ export const getHighlightedText = (text: string, searchTerm: string): string => 
   if (!searchTerm) return text;
   return text.split(new RegExp(`(${searchTerm})`, 'gi')).map(part =>
     part.toLowerCase() === searchTerm.toLowerCase()
-      ? `<span class="search-match">${part}</span>` : part
+      ? `<span class="search-match">${part}</span>`
+      : part
   ).join('');
 };

@@ -26,3 +26,7 @@ body{
 .talk-card.hidden {
   display: none !important;
 }
+
+.teaser-image{
+  max-height: 200px; width: 100%; object-fit: cover; overflow: hidden;
+}

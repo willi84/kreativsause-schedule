@@ -2,253 +2,365 @@ import { write } from 'fs';
 import { command } from "../../_shared/cmd/cmd";
 import { readFile, writeFileSync } from "../../_shared/fs/fs";
 import { getHttpStatusItem } from "../../_shared/http/http";
-import { LOG, OK, WARNING } from "../../_shared/log/log";
+import { DEBUG, LOG, OK, WARNING } from "../../_shared/log/log";
+import { IDS } from "./inde.config";
 const HTMLParser = require('node-html-parser');
 
-const PAGE = 'https://craft-conf.com/2025'
-const scheduleUrl = [`${PAGE}/schedule`]
 
-const getVersion = (url: string) => {
-        const html = command(`curl -s ${url}`);
-    var root = HTMLParser.parse(html);
-    const data = root.querySelector('[data-version]');
-    return data ?  data.getAttribute('data-version') : 'null';
-}
+const IS_DEV = process.env.NODE_ENV === 'development';
+console.log(`Running in ${IS_DEV ? 'development' : 'production'} mode`);
 
-const getPageData = (url: string) => {
-    const httpStatus = getHttpStatusItem(url, true);
-    const cmd = `curl -s ${url}`;
-    console.log(cmd)
-    const html = command(`curl -s ${url}`);
-    // writeFileSync('tmp.html', html);
-    var root = HTMLParser.parse(html);
-    const data = root.querySelector('#app');
-    const jsonText = data.getAttribute('data-page');
-    const json = JSON.parse(jsonText);
-    // writeFileSync('tmp.json', JSON.stringify(json, null, 4));
-    
-    return json;
-}
-const getWebsiteData = (url: string, properties: string[]) => {
-    const mainData = getPageData(url);
-    const json: any = {
-        url: mainData.url,
-        version: mainData.version,
-    }
-    for(const property of properties){
-        if (!json.hasOwnProperty(property)) {
-            json[property] = mainData.props[property];
-        }
+const PAGE = 'https://flaeminger.kreativsause.de/programm-2025/'
+const scheduleUrl = [`${PAGE}`]
 
-    }
-    
-    return json;
-}
+
 const removeHtmlTags = (htmlString: string) => {
     if (!htmlString) {
         return '';
     }
     return htmlString.replace(/<[^>]*>/g, '');
 }
-
-const processData = (data: any, doUpdate: boolean) => {
-    const finalData: any = {
-        stages: {},
-        talks: {},
-        tags: {},
-        speakers: {},
-        version: data.version
-    }
-    for (const day of data.schedule) {
-        const stages = day.stages;
-        for (const stage of stages) {
-            const stageId = stage.name;
-            if (!finalData.stages[stageId]) {
-                finalData.stages[stageId] = {
-                    id: stage.id,
-                    name: stage.name,
-                    color: stage.color,
-                    description: stage.description,
-                    slug: stage.slug,
-                    talks: []
-                };
-            }
-            const slots = stage.slots;
-            for(const slot of slots){
-                const startTime = slot.start_time;
-                const endTime = slot.end_time;
-                const talk = slot.talk;
-                if (!talk) {
-                    continue; // Skip if no talk is present
-                }
-                const talkId = talk.id;
-
-                // get speaker data from talk of slots
-                for(const speaker of talk.speakers){
-                    const speakerId = speaker.slug;
-                    if (!finalData.speakers[speakerId]) {
-                        finalData.speakers[speakerId] = {
-                            id: speaker.pivot?.speaker_id || speaker.id,
-                            topic: speaker.topic,
-                            name: speaker.name,
-                            bio: removeHtmlTags(speaker.bio),
-                            image: speaker.image,
-                            slug: speaker.slug
-                        };
-                    }
-                }
-
+const linkChecker = (linkHref: string) => {
                 
-                // get tag from talk of slots
-                for(const tag of talk.tags){
-                    const tagId = tag.name;
-                    if (!finalData.tags[tagId]) {
-                        finalData.tags[tagId] = {
-                            id: tag.id,
-                            name: tag.name,
-                            description: tag.description,
-                            slug: tag.slug
-                        };
-                    }
-                }
-                const speakers = talk.speakers.map((speaker: any) => {
-                    return {
-                        name: speaker.name,
-                        slug: speaker.slug,
-                        topic: speaker.topic,
-                        id: speaker.pivot?.speaker_id || speaker.id
-                    }
-                });
-                const tags = talk.tags.map((tag: any) => { return{ id: tag.id, name: tag.name } });
-                const talk_item = {
-                    id: talkId,
-                    day: day.date,
-                    title: talk.title,
-                    stage: stage.name,
-                    is_keynote: talk.is_keynote,
-                    is_live: !talk.is_online,
-                    speakers: [...speakers],
-                    tags: [...tags],
-                    date: day.date,
-                    startTime: startTime,
-                    endTime: endTime,
-                    slug: talk.slug
-                }
-                if(!finalData.talks[talkId]){
-                    finalData.talks[talkId] = {...talk_item};
-                    finalData.stages[stageId].talks.push(talkId);
-                    // LOG(OK, `Processing talk: ${talk.title} (${talkId})`);
-                    // const talkeItem= getWebsiteData(`https://craft-conf.com/2025/talk/${talk.slug}`, ['talk', 'speakers', 'tags']);
-                    // const talkData = talkeItem.talk;
-                    // finalData.talks[talkId].topic = talkData.topic;
-                    // finalData.talks[talkId].level = talkData.level;
-                    // finalData.talks[talkId].video_url = talkData.video_url;
-                    // finalData.talks[talkId].slides_url = talkData.slides_url;
-                    // finalData.talks[talkId].description = removeHtmlTags(talkData.abstract); // remove html
-                    // for(const speaker of talkeItem.speakers) {
-                    //     const speakerId = speaker.slug;
-                    //     if (finalData.speakers[speakerId]) {
-                    //         finalData.speakers[speakerId].bio = speaker.bio;
-                    //         finalData.speakers[speakerId].image = speaker.image;
-                    //         finalData.speakers[speakerId].company = speaker.company;
-                    //         finalData.speakers[speakerId].twitter = speaker.twitter_handle;
-                    //         finalData.speakers[speakerId].linkedin = speaker.linkedin_profile;
-                    //     } else {
-                    //         LOG(WARNING, `Speaker ${speakerId} not found in main data`);
-                    //     }
-                    // }
-                } else {
-                    LOG(WARNING, `Talk ${talk.title} (${talkId}) already exists, skipping duplicate.`);
-                }
-            }
+    let statusItem: { isValid: boolean, status: string, redirects?: string[], lastLocation?: string, initialUrl?: string }; 
+    const httpStatus = getHttpStatusItem(linkHref, false, 10);
+    const num = parseInt(httpStatus.status, 10);
+    if(num !== 200){
+        const httpStatusRedirects = getHttpStatusItem(linkHref, true, 10);
+        const newStatus  = httpStatusRedirects.status;
+        const numNewStatus = parseInt(newStatus, 10);
+        if(numNewStatus !== 200){
+            console.log(httpStatusRedirects)
+            console.log(httpStatusRedirects.lastLocation);
+            console.log(httpStatusRedirects.initialUrl);
+            console.log('----')
+            statusItem = { isValid: false, status: newStatus === '0' ? 'unknown' : newStatus, redirects: httpStatusRedirects.redirects, lastLocation: httpStatusRedirects.lastLocation, initialUrl: httpStatusRedirects.initialUrl };
+            LOG(WARNING, `Link ${linkHref} returned status ${numNewStatus} for ${httpStatusRedirects.lastLocation}`);
+            
+        } else {
+            statusItem = { isValid: true,  status: newStatus, redirects: httpStatusRedirects.redirects, lastLocation: httpStatusRedirects.lastLocation, initialUrl: httpStatusRedirects.initialUrl };
+            LOG(OK, `Link ${linkHref} returned status ${numNewStatus} for ${httpStatusRedirects.lastLocation}`);
         }
-    }
-    const IS_DEV = process.env.NODE_ENV === 'development';
-    const numAllTalks = Object.keys(finalData.talks).length;
-    let numTalk = 0;
-    // if(!IS_DEV && !doUpdate){
-    //     return
-    // }
-    // get details of each talk
-    for (const talkId in finalData.talks) {
-        numTalk++;
-        if (IS_DEV && numTalk > 10) {
-            LOG(WARNING, `Skipping further talk details in dev mode after 10 talks.`);
-            break; // Skip further processing in dev mode
-        }
-        LOG(OK, `[${numTalk}/${numAllTalks}]Processing talk details for: ${talkId}`);
-        const talk = finalData.talks[talkId];
-        const talkData = getWebsiteData(`${PAGE}/talk/${talk.slug}`, ['talk', 'speakers', 'tags']);
-        const talkItem = talkData.talk;
-        finalData.talks[talkId].topic = talkItem.topic;
-        finalData.talks[talkId].level = talkItem.level;
-        finalData.talks[talkId].video_url = talkItem.video_url;
-        finalData.talks[talkId].slides_url = talkItem.slides_url;
-        finalData.talks[talkId].description = removeHtmlTags(talkItem.abstract); // remove html
-        for (const speaker of talkData.speakers) {
-            const speakerId = speaker.slug;
-            if (finalData.speakers[speakerId]) {
-                finalData.speakers[speakerId].bio = speaker.bio;
-                finalData.speakers[speakerId].image = speaker.image;
-                finalData.speakers[speakerId].company = speaker.company;
-                finalData.speakers[speakerId].twitter = speaker.twitter_handle;
-                finalData.speakers[speakerId].linkedin = speaker.linkedin_profile;
-            } else {
-                LOG(WARNING, `Speaker ${speakerId} not found in main data`);
-            }
-        }
-    }
-    console.log(`Processed ${numTalk} talks out of ${numAllTalks}`);
-    return finalData;
-}
-
-const createMarkdownFile = (data: any) => {
-    let markdownContent = '';
-    for (const stageId in data.stages) {
-        const stage = data.stages[stageId];
-        markdownContent += `## Stage: ${stage.name}\n\n`;
-        markdownContent += `${stage.description}\n\n`;
-        markdownContent += `### Talks:\n\n`;
-        for (const talkId of stage.talks) {
-            const talk = data.talks[talkId];
-            markdownContent += `- **${talk.title}** by ${talk.speakers.map(s => s.name).join(', ')}\n`;
-            markdownContent += `  - Date: ${talk.date}\n`;
-            markdownContent += `  - Time: ${talk.startTime} - ${talk.endTime}\n`;
-            markdownContent += `  - Tags: ${talk.tags.map(t => t.name).join(', ')}\n`;
-            markdownContent += `  - [Details](${PAGE}/talk/${talk.slug})\n\n`;
-        }
-    }
-    return markdownContent;
-
-}
-const IS_DEV = process.env.NODE_ENV === 'development';
-const versionLive = getVersion('https://craft-schedule.vercel.app/');
-
-LOG(OK, ' API is running...more!!!');
-const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
-const doUpdate = versionLive?.toString() !== origData.version?.toString();
-let proceed = true;
-console.log(`live version: ${versionLive}, page version: ${origData.version}, doUpdate: ${doUpdate}`);
-if(!IS_DEV){
-    if(!doUpdate){
-        proceed = false;
-        LOG(OK, 'no update needed')
+        // const newUrl  httpStatusRedirects.lastLocat
+        // const numStatusRedirects = parseInt(httpStatusRedirects.status, 10);
+        // if(numStatusRedirects !== 200){
+        //     console.log(httpStatus);
+        //     LOG(WARNING, `Link ${linkHref} returned status ${httpStatus.code}`);
+        //     data.warnings.push(`Link ${linkHref} returned status ${httpStatus.code}`);
+        // } else {
+        //     LOG(OK, `Link ${linkHref} returned status ${httpStatus.code}`);
+        // }
     } else {
-        
+        statusItem = { isValid: true, status: httpStatus.status, redirects: '0', lastLocation: httpStatus.lastLocation, initialUrl: httpStatus.initialUrl };
+        LOG(OK, `Link ${linkHref} returned status ${httpStatus.status}`);
     }
+    return statusItem;
 }
-if(proceed){
-    const optimizedData = processData(origData, versionLive !== origData.version);
-    const cwd = process.cwd();
-    const markdownContent = createMarkdownFile(optimizedData);
+
+
+const getPageData = (url: string) => {
+    const httpStatus = getHttpStatusItem(url, false, 10);
+    const cmd = `curl -s ${url}`;
+    console.log(url);
+    const html = command(`curl -s ${url}`);
+    // writeFileSync('tmp.html', html);
+    var root = HTMLParser.parse(html);
+
+    const workshopData = {}
+    const articles = root.querySelectorAll('article');
+    for (const article of articles) {
+        const id = article.getAttribute('data-id');
+        const titleElement = article.querySelector('h2');
+        let title = titleElement ? titleElement.text.trim() : 'No Title';
+        // get cost from []
+        const costInfo = title.match(/\[(.*?)\]/);
+        let costs = '';
+        const warnings = [];
+        if (costInfo && costInfo.length > 1) {
+            const costText = costInfo[1].trim();
+            const isFree = ['kostenlos', 'free', 'gratis'].includes(costText.toLowerCase());
+            if (isFree) {
+                costs = 'free';
+            } else {
+                costs = costText;
+            }
+            title = title.replace(costInfo[0], '').trim();
+        } else {
+            // LOG(WARNING, `No cost found for workshop: ${title}`);
+            const costs2 = title.match(/\((.*?)\)/);
+            if (costs2 && costs2.length > 1) {
+                const costText = costs2[1].trim();
+                const isFree = ['kostenlos', 'free', 'gratis'].includes(costText.toLowerCase());
+                if (isFree) {
+                    costs = 'free';
+                    if(costText !== 'FREE'){
+                        warnings.push(`invalid format for free costs`);
+                    }
+                } else {
+                    costs = costText;
+                }
+                warnings.push(`Found cost in parentheses`);
+                title = title.replace(costs2[0], '').trim();
+            } else {
+                warnings.push(`No cost found for workshop: ${title}`);
+                // LOG(WARNING, `No cost found for workshop: ${title}`);
+            }
+        }
+        const slug = article.querySelector('a').getAttribute('href');
+        const details = getWorkshopDetails(slug);
+        // filter warnings from details
+        const finalDetails = {};
+        for(const key in details) {
+            if (key !== 'warnings'){
+                finalDetails[key] = details[key]; 
+            } else {
+                for(const warning of details.warnings) {
+                    warnings.push(warning);
+                }
+            }
+        }
+        workshopData[id] = {
+            id,
+            title,
+            kosten: costs,
+            // description,
+            // date,
+            // time,
+            // speakers: [],
+            // tags: [],
+            slug: slug,
+            ...finalDetails,
+            warnings: warnings,
+            // stage: article.querySelector('.stage') ? article.querySelector('.stage').text.trim() : '',
+        }
+        if(workshopData[id].year === '2025') {
+            // links
+
+            // for(const link of details.links) {
+            //     const linkHref = link.href;
+            //     const linkText = link.text;
+            //     if(linkHref && linkHref !== '') {
+            //         const statusItem = linkChecker(linkHref);
+            //         if(!statusItem.isValid) {
+            //             workshopData[id].warnings.push(`Link ${linkHref} returned status ${statusItem.status}`);
+            //             LOG(WARNING, `Link ${linkHref} returned status ${statusItem.status}`);
+            //         } else {
+            //             workshopData[id].links = workshopData[id].links || [];
+            //             workshopData[id].links.push({
+            //                 text: linkText,
+            //                 href: linkHref,
+            //                 status: statusItem.status,
+            //                 redirects: statusItem.redirects,
+            //                 lastLocation: statusItem.lastLocation,
+            //                 initialUrl: statusItem.initialUrl,
+            //             });
+            //         }
+            //     } else {
+            //         LOG(WARNING, `No href found for link: ${linkText}`);
+            //     }
+            // }
+        }
+
+    }
+    LOG(OK, `Found ${articles.length} articles on page ${url}`);
+    // writeFileSync('tmp.json', JSON.stringify(json, null, 4));
+    
+    return workshopData;
+}
+export type WORKSHOP_ITEM = {
+    id: string;
+    title: string;
+    description?: string;
+    startDate?: string;
+    endDate?: string;
+    startTime?: string;
+    endTime?: string;
+    slug?: string;
+    category?: string[];
+    tags?: string[];
+    register?: string;
+    organizer?: string;
+    venue?: string;
+}
+const getWorkshopDetails = (url: string) => {
+    const data = {
+        sections: [],
+        warnings: [],
+    }
+    const html = command(`curl -s ${url}`);
+    var root = HTMLParser.parse(html);
+    // wait till rendered
+    const detailsElement = root.querySelector('.iee_organizermain .details');
+    LOG(DEBUG, url)
+
+    const sections  = detailsElement ? detailsElement.querySelectorAll('strong') : [];
+    for (const section of sections) {
+        const sectionTitle = section.text.replace(/:/g, '').toLowerCase().trim();
+        let found = false;
+        for(const key in IDS) {
+            if (IDS[key].includes(sectionTitle)) {
+                found = true;
+                data.sections.push(sectionTitle);
+                if(found){
+                    const valueElement = section.querySelector(' + p, + a');
+                    if(!valueElement || !valueElement.text) {
+                        LOG(WARNING, `No value found for section: ${sectionTitle}`);
+                        data.warnings.push(`No value found for section: ${sectionTitle}`);
+                        continue;
+                    }
+                    const value = valueElement.text.trim();
+                    switch (key) {
+                        case 'date':
+                            // data.date = section.nextSibling ? section.nextSibling.text.trim() : '';
+                            data.startDate = value; // Assuming start date is the same as date
+                            data.endDate = value; // Assuming end date is the same as date
+                            break;
+                        case 'time':
+                            const partsTime = value ? value.split('-') : [];
+                            data.startTime = partsTime[0] ? partsTime[0].trim() : '';
+                            data.endTime = partsTime[1] ? partsTime[1].trim() : '';
+                            // data.time = value ? value.text.trim() : '';
+                            break;
+                        case 'start':
+                            const startParts = value ? value.trim().split('-') : [];
+                            data.startDate = startParts[0] ? startParts[0].trim() : '';
+                            data.startTime = startParts[1] ? startParts[1].trim() : '';
+                            break;
+                        case 'end':
+                            const endParts = value ? value.trim().split('-') : [];
+                            data.endDate = endParts[0] ? endParts[0].trim() : '';
+                            data.endTime = endParts[1] ? endParts[1].trim() : '';
+                            break;
+                        case 'category':
+                            const categoryParts = value ? value.split(',') : [];
+                            data.category = categoryParts.map(cat => cat.trim());
+                            data.days = [];
+                            for (const cat of data.category) {
+                                if (cat.toLowerCase().indexOf('veranstaltungstag') !== -1) {
+                                    const year = cat.match(/\d{4}/);
+                                    if (year && year.length > 0) {
+                                        data.year = year[0];
+                                    }
+                                } else {
+                                    const day = cat.replace(/\d+/, '').toLowerCase().trim();
+                                    const days = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag'];
+                                    if (day) {
+                                        if( days.indexOf(day) === -1) {
+                                            LOG(WARNING, `Unexpected day format: ${day}`);
+                                        } else {
+                                            data.days.push(day);
+                                        }
+                                    }
+
+                                }
+                            }
+                            if (data.days.length === 0) {
+                                LOG(WARNING, `No day found in category: ${value}`);
+                                data.warnings.push(`No day found in category: ${value}`);
+                            }
+                            break;
+                        case 'tags':
+                            const tagsParts = value ? value.split(',') : [];
+                            data.tags = tagsParts.map(tag => tag.trim());
+                            break;
+                        case 'register':
+                            data.register = value ? value.trim() : '';
+                            break;
+                        case 'organizer':
+                            data.organizer = value ? value.trim() : '';
+                            break;
+                    }
+                }
+            }
+        }
+        if (!found) {
+            data.warnings.push(`Section not found: ${sectionTitle}`);
+            LOG(WARNING, `Section not found: ${sectionTitle}`);
+        }
+    }
+    const images = root.querySelectorAll('img');
+    data.images = [];
+    for (const image of images) {
+        const src = image.getAttribute('src');
+        if (src) {
+            data.images.push(src);
+        }
+    }
+
+    const venue = root.querySelector('.iee_organizermain .venue');
+    if (venue) {
+        const venueText = removeHtmlTags(venue.innerHTML).trim();
+        if (venueText) {
+            const venueParts = venueText.split(/\n/);
+            data.venue = venueParts.map(part => part.replace(/\\t/g, '').trim())
+                .filter(part => part.length > 0)
+                .filter(part => part.toLowerCase() !== 'venue');
+        }
+    }
+    data.description = [];
+    data.links = [];
+    const descriptionElements = root.querySelectorAll('.entry-content > div')
+    .filter(el => el.innerText.trim().length > 0 )
+                                        .filter(el => !el.classList.contains('iee_event_meta'))
+                                        .filter(el => !el.getAttribute('id')?.startsWith('iee-eventbrite-checkout-widget'));
+    for (const descElement of descriptionElements) {
+        const paragraphs = descElement.querySelectorAll('p');
+        let stop = false;
+        for (const paragraph of paragraphs) {
+            const text = removeHtmlTags(paragraph.innerHTML).trim();
+            const sign = 'Bitte reserviere Dir nur dann einen Platz'
+            if(text.toLowerCase().startsWith(sign.toLowerCase())) {
+                stop = true;
+                break;
+            }
+            const hasLinks = paragraph.querySelectorAll('a');
+            for (const hasLink of hasLinks) {
+                const linkHref = hasLink.getAttribute('href');
+                const linkText = removeHtmlTags(hasLink.innerHTML).trim();
+                data.links.push({
+                    text: linkText,
+                    href: linkHref,
+                });
+                
+            }
+            if (text && text !== '' && !stop) {
+                data.description.push(text);
+            }
+        }
+    }
+    // const remaininTickets = root.querySelector('[data-testid="remaining-tickets-grey"]');
+    // if (remaininTickets) {
+    //     const remainingText = removeHtmlTags(remaininTickets.innerHTML).trim();
+    //     if (remainingText) {
+    //         const num = remainingText.match(/\d+/);
+    //         if (num && num.length > 0) {
+    //             data.remainingTickets = parseInt(num[0], 10);
+    //         } else {
+    //             console.log(`No number found in remaining tickets text: ${remainingText}`);
+    //         }
+    //     }
+    // }
+  
+    
+    return data;
+}
+const getWebsiteData = (url: string, properties: string[]) => {
+    const mainData = getPageData(url);
     
     
-    // const talkData= getWebsiteData('https://craft-conf.com/2025/talk/cat-hicks', ['talk', 'speakers', 'tags']);
-    // writeFileSync(`${cwd}/src/_data/talk_sample.json`, JSON.stringify(talkData, null, 4));
-
-
-    writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(optimizedData, null, 4));
-    writeFileSync(`${cwd}/src/_data/markdown.md`, markdownContent);
-    writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(origData, null, 4));
-
+    return mainData;
+}
+if(IS_DEV) {
+    const cached = readFile('src/_data/orig.json');
+    const json = cached ? JSON.parse(cached) : {};
+    const hasItems = Object.keys(json).length > 0;
+    if(cached && hasItems) {
+        LOG(OK, `Using cached data from src/_data/orig.json`);
+    } else {
+        LOG(WARNING, `No cached data found in src/_data/orig.json`);
+        const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
+            const cwd = process.cwd();
+            writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(origData, null, 4));
+            writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(origData, null, 4));
+    }
 }

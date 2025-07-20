@@ -1,6 +1,7 @@
 type FilterMap = { [key: string]: Set<string> };
 
 export const createSearch = (target: string, uid: string, source: string) => {
+  console.log(`Creating search for ${target} with uid ${uid} and source ${source}`);
   const searchArea = document.querySelector(`[${target}="${uid}"]`);
   const urlParams = new URLSearchParams(window.location.search);
   const activeFilters: FilterMap = { tag: new Set(), stage: new Set(), speaker: new Set() };
@@ -8,6 +9,7 @@ export const createSearch = (target: string, uid: string, source: string) => {
   const updateSearch = (term: string) => {
     const value = term.toLowerCase();
     const cards = document.querySelectorAll<HTMLElement>('.talk-card');
+    console.log(cards.length)
     let visibleCount = 0;
 
     cards.forEach(card => {
@@ -57,6 +59,7 @@ export const createSearch = (target: string, uid: string, source: string) => {
   if (urlParams.has('search')) {
     const val = urlParams.get('search')!;
     if (input) {
+      console.log(val)
       input.value = val;
       updateSearch(val);
     }

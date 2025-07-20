@@ -8,7 +8,7 @@
 import { HTTPStatusBase, HTTP_STATUS } from "../../index.d";
 import { command } from "../cmd/cmd";
 import { ERROR, LOG, OK } from "../log/log";
-import { CURL_CONFIG_STATUS } from "./http.config";
+import { CURL_CONFIG_STATUS, DEFAULT_TIMEOUT } from "./http.config";
 
 
 export const splitLine = (line: string) => {
@@ -72,7 +72,10 @@ export const getHttpItem = (input: string): HTTPStatusBase => {
 const getHTTPStatus = (url: string, timeout?: number): HTTPStatusBase => {
     // const timeoutConfig = timeout? CURL_CONFIG_STATUS.replace(/(\d*\.\d*)/, timeout.toString()) : CURL_CONFIG_STATUS;
     // console.log(timeoutConfig)
-    const status = command(`curl -I ${url} ${CURL_CONFIG_STATUS}`);
+    const ua = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36';
+    const cmd = `curl -I ${url}  -H "${ua}" ${CURL_CONFIG_STATUS.replace(DEFAULT_TIMEOUT, `-m ${timeout || 10}`)}`;
+    // console.log(cmd)
+    const status = command(`${cmd}`);
     const httpItem = getHttpItem(status);
     return httpItem;
 }

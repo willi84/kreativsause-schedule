@@ -56,3 +56,46 @@ body{
     .filter-btn.filter-btn--active{
     background-color: gray;
   }
+
+
+
+.talk-card .talk-states [data-status-item]{
+  display: none;
+}
+.talk-card[data-talk-status="live"] .talk-states [data-status-item="live"]{
+  display: inline;
+}
+.talk-card[data-talk-status="done"]{
+  background-color: white;
+} 
+.talk-card[data-talk-status="done"] [data-filter="register"] a{
+  display: none;
+}
+body.standard-view .talk-card[data-talk-status="done"]{
+  opacity: 0.7;
+}
+body.compact-view .talk-card[data-talk-status="done"] td {
+  opacity: 0.3;
+
+}
+.talk-card[data-talk-status="done"] .talk-states [data-status-item="done"]{
+  display: inline;
+}
+
+  /* .talk-states span{
+    display: hidden
+  }
+  .talk-states[data-talk-status="live"] span[data-status-item="live"],
+  .talk-states[data-talk-status="done"] span[data-status-item="done"],
+  .talk-states[data-talk-status="upcoming"] span[data-status-item="upcoming"]{
+    display: inline;
+  } */
+
+  .blinking-emoji {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}

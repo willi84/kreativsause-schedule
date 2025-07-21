@@ -47,7 +47,7 @@
                 {% endif %}
               {% endfor %}
             {% endif %}
-            <div class="card my-4 talk-card searchable" data-day="{{ day }}" data-category="workshops" data-talk="{{ id }}" 
+            <div class="card my-4 talk-card searchable" data-day="{{ day }}" data-category="workshops" data-talk="{{ id }}"  data-start-time="{{ item.startTimeInt }}" data-end-time="{{ item.endTimeInt }}"
                 data-tags="{{ item.tags | join(',') }}"
                 data-day="{{ item.days | join(',') }}"
                 data-year="{{ item.year }}"
@@ -57,6 +57,11 @@
                 <section data-filter="title">
                   {% if item.title %}
                     <h5 classs="card-title">
+                      <span class="talk-states">
+                        <span data-status-item="live"  class="blinking-emoji">🔴</span>
+                        <span data-status-item="done">✅</span>
+                        <span data-status-item="upcoming">⚪</span>
+                      </span>
                       <span class="talk-value">{{ item.title }}</span>
                       <span class="talk-search hidden">{{ item.title }}</span>
                     </h5>
@@ -163,6 +168,7 @@
       
       <table class="table talkXX-card day-table" data-day="{{ day }}" data-year="2025">
         <tr>
+          <th data-filter="state">Status</th>
           <th data-filter="register">Register</th>
           <th data-filter="date">📅 Datum</th>
           <th data-filter="time">🕒Zeit</th>
@@ -170,11 +176,18 @@
           <th data-filter="title">Workshop</th>
         </tr>
       {% for item in data.data[day] %}
-      <tr class="searchable talk-card" data-category="workshops" data-talk="{{ id }}" 
+      <tr class="searchable talk-card" data-category="workshops" data-talk="{{ id }}" data-start-time="{{ item.startTimeInt }}" data-end-time="{{ item.endTimeInt }}" 
           data-tags="{{ item.tags | join(',') }}"
           data-day="{{ item.days | join(',') }}"
           data-year="{{ item.year }}"
           data-title="{{ item.title | escape }}">
+          <td>
+            <span class="talk-states">
+              <span data-status-item="live" class="blinking-emoji">🔴</span>
+              <span data-status-item="done">✅</span>
+              <span data-status-item="upcoming">⚪</span>
+            </span>
+          </td>
           <td data-filter="register">
               <a class="btn btn-sm btn-primary" href="{{ item.register }}" target="_blank">Anmelden</a>
           </td>

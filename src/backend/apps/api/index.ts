@@ -395,9 +395,15 @@ const processData = (data: any) => {
         if(!finalData.data[day]) {
             finalData.data[day] = [];
         }
+        // bring to unix value the format Juli 21 2025 1:30 pm
+        const startTimeInt = item.startTime ? new Date(`${item.startDate} ${item.year} ${item.startTime}`).getTime() : 0;
+        const endTimeInt = item.endTime ? new Date(`${item.endDate} ${item.year} ${item.endTime}`).getTime() : 0;
+        item['startTimeInt'] = startTimeInt;
+        item['endTimeInt'] = endTimeInt;
         if(item.year === '2025') {
             finalData.data[day].push(item);
         }
+        
     }
     // sort by time
     for (const day in finalData.data) {

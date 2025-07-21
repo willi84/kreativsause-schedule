@@ -1,6 +1,6 @@
 import { write } from 'fs';
 import { command } from "../../_shared/cmd/cmd";
-import { readFile, writeFileSync } from "../../_shared/fs/fs";
+import { fileExists, readFile, writeFileSync } from "../../_shared/fs/fs";
 import { getHttpStatusItem } from "../../_shared/http/http";
 import { DEBUG, LOG, OK, WARNING } from "../../_shared/log/log";
 import { IDS } from "./inde.config";
@@ -111,6 +111,9 @@ const getPageData = (url: string) => {
         // filter warnings from details
         const finalDetails = {};
         for(const key in details) {
+            if(key === 'speakers'){
+                console.log(details[key])
+            }
             if (key !== 'warnings'){
                 finalDetails[key] = details[key]; 
             } else {
@@ -186,6 +189,7 @@ const getWorkshopDetails = (url: string) => {
     const data = {
         sections: [],
         warnings: [],
+        speakers: [],
     }
     const html = command(`curl -s ${url}`);
     var root = HTMLParser.parse(html);
@@ -323,11 +327,40 @@ const getWorkshopDetails = (url: string) => {
                 });
                 
             }
+            const phrases = ['veranstaltet von', 'angeleitet von', 'gestaltet von', 'geleitet von'];
+            for(const phrase of phrases) {
+                const regexNames = new RegExp(`${phrase.replace(/\s/g, '\\s')}\\s(.*)$`, 'i');
+                // const regexNames = /(gestaltet|angeleitet)\svon\s(.*)$/;
+                if(text.match(regexNames)){
+                    const m = text.match(regexNames);
+                    const n = m[1].match(/und/)
+                    if(n && n.length > 0) {
+                        const names = m[1].split('und').map(name => name.trim());
+                        for(const name of names) {
+                            if(name && name !== '') {
+                                data.speakers.push(name.replace(/[\.|!]*$/, '').trim());
+                            }
+                        }
+                    } else {
+                        if(m[1] && m[1] !== '') {
+                            data.speakers.push(m[1].replace(/[\.|!]*$/, '').trim());
+                        }
+                    }
+                    // console.log(data.speakers);
+                }
+            }
+
             if (text && text !== '' && !stop) {
                 data.description.push(text);
             }
         }
     }
+    if(data.speakers.length === 0) {
+        LOG(WARNING, `no speakers found for ${url}`);
+    } else {
+console.log(data);
+    }
+
     // const remaininTickets = root.querySelector('[data-testid="remaining-tickets-grey"]');
     // if (remaininTickets) {
     //     const remainingText = removeHtmlTags(remaininTickets.innerHTML).trim();
@@ -350,17 +383,47 @@ const getWebsiteData = (url: string, properties: string[]) => {
     
     return mainData;
 }
-if(IS_DEV) {
+const processData = (data: any) => {
+    const finalData = {
+        data: {},
+        days: ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag'],
+    };
+    // sort by day and time
+    for (const key in data) {
+        const item = data[key];
+        const day = item.days[0];
+        if(!finalData.data[day]) {
+            finalData.data[day] = [];
+        }
+        if(item.year === '2025') {
+            finalData.data[day].push(item);
+        }
+    }
+    // sort by time
+    for (const day in finalData.data) {
+        finalData.data[day].sort((a: any, b: any) => {
+            const aTime = a.startTime ? a.startTime.split(':').map(Number) : [0, 0];
+            const bTime = b.startTime ? b.startTime.split(':').map(Number) : [0, 0];
+            return aTime[0] - bTime[0] || aTime[1] - bTime[1];
+        });
+    }
+    return finalData;
+}
+        
+
+const hasFile = fileExists('src/_data/orig.json')
+if(!hasFile) {
     const cached = readFile('src/_data/orig.json');
     const json = cached ? JSON.parse(cached) : {};
     const hasItems = Object.keys(json).length > 0;
-    if(cached && hasItems) {
+    if(hasItems && IS_DEV){
         LOG(OK, `Using cached data from src/_data/orig.json`);
     } else {
         LOG(WARNING, `No cached data found in src/_data/orig.json`);
         const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
+        const finalData = processData(origData);
             const cwd = process.cwd();
-            writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(origData, null, 4));
-            writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(origData, null, 4));
+            writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(finalData, null, 4));
+            writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(finalData, null, 4));
     }
-}
+} 

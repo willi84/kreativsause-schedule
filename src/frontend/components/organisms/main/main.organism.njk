@@ -2,8 +2,14 @@
 
 {% set filter_groups = { tag: [], category: [], day: [], year: [] } %}
 
+
 <div class="container my-5">
   <h1 class="mb-3">Workshops 2025</h1>
+<div class="view-toggle mb-4">
+  <button class="btn btn-sm btn-outline-primary me-2" onclick="document.body.classList.add('standard-view'); document.body.classList.remove('compact-view')">📋 Standardansicht</button>
+  <button class="btn btn-sm btn-outline-secondary" onclick="document.body.classList.add('compact-view'); document.body.classList.remove('standard-view')">📑 Kompaktansicht</button>
+</div>
+
   <p class="text-mXuted">Kleines tool um durch die Workshops zu stöbern</p>
 
 
@@ -14,136 +20,187 @@
     no_result: ["Kein Workshop gefunden", "Versuch es mit einem anderen Begriff."]
   }) }}
 <div data-search="talks">
-  {% for id, item in data %}
-    {% if item.year == "2025" %}
-      {# Tag-Filter sammeln #}
-      {% if item.tags %}
-        {% for tag in item.tags %}
-          {% if tag not in filter_groups.tag %}
-            {% set filter_groups = filter_groups | merge({ tag: filter_groups.tag.concat([tag]) }) %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {% if item.category %}
-        {% for cat in item.category %}
-          {% if cat not in filter_groups.category %}
-            {% set filter_groups = filter_groups | merge({ category: filter_groups.category.concat([cat]) }) %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {# {% if item.days %}
-        {% for day in item.days %}
-          {% if day not in filter_groups.day %}
-            {% set filter_groups = filter_groups | merge({ day: filter_groups.day.concat([day]) }) %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {% if item.year and item.year not in filter_groups.year %}
-        {% set filter_groups = filter_groups | merge({ year: filter_groups.year.concat([item.year]) }) %}
-      {% endif %} #}
-
-      <div class="card my-4 talk-card searchable" data-category="workshops" data-talk="{{ id }}" 
-           data-tags="{{ item.tags | join(',') }}"
-           data-day="{{ item.days | join(',') }}"
-           data-year="{{ item.year }}"
-           data-title="{{ item.title | escape }}">
-        <div class="card-body">
-          <h5 classs="card-title">
-            {% if item.title %}
-              <span class="talk-value">{{ item.title }}</span>
-              <span class="talk-search hidden">{{ item.title }}</span>
-            {% endif %}
-          </h5>
-        <div class="mb-2">
-
-          {# <small class="text-muted">
-            {% if item.days %}
-              {% for day in item.days %}
-                <span class="talk-value">{{ day }}</span>
-              {% endfor %}
-            {% endif %}
-             {% if item.year %}
-                <span class="talk-value">{{ item.year }}</span>
-              {% endif %}
-          </small> #}
-          <small class="text-muted">
-           {% if item.startDate and item.startDate == item.endDate %}
-            <span class="talk-value">📅{{ item.days }}, {{ item.startDate }}</span>
-            <span class="talk-search hidden">{{ item.startDate }}</span>
-            {% if item.startTime %}
-              <span class="talk-value">🕒{{ item.startTime }}</span>
-              <span class="talk-search hidden">{{ item.startTime }}</span>
-            {% endif %}
-            {% if item.endTime %}
-              <span class="talk-value"> - {{ item.endTime }}</span>
-              <span class="talk-search hidden">{{ item.endTime }}</span>
-            {% endif %}
-          {% else %}
-          <span class="talk-value">{{ item.day }}</span>
-            <span class="talk-value">📅{{ item.days[0] }}, {{ item.startDate }} - {{ item.days[item.days.length -1] }}, {{ item.endDate }}</span>
-            <span class="talk-search hidden">{{ item.startDate }} - {{ item.endDate }}</span>
-            {% if item.startTime %}
-              <span class="talk-value">🕒{{ item.startTime }}</span>
-              <span class="talk-search hidden">{{ item.startTime }}</span>
-            {% endif %}
-            {% if item.endTime %}
-              <span class="talk-value"> - {{ item.endTime }}</span>
-              <span class="talk-search hidden">{{ item.endTime }}</span>
-            {% endif %} 
-          {% endif %} 
-        </small>
-          
-        
-        </div>
-        {% if item.venue %}
-          <div class="mb-2">
-            {# {% for venue_line in item.venue %} #}
-              <span class="talk-value">📍 {{ item.venue[0] }}</span>
-              <span class="talk-search hidden">{{ item.venue[0] }}</span>
-            {# {% endfor %} #}
-          </div>
-      {% endif %}
-      <div class="mb-2">
+  <div class="standard-view">
+    {% for day in data.days %}
+      <h2 class="mt-5">{{ day }}</h2>
+      
+      {% for item in data.data[day] %}
+    {# {% for id, item in data %} #}
+      {% if item.year == "2025" %}
+        {# Tag-Filter sammeln #}
         {% if item.tags %}
           {% for tag in item.tags %}
-            <span class="badge text-light" style="background-color: #0F766E">
-              {{ tag }}
-            </span>
-          {% endfor %}
-        {% endif %}
-            {# {% if item.category %}
-            {% for cat in item.category %}
-            <span class="badge text-light" style="background-color: #0F766E">
-                {{ cat }}
-              </span>
-          {% endfor %}
-        {% endif %} #}
-      </div>
-      {% if item.description %}
-      {% for desc in item.description %}
-      <p class="card-text text-muted">
-            <span class="talk-value">{{ desc | safe }}</span>
-            <span class="talk-search hidden">{{ desc }}</span>
-          </p>
-          {% endfor %}
-      {% endif %}
-      {% if item.register %}
-          <p class="card-text text-muted">
-            <a class="btn btn-sm btn-primary mt-2" href="{{ item.register }}" target="_blank">Zur Anmeldung</a>
-            {% if item.kosten%}
-              <span class="talk-value">💰{{ item.kosten }}</span>
-              <span class="talk-searcg hidden">💰{{ item.kosten }}</span>
+            {% if tag not in filter_groups.tag %}
+              {% set filter_groups = filter_groups | merge({ tag: filter_groups.tag.concat([tag]) }) %}
             {% endif %}
-          </p>
-          {% endif %}
-      
-        </div>
-        {% if item.images and item.images.length > 1 %}
-          <img src="{{ item.images[1] }}" class="card-img-bottom teaser-image" alt="{{ item.title }}">
+          {% endfor %}
         {% endif %}
-      </div>
-    {% endif %}
-  {% endfor %}
+        {% if item.category %}
+          {% for cat in item.category %}
+            {% if cat not in filter_groups.category %}
+              {% set filter_groups = filter_groups | merge({ category: filter_groups.category.concat([cat]) }) %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        <div class="card my-4 talk-card searchable" data-category="workshops" data-talk="{{ id }}" 
+             data-tags="{{ item.tags | join(',') }}"
+             data-day="{{ item.days | join(',') }}"
+             data-year="{{ item.year }}"
+             data-title="{{ item.title | escape }}">
+          <div class="card-body">
+            <h5 classs="card-title">
+              {% if item.title %}
+                <span class="talk-value">{{ item.title }}</span>
+                <span class="talk-search hidden">{{ item.title }}</span>
+              {% endif %}
+            </h5>
+          <div class="mb-2">
+  
+            <small class="text-muted">
+             {% if item.startDate and item.startDate == item.endDate %}
+              <span class="talk-value">📅{{ item.days }}, {{ item.startDate }}</span>
+              <span class="talk-search hidden">{{ item.startDate }}</span>
+              {% if item.startTime %}
+                <span class="talk-value">🕒{{ item.startTime }}</span>
+                <span class="talk-search hidden">{{ item.startTime }}</span>
+              {% endif %}
+              {% if item.endTime %}
+                <span class="talk-value"> - {{ item.endTime }}</span>
+                <span class="talk-search hidden">{{ item.endTime }}</span>
+              {% endif %}
+            {% else %}
+            <span class="talk-value">{{ item.day }}</span>
+              <span class="talk-value">📅{{ item.days[0] }}, {{ item.startDate }} - {{ item.days[item.days.length -1] }}, {{ item.endDate }}</span>
+              <span class="talk-search hidden">{{ item.startDate }} - {{ item.endDate }}</span>
+              {% if item.startTime %}
+                <span class="talk-value">🕒{{ item.startTime }}</span>
+                <span class="talk-search hidden">{{ item.startTime }}</span>
+              {% endif %}
+              {% if item.endTime %}
+                <span class="talk-value"> - {{ item.endTime }}</span>
+                <span class="talk-search hidden">{{ item.endTime }}</span>
+              {% endif %} 
+            {% endif %} 
+          </small>
+            
+          
+          </div>
+          <div class="mb-2">
+            {% if item.speakers %}
+              {% for speaker in item.speakers %}
+                <span class="talk-value">👤 {{ speaker }}</span>
+                <span class="talk-search hidden">{{ speaker }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
+          {% if item.venue %}
+            <div class="mb-2">
+                <span class="talk-value">📍 {{ item.venue[0] }}</span>
+                <span class="talk-search hidden">{{ item.venue[0] }}</span>
+            </div>
+        {% endif %}
+        <div class="mb-2">
+          {% if item.tags %}
+            {% for tag in item.tags %}
+              <span class="badge text-light" style="background-color: #0F766E">
+                {{ tag }}
+              </span>
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if item.description %}
+        {% for desc in item.description %}
+        <p class="card-text text-muted">
+              <span class="talk-value">{{ desc | safe }}</span>
+              <span class="talk-search hidden">{{ desc }}</span>
+            </p>
+            {% endfor %}
+        {% endif %}
+        {% if item.register %}
+            <p class="card-text text-muted">
+              <a class="btn btn-sm btn-primary mt-2" href="{{ item.register }}" target="_blank">Zur Anmeldung</a>
+              {% if item.kosten%}
+                <span class="talk-value">💰{{ item.kosten }}</span>
+                <span class="talk-searcg hidden">💰{{ item.kosten }}</span>
+              {% endif %}
+            </p>
+            {% endif %}
+        
+          </div>
+          {% if item.images and item.images.length > 1 %}
+            <img src="{{ item.images[1] }}" class="card-img-bottom teaser-image" alt="{{ item.title }}">
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+    {% endfor %}
+
+    
+  </div>
+  <div class="compact-view">
+    {% for day in data.days %}
+      <h2 class="mt-5">{{ day }}, {{data.data[day][0].startDate}}</h2>
+      
+      <table class="table talkXX-card">
+        <tr>
+          <th>Register</th>
+          <th>📅 Datum</th>
+          <th>🕒Zeit</th>
+          <th>👤Speaker</th>
+          <th>Workshop</th>
+        </tr>
+      {% for item in data.data[day] %}
+     {% if item.year == "2025" %}
+      <tr class="searchable talk-card" data-category="workshops" data-talk="{{ id }}" 
+          data-tags="{{ item.tags | join(',') }}"
+          data-day="{{ item.days | join(',') }}"
+          data-year="{{ item.year }}"
+          data-title="{{ item.title | escape }}">
+          <td>
+              <a class="btn btn-sm btn-primary" href="{{ item.register }}" target="_blank">Anmelden</a>
+          </td>
+          <td>
+           {% if item.startDate and item.startDate == item.endDate %}
+            {{ item.startDate }} 
+            {% else %}
+            {{ item.startDate }} - {{ item.endDate }}
+             {% endif %}
+        </td>
+        <td>
+          {% if item.startDate and item.startDate == item.endDate %}
+            {% if item.startTime %}{{ item.startTime }}{% endif %}
+            {% if item.endTime %} - {{ item.endTime }}{% endif %}
+          {% else %}
+            {% if item.startTime %}{{ item.startTime }}{% endif %}
+            {% if item.endTime %} - {{ item.endTime }}{% endif %}
+          {% endif %}
+        </td>
+        <td>
+          {% if item.speakers %}
+            <span class="talk-value">{{ item.speakers | join(', ') }}</span>
+            <span class="talk-search hidden">{{ item.speakers | join(', ') }}</span>
+          {% endif %}
+        </td>
+        <td>
+          <span class="talk-value">
+          <strong>{{ item.title }}</strong>
+          </span>
+          <span class="talk-search hidden">{{ item.title }}</span>
+        </td>
+        <td class="hidden">
+          {% if item.description %}
+            <span class="talk-value">{{ item.description | join(', ') }}</span>
+            <span class="talk-search hidden">{{ item.description | join(', ') }}</span>
+          {% endif %}
+          </td>
+          
+          
+        
+      </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+    {% endfor %}
 </div>
   
 </div>
@@ -153,3 +210,23 @@
   <img src="/assets/tech/github.svg" width="16" height="16" class="rounded-circle">
   <a class="text-light" href="https://github.com/willi84/kreativsause-schedule" target="_blank">Github</a>
 </footer>
+<style>
+  body.compact-view div.standard-view{ display: none; }
+  body.standard-view div.compact-view{ display: none; }
+  /* body.compact-view .talk-card > *:not(.card-body) { display: none; }
+  body.compact-view .talk-card .card-body {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  body.compact-view .talk-card .card-body > *:not(.talk-value):not(.talk-search):not(.talk-time) {
+    display: none;
+  }
+  body.compact-view .talk-card .talk-value,
+  body.compact-view .talk-card .talk-time {
+    font-size: 0.9rem;
+    font-weight: 400;
+  } */
+</style>

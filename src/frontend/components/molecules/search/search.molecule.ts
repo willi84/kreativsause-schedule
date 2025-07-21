@@ -2,66 +2,67 @@ type FilterMap = { [key: string]: Set<string> };
 
 export const createSearch = (target: string, uid: string, source: string) => {
   console.log(`Creating search for ${target} with uid ${uid} and source ${source}`);
-  const searchArea = document.querySelector(`[${target}="${uid}"]`);
-  const urlParams = new URLSearchParams(window.location.search);
-  const activeFilters: FilterMap = { tag: new Set(), stage: new Set(), speaker: new Set() };
-
-  const updateSearch = (term: string) => {
-    const value = term.toLowerCase();
-    const cards = document.querySelectorAll<HTMLElement>('.talk-card');
-    console.log(cards.length)
-    let visibleCount = 0;
-
-    cards.forEach(card => {
-      const searchable = card.querySelectorAll<HTMLElement>('.talk-value');
-      const texts = Array.from(searchable).map(el => el.textContent?.toLowerCase() || '');
-      const matchesSearch = value === '' || texts.some(t => t.includes(value));
-
-      const matchesFilters = Object.entries(activeFilters).every(([key, values]) => {
-        if (values.size === 0) return true;
-        return Array.from(values).some(v => card.innerHTML.toLowerCase().includes(v.toLowerCase()));
+  const searchAreas = document.querySelectorAll(`[${target}="${uid}"]`);
+  for (const searchArea of searchAreas) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const activeFilters: FilterMap = { tag: new Set(), stage: new Set(), speaker: new Set() };
+  
+    const updateSearch = (term: string) => {
+      const value = term.toLowerCase();
+      const cards = document.querySelectorAll<HTMLElement>('.talk-card');
+      let visibleCount = 0;
+  
+      cards.forEach(card => {
+        const searchable = card.querySelectorAll<HTMLElement>('.talk-value');
+        const texts = Array.from(searchable).map(el => el.textContent?.toLowerCase() || '');
+        const matchesSearch = value === '' || texts.some(t => t.includes(value));
+  
+        const matchesFilters = Object.entries(activeFilters).every(([key, values]) => {
+          if (values.size === 0) return true;
+          return Array.from(values).some(v => card.innerHTML.toLowerCase().includes(v.toLowerCase()));
+        });
+  
+        const show = matchesSearch && matchesFilters;
+        card.classList.toggle('hidden', !show);
+  
+        if (show) {
+          visibleCount++;
+          searchable.forEach(el => el.classList.add('hidden'));
+          card.querySelectorAll<HTMLElement>('.talk-search').forEach((el, i) => {
+            const original = searchable[i]?.textContent || '';
+            el.classList.remove('hidden');
+            el.innerHTML = getHighlightedText(original, value);
+          });
+        } else {
+          searchable.forEach(el => el.classList.remove('hidden'));
+          card.querySelectorAll<HTMLElement>('.talk-search').forEach(el => {
+            el.classList.add('hidden');
+            el.innerHTML = '';
+          });
+        }
       });
-
-      const show = matchesSearch && matchesFilters;
-      card.classList.toggle('hidden', !show);
-
-      if (show) {
-        visibleCount++;
-        searchable.forEach(el => el.classList.add('hidden'));
-        card.querySelectorAll<HTMLElement>('.talk-search').forEach((el, i) => {
-          const original = searchable[i]?.textContent || '';
-          el.classList.remove('hidden');
-          el.innerHTML = getHighlightedText(original, value);
-        });
-      } else {
-        searchable.forEach(el => el.classList.remove('hidden'));
-        card.querySelectorAll<HTMLElement>('.talk-search').forEach(el => {
-          el.classList.add('hidden');
-          el.innerHTML = '';
-        });
+  
+      const noResult = searchArea?.querySelector<HTMLElement>('.search__no-result');
+      const searchItem = noResult?.querySelector<HTMLElement>('.search__value');
+      if (noResult) {
+        noResult.classList.toggle('search__info--hidden', visibleCount > 0);
+        if (searchItem) searchItem.textContent = value;
       }
-    });
-
-    const noResult = searchArea?.querySelector<HTMLElement>('.search__no-result');
-    const searchItem = noResult?.querySelector<HTMLElement>('.search__value');
-    if (noResult) {
-      noResult.classList.toggle('search__info--hidden', visibleCount > 0);
-      if (searchItem) searchItem.textContent = value;
-    }
-
-    const url = new URL(window.location.href);
-    value ? url.searchParams.set('search', value) : url.searchParams.delete('search');
-    history.replaceState({}, '', url);
-  };
-
-  const input = searchArea?.querySelector<HTMLInputElement>('input');
-  input?.addEventListener('keyup', e => updateSearch((e.target as HTMLInputElement).value));
-  if (urlParams.has('search')) {
-    const val = urlParams.get('search')!;
-    if (input) {
-      console.log(val)
-      input.value = val;
-      updateSearch(val);
+  
+      const url = new URL(window.location.href);
+      value ? url.searchParams.set('search', value) : url.searchParams.delete('search');
+      history.replaceState({}, '', url);
+    };
+  
+    const input = searchArea?.querySelector<HTMLInputElement>('input');
+    input?.addEventListener('keyup', e => updateSearch((e.target as HTMLInputElement).value));
+    if (urlParams.has('search')) {
+      const val = urlParams.get('search')!;
+      if (input) {
+        console.log(val)
+        input.value = val;
+        updateSearch(val);
+      }
     }
   }
 

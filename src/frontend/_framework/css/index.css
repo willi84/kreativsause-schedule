@@ -30,3 +30,29 @@ body{
 .teaser-image{
   max-height: 200px; width: 100%; object-fit: cover; overflow: hidden;
 }
+
+
+  body.compact-view div.standard-view{ display: none; }
+  body.standard-view div.compact-view{ display: none; }
+
+
+  /* [data-view] {
+    background-color: #f8510f;
+    color: white;
+  }
+  [data-view].active-view {
+    background-color: #0F766E;
+    color: white;
+  } */
+   .filter-btn {
+     cursor: pointer;
+     padding: 0.25rem 0.5rem;
+     border-radius: 0.375rem;
+     margin-right: 0.5rem;
+     margin-bottom: 0.5rem;
+     display: inline-block;
+     transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .filter-btn.filter-btn--active{
+    background-color: gray;
+  }

@@ -24,6 +24,7 @@
     <div class="filter-group">
       <h5>Filter</h5>
       <div class="filter-type-container"></div>
+      <div class="filter-room-container"></div>
     </div>
 
   <div class="standard-view">
@@ -47,7 +48,7 @@
                 {% endif %}
               {% endfor %}
             {% endif %}
-            <div class="card my-4 talk-card searchable" data-day="{{ day }}" data-category="workshops" data-talk="{{ id }}"  data-start-time="{{ item.startTimeInt }}" data-end-time="{{ item.endTimeInt }}"
+            <div class="card my-4 talk-card searchable"  data-room="🏠 {{item.room.orig}}" data-day="{{ day }}" data-category="workshops" data-talk="{{ id }}"  data-start-time="{{ item.startTimeInt }}" data-end-time="{{ item.endTimeInt }}"
                 data-tags="{{ item.tags | join(',') }}"
                 data-day="{{ item.days | join(',') }}"
                 data-year="{{ item.year }}"
@@ -120,7 +121,13 @@
                     <span class="talk-value">📍 {{ item.venue[0] }}</span>
                     <span class="talk-search hidden">{{ item.venue[0] }}</span>
                 </div>
-            {% endif %}
+              {% endif %}
+              {% if item.room %}
+                <div class="mb-2" data-filter="room">
+                    <span class="talk-value">🏠 {{ item.room.name }}</span>
+                    <span class="talk-search hidden">{{ item.room.name }}</span>
+                </div>
+              {% endif %}
             <div class="mb-2" data-filter="tags">
               {% if item.tags %}
                 {% for tag in item.tags %}
@@ -168,15 +175,16 @@
       
       <table class="table talkXX-card day-table" data-day="{{ day }}" data-year="2025">
         <tr>
-          <th data-filter="state">Status</th>
+          <th data-filter="state"></th>
           <th data-filter="register">Register</th>
           <th data-filter="date">📅 Datum</th>
+          <th data-filter="room">🏠 Raum</th>
           <th data-filter="time">🕒Zeit</th>
           <th data-filter="speakers">👤Speaker</th>
           <th data-filter="title">Workshop</th>
         </tr>
       {% for item in data.data[day] %}
-      <tr class="searchable talk-card" data-category="workshops" data-talk="{{ id }}" data-start-time="{{ item.startTimeInt }}" data-end-time="{{ item.endTimeInt }}" 
+      <tr class="searchable talk-card" data-room="🏠 {{item.room.orig}}" data-category="workshops" data-talk="{{ id }}" data-start-time="{{ item.startTimeInt }}" data-end-time="{{ item.endTimeInt }}" 
           data-tags="{{ item.tags | join(',') }}"
           data-day="{{ item.days | join(',') }}"
           data-year="{{ item.year }}"
@@ -190,6 +198,10 @@
           </td>
           <td data-filter="register">
               <a class="btn btn-sm btn-primary" href="{{ item.register }}" target="_blank">Anmelden</a>
+          </td>
+          <td data-filter="room">
+              <span class="talk-value">{{ item.room.name }}</span>
+              <span class="talk-search hidden">{{ item.room.name }}</span>
           </td>
           <td data-filter="date">
            {% if item.startDate and item.startDate == item.endDate %}

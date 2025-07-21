@@ -72,7 +72,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753097400000,
-                "endTimeInt": 1753104600000
+                "endTimeInt": 1753104600000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8485",
@@ -160,7 +164,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753099200000,
-                "endTimeInt": 1753110000000
+                "endTimeInt": 1753110000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8518",
@@ -232,7 +240,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753099200000,
-                "endTimeInt": 1753106400000
+                "endTimeInt": 1753106400000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8216",
@@ -298,7 +310,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753106400000,
-                "endTimeInt": 1753113600000
+                "endTimeInt": 1753113600000,
+                "room": {
+                    "name": "salon2",
+                    "orig": "Salon 2"
+                }
             },
             {
                 "id": "8595",
@@ -357,7 +373,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753110000000,
-                "endTimeInt": 1753113600000
+                "endTimeInt": 1753113600000,
+                "room": {
+                    "name": "sbahn",
+                    "orig": "S- Bahn/ Terrasse"
+                }
             },
             {
                 "id": "8226",
@@ -429,7 +449,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753113600000,
-                "endTimeInt": 1753124400000
+                "endTimeInt": 1753124400000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8261",
@@ -484,7 +508,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753124400000,
-                "endTimeInt": 1753128000000
+                "endTimeInt": 1753128000000,
+                "room": {
+                    "name": "tent",
+                    "orig": "Hängematten Zelt"
+                }
             }
         ],
         "dienstag": [
@@ -560,7 +588,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753185600000,
-                "endTimeInt": 1753192800000
+                "endTimeInt": 1753192800000,
+                "room": {
+                    "name": "salon2",
+                    "orig": "Salon 2"
+                }
             },
             {
                 "id": "8405",
@@ -651,7 +683,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753185600000,
-                "endTimeInt": 1753196400000
+                "endTimeInt": 1753196400000,
+                "room": {
+                    "name": "remise",
+                    "orig": "Remise"
+                }
             },
             {
                 "id": "8231",
@@ -720,7 +756,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753194600000,
-                "endTimeInt": 1753201800000
+                "endTimeInt": 1753201800000,
+                "room": {
+                    "name": "salon2",
+                    "orig": "Salon 2"
+                }
             },
             {
                 "id": "8482",
@@ -784,7 +824,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753192800000,
-                "endTimeInt": 1753200000000
+                "endTimeInt": 1753200000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8364",
@@ -847,7 +891,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753196400000,
-                "endTimeInt": 1753201800000
+                "endTimeInt": 1753201800000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8450",
@@ -928,7 +976,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753200000000,
-                "endTimeInt": 1753203600000
+                "endTimeInt": 1753203600000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "7415",
@@ -986,7 +1038,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753169400000,
-                "endTimeInt": 1753182000000
+                "endTimeInt": 1753182000000,
+                "room": {
+                    "name": "cocolab",
+                    "orig": "CocoLab"
+                }
             },
             {
                 "id": "8269",
@@ -1052,7 +1108,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753169400000,
-                "endTimeInt": 1753174800000
+                "endTimeInt": 1753174800000,
+                "room": {
+                    "name": "tent",
+                    "orig": "Hängematten Zelt"
+                }
             },
             {
                 "id": "8412",
@@ -1109,7 +1169,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753169400000,
-                "endTimeInt": 1753182000000
+                "endTimeInt": 1753182000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8370",
@@ -1185,7 +1249,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753171200000,
-                "endTimeInt": 1753182000000
+                "endTimeInt": 1753182000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "7479",
@@ -1276,7 +1344,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753174800000,
-                "endTimeInt": 1753182000000
+                "endTimeInt": 1753182000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8168",
@@ -1359,7 +1431,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753174800000,
-                "endTimeInt": 1753182000000
+                "endTimeInt": 1753182000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8304",
@@ -1417,7 +1493,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753176600000,
-                "endTimeInt": 1753182000000
+                "endTimeInt": 1753182000000,
+                "room": {
+                    "name": "bibliothek",
+                    "orig": "Bibliothek"
+                }
             }
         ],
         "mittwoch": [
@@ -1476,7 +1556,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753272000000,
-                "endTimeInt": 1753279200000
+                "endTimeInt": 1753279200000,
+                "room": {
+                    "name": "remise",
+                    "orig": "Remise"
+                }
             },
             {
                 "id": "8327",
@@ -1562,7 +1646,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753275600000,
-                "endTimeInt": 1753290000000
+                "endTimeInt": 1753290000000,
+                "room": {
+                    "name": "outside",
+                    "orig": "Grass/ Yard/ Outside"
+                }
             },
             {
                 "id": "8346",
@@ -1631,7 +1719,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753275600000,
-                "endTimeInt": 1753286400000
+                "endTimeInt": 1753286400000,
+                "room": {
+                    "name": "tent",
+                    "orig": "Hängematten Zelt"
+                }
             },
             {
                 "id": "8343",
@@ -1724,7 +1816,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753279200000,
-                "endTimeInt": 1753288200000
+                "endTimeInt": 1753288200000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8349",
@@ -1786,7 +1882,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753281000000,
-                "endTimeInt": 1753286400000
+                "endTimeInt": 1753286400000,
+                "room": {
+                    "name": "remise",
+                    "orig": "Remise"
+                }
             },
             {
                 "id": "8324",
@@ -1844,7 +1944,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753290000000,
-                "endTimeInt": 1753297200000
+                "endTimeInt": 1753297200000,
+                "room": {
+                    "name": "bibliothek",
+                    "orig": "Bibliothek"
+                }
             },
             {
                 "id": "8333",
@@ -1914,7 +2018,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753257600000,
-                "endTimeInt": 1753272000000
+                "endTimeInt": 1753272000000,
+                "room": {
+                    "name": "outside",
+                    "orig": "Grass/ Yard/ Outside"
+                }
             },
             {
                 "id": "8352",
@@ -1974,7 +2082,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753261200000,
-                "endTimeInt": 1753279200000
+                "endTimeInt": 1753279200000,
+                "room": {
+                    "name": "salon1",
+                    "orig": "Salon 1"
+                }
             }
         ],
         "donnerstag": [
@@ -2034,7 +2146,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753358400000,
-                "endTimeInt": 1753369200000
+                "endTimeInt": 1753369200000,
+                "room": {
+                    "name": "cocolab",
+                    "orig": "CocoLab"
+                }
             },
             {
                 "id": "7430",
@@ -2088,7 +2204,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753362000000,
-                "endTimeInt": 1753372800000
+                "endTimeInt": 1753372800000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "7465",
@@ -2153,7 +2273,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753362000000,
-                "endTimeInt": 1753372800000
+                "endTimeInt": 1753372800000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8157",
@@ -2239,7 +2363,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753362000000,
-                "endTimeInt": 1753372800000
+                "endTimeInt": 1753372800000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8339",
@@ -2303,7 +2431,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753362000000,
-                "endTimeInt": 1753376400000
+                "endTimeInt": 1753376400000,
+                "room": {
+                    "name": "salon2",
+                    "orig": "Salon 2"
+                }
             },
             {
                 "id": "8514",
@@ -2385,7 +2517,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753362000000,
-                "endTimeInt": 1753372800000
+                "endTimeInt": 1753372800000,
+                "room": {
+                    "name": "outside",
+                    "orig": "Grass/ Yard/ Outside"
+                }
             },
             {
                 "id": "7434",
@@ -2448,7 +2584,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753365600000,
-                "endTimeInt": 1753376400000
+                "endTimeInt": 1753376400000,
+                "room": {
+                    "name": "tent",
+                    "orig": "Hängematten Zelt"
+                }
             },
             {
                 "id": "8250",
@@ -2516,7 +2656,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753365600000,
-                "endTimeInt": 1753371000000
+                "endTimeInt": 1753371000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8489",
@@ -2570,7 +2714,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753365600000,
-                "endTimeInt": 1753372800000
+                "endTimeInt": 1753372800000,
+                "room": {
+                    "name": "salon1",
+                    "orig": "Salon 1"
+                }
             },
             {
                 "id": "8242",
@@ -2666,7 +2814,11 @@
                     "Found cost in parentheses"
                 ],
                 "startTimeInt": 1753340400000,
-                "endTimeInt": 1753354800000
+                "endTimeInt": 1753354800000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8524",
@@ -2755,7 +2907,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753342200000,
-                "endTimeInt": 1753462800000
+                "endTimeInt": 1753462800000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8149",
@@ -2832,7 +2988,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753344000000,
-                "endTimeInt": 1753365600000
+                "endTimeInt": 1753365600000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8374",
@@ -2897,7 +3057,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753344000000,
-                "endTimeInt": 1753354800000
+                "endTimeInt": 1753354800000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8454",
@@ -2955,7 +3119,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753344000000,
-                "endTimeInt": 1753349400000
+                "endTimeInt": 1753349400000,
+                "room": {
+                    "name": "sbahn",
+                    "orig": "S- Bahn/ Terrasse"
+                }
             }
         ],
         "freitag": [
@@ -3019,7 +3187,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753444800000,
-                "endTimeInt": 1753455600000
+                "endTimeInt": 1753455600000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "7446",
@@ -3096,7 +3268,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753444800000,
-                "endTimeInt": 1753455600000
+                "endTimeInt": 1753455600000,
+                "room": {
+                    "name": "salon2",
+                    "orig": "Salon 2"
+                }
             },
             {
                 "id": "8504",
@@ -3198,7 +3374,11 @@
                     "Found cost in parentheses"
                 ],
                 "startTimeInt": 1753444800000,
-                "endTimeInt": 1753452000000
+                "endTimeInt": 1753452000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "7407",
@@ -3258,7 +3438,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753452000000,
-                "endTimeInt": 1753457400000
+                "endTimeInt": 1753457400000,
+                "room": {
+                    "name": "salon1",
+                    "orig": "Salon 1"
+                }
             },
             {
                 "id": "8537",
@@ -3332,7 +3516,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753452000000,
-                "endTimeInt": 1753459200000
+                "endTimeInt": 1753459200000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8508",
@@ -3409,7 +3597,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753459200000,
-                "endTimeInt": 1753462800000
+                "endTimeInt": 1753462800000,
+                "room": {
+                    "name": "remise",
+                    "orig": "Remise"
+                }
             },
             {
                 "id": "7381",
@@ -3462,7 +3654,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753423200000,
-                "endTimeInt": 1753426800000
+                "endTimeInt": 1753426800000,
+                "room": {
+                    "name": "remise",
+                    "orig": "Remise"
+                }
             },
             {
                 "id": "8391",
@@ -3551,7 +3747,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753428600000,
-                "endTimeInt": 1753441200000
+                "endTimeInt": 1753441200000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8458",
@@ -3630,7 +3830,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753430400000,
-                "endTimeInt": 1753439400000
+                "endTimeInt": 1753439400000,
+                "room": {
+                    "name": "tent",
+                    "orig": "Hängematten Zelt"
+                }
             },
             {
                 "id": "8532",
@@ -3703,7 +3907,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753432200000,
-                "endTimeInt": 1753441200000
+                "endTimeInt": 1753441200000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             }
         ],
         "samstag": [
@@ -3759,7 +3967,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753531200000,
-                "endTimeInt": 1753538400000
+                "endTimeInt": 1753538400000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8128",
@@ -3820,7 +4032,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753534800000,
-                "endTimeInt": 1753540200000
+                "endTimeInt": 1753540200000,
+                "room": {
+                    "name": "remise",
+                    "orig": "Remise"
+                }
             },
             {
                 "id": "8500",
@@ -3882,7 +4098,11 @@
                 "links": [],
                 "warnings": [],
                 "startTimeInt": 1753534800000,
-                "endTimeInt": 1753545600000
+                "endTimeInt": 1753545600000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8247",
@@ -3980,7 +4200,11 @@
                     "Found cost in parentheses"
                 ],
                 "startTimeInt": 1753513200000,
-                "endTimeInt": 1753527600000
+                "endTimeInt": 1753527600000,
+                "room": {
+                    "name": "remise",
+                    "orig": "Remise"
+                }
             },
             {
                 "id": "8401",
@@ -4044,7 +4268,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753515000000,
-                "endTimeInt": 1753524000000
+                "endTimeInt": 1753524000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8430",
@@ -4132,7 +4360,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753515000000,
-                "endTimeInt": 1753529400000
+                "endTimeInt": 1753529400000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "7475",
@@ -4191,7 +4423,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753516800000,
-                "endTimeInt": 1753524000000
+                "endTimeInt": 1753524000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8379",
@@ -4275,7 +4511,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753516800000,
-                "endTimeInt": 1753527600000
+                "endTimeInt": 1753527600000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8235",
@@ -4338,7 +4578,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753520400000,
-                "endTimeInt": 1753527600000
+                "endTimeInt": 1753527600000,
+                "room": {
+                    "name": "bibliothek",
+                    "orig": "Bibliothek"
+                }
             }
         ],
         "sonntag": [
@@ -4403,7 +4647,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753603200000,
-                "endTimeInt": 1753621200000
+                "endTimeInt": 1753621200000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             },
             {
                 "id": "8387",
@@ -4473,7 +4721,11 @@
                 ],
                 "warnings": [],
                 "startTimeInt": 1753603200000,
-                "endTimeInt": 1753610400000
+                "endTimeInt": 1753610400000,
+                "room": {
+                    "name": "tent",
+                    "orig": "Hängematten Zelt"
+                }
             },
             {
                 "id": "8528",
@@ -4540,7 +4792,11 @@
                     "Found cost in parentheses"
                 ],
                 "startTimeInt": 1753603200000,
-                "endTimeInt": 1753614000000
+                "endTimeInt": 1753614000000,
+                "room": {
+                    "name": "unknown",
+                    "orig": "unknown"
+                }
             }
         ]
     },

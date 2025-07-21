@@ -16,46 +16,51 @@ export const setActiveButton = (buttons: NodeListOf<HTMLButtonElement>, activeBu
   activeButton.classList.add('btn-outline-primary');
   activeButton.classList.remove('btn-outline-secondary');
 }
-export const createFilter = () => {
-  const filterContainer = document.querySelector('.filter-type-container');
+export const createFilter = (container: string, itemAttribut: string, activeClass: string, toggle = true) => {
+  const itemTarget = `[${itemAttribut}]`;
+  const filterKey = `${itemAttribut}-filter`;
+  const activeButton = activeClass;
+  const filterContainer = document.querySelector(container);
   const allFilters = [];
-  const filterItems = document.querySelectorAll<HTMLElement>('[data-filter]');
+  const filterItems = document.querySelectorAll<HTMLElement>(itemTarget);
   for(const item of filterItems) {
-    const value = item.getAttribute('data-filter');
+    const value = item.getAttribute(itemAttribut);
     if(allFilters.indexOf(value) === -1) {
       allFilters.push(value);
       const btn = document.createElement('span');
       btn.classList.add('badge', 'btn-outline-secondary', 'filter-btn', 'mx-1');
       if(value !== 'date'){
-        btn.classList.add('filter-btn--active');
+        btn.classList.add(activeButton);
       }
-      btn.setAttribute('data-filter-type', value);
+      btn.setAttribute(filterKey, value);
       btn.innerText = value;
       filterContainer?.append(btn);
       if(value === 'date') {
-       document.querySelectorAll('[data-filter="date"]').forEach(dateItem => {
+       document.querySelectorAll(`[${itemAttribut}="date"]`).forEach(dateItem => {
           dateItem.classList.add('hidden');
         });
       }
     }
   }
   const allFilterButtons = filterContainer?.querySelectorAll('.filter-btn');
-  const allFilterItems = document.querySelectorAll<HTMLElement>('[data-filter]');
+  const allFilterItems = document.querySelectorAll<HTMLElement>(itemTarget);
 allFilterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      if(btn.classList.contains('filter-btn--active')) {
-        btn.classList.remove('filter-btn--active');
+      if(btn.classList.contains(activeButton)) {
+        btn.classList.remove(activeButton);
         allFilterItems.forEach(item => {
-          if(item.getAttribute('data-filter') === btn.getAttribute('data-filter-type')) {
+          if(item.getAttribute(itemAttribut) === btn.getAttribute(filterKey)) {
             item.classList.add('hidden');
           } else {
-            item.classList.remove('hidden');
+            if(toggle){
+              item.classList.remove('hidden');
+            }
           }
         })
       } else {
-        btn.classList.add('filter-btn--active');
+        btn.classList.add(activeButton);
         allFilterItems.forEach(item => {
-          if(item.getAttribute('data-filter') === btn.getAttribute('data-filter-type')) {
+          if(item.getAttribute(itemAttribut) === btn.getAttribute(filterKey)) {
             item.classList.remove('hidden');
           }
         })
@@ -76,7 +81,8 @@ export const createSearch = (target: string, uid: string, source: string) => {
   body.classList.add(defaultView);
   const activeBtn = document.querySelector<HTMLButtonElement>(`[data-view="${defaultView}"]`);
   setActiveButton(viewSwitches, activeBtn);
-  createFilter();
+  createFilter('.filter-type-container', 'data-filter', 'filter-btn--active');
+  createFilter('.filter-room-container', 'data-room', 'filter-room-btn--active', false);
 
   viewSwitches.forEach(btn => {
     const isStandardView = body.classList.contains('standard-view');

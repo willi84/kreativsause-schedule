@@ -56,6 +56,9 @@ body{
     .filter-btn.filter-btn--active{
     background-color: gray;
   }
+    .filter-btn.filter-room-btn--active{
+    background-color: rgb(3, 122, 57);
+  }
 
 
 

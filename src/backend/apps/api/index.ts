@@ -4,7 +4,10 @@ import { fileExists, readFile, writeFileSync } from "../../_shared/fs/fs";
 import { getHttpStatusItem } from "../../_shared/http/http";
 import { DEBUG, LOG, OK, WARNING } from "../../_shared/log/log";
 import { IDS } from "./inde.config";
+import { getDataBySheetName, getHorizontalKeys, parseHorizontalData } from '../../_shared/google_sheet/google_sheet';
+import { forbiddenWords } from '../../config';
 const HTMLParser = require('node-html-parser');
+const MAX = 2500;
 
 
 const IS_DEV = process.env.NODE_ENV === 'development';
@@ -30,10 +33,6 @@ const linkChecker = (linkHref: string) => {
         const newStatus  = httpStatusRedirects.status;
         const numNewStatus = parseInt(newStatus, 10);
         if(numNewStatus !== 200){
-            console.log(httpStatusRedirects)
-            console.log(httpStatusRedirects.lastLocation);
-            console.log(httpStatusRedirects.initialUrl);
-            console.log('----')
             statusItem = { isValid: false, status: newStatus === '0' ? 'unknown' : newStatus, redirects: httpStatusRedirects.redirects, lastLocation: httpStatusRedirects.lastLocation, initialUrl: httpStatusRedirects.initialUrl };
             LOG(WARNING, `Link ${linkHref} returned status ${numNewStatus} for ${httpStatusRedirects.lastLocation}`);
             
@@ -59,9 +58,9 @@ const linkChecker = (linkHref: string) => {
 
 
 const getPageData = (url: string) => {
+    let i = 0;
     const httpStatus = getHttpStatusItem(url, false, 10);
     const cmd = `curl -s ${url}`;
-    console.log(url);
     const html = command(`curl -s ${url}`);
     // writeFileSync('tmp.html', html);
     var root = HTMLParser.parse(html);
@@ -69,6 +68,10 @@ const getPageData = (url: string) => {
     const workshopData = {}
     const articles = root.querySelectorAll('article');
     for (const article of articles) {
+        if( i > MAX){
+            // LOG(WARNING, `Skipping article ${i} on page ${url}`);
+            continue;
+        }
         const id = article.getAttribute('data-id');
         const titleElement = article.querySelector('h2');
         let title = titleElement ? titleElement.text.trim() : 'No Title';
@@ -108,12 +111,12 @@ const getPageData = (url: string) => {
         }
         const slug = article.querySelector('a').getAttribute('href');
         const details = getWorkshopDetails(slug);
+        if(details.year === '2025') {
+            i += 1;
+        }
         // filter warnings from details
         const finalDetails = {};
         for(const key in details) {
-            if(key === 'speakers'){
-                console.log(details[key])
-            }
             if (key !== 'warnings'){
                 finalDetails[key] = details[key]; 
             } else {
@@ -346,7 +349,6 @@ const getWorkshopDetails = (url: string) => {
                             data.speakers.push(m[1].replace(/[\.|!]*$/, '').trim());
                         }
                     }
-                    // console.log(data.speakers);
                 }
             }
 
@@ -358,7 +360,6 @@ const getWorkshopDetails = (url: string) => {
     if(data.speakers.length === 0) {
         LOG(WARNING, `no speakers found for ${url}`);
     } else {
-console.log(data);
     }
 
     // const remaininTickets = root.querySelector('[data-testid="remaining-tickets-grey"]');
@@ -383,11 +384,25 @@ const getWebsiteData = (url: string, properties: string[]) => {
     
     return mainData;
 }
-const processData = (data: any) => {
+const processData = (data: any, rooms: any) => {
     const finalData = {
         data: {},
         days: ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag'],
     };
+    // time	activity	salon1	salon2	bibliothek	remise	tent	outside	cocolab	cafe	sbahn
+    // Activity	Salon 1	Salon 2 (same size than Salon1)	Bibliothek	Remise	Hängematten Zelt	Grass/ Yard/ Outside	CocoLab	Café Apfel	S- Bahn/ Terrasse
+    const roomsNames = {
+        'activity': 'Activity',
+        'salon1': 'Salon 1',
+        'salon2': 'Salon 2',
+        'bibliothek': 'Bibliothek',
+        'remise': 'Remise',
+        'tent': 'Hängematten Zelt',
+        'outside': 'Grass/ Yard/ Outside',
+        'cocolab': 'CocoLab',
+        'cafe': 'Café Apfel',
+        'sbahn': 'S- Bahn/ Terrasse',
+    }
     // sort by day and time
     for (const key in data) {
         const item = data[key];
@@ -401,6 +416,20 @@ const processData = (data: any) => {
         item['startTimeInt'] = startTimeInt;
         item['endTimeInt'] = endTimeInt;
         if(item.year === '2025') {
+            const detectedRoom = detectRoom(item.title, rooms);
+            if(detectedRoom) {
+                LOG(OK, `Detected room ${detectedRoom} for workshop: ${item.title}`);
+                item.room = {
+                    name: detectedRoom,
+                    orig: roomsNames[detectedRoom],
+                }
+            } else {
+                LOG(WARNING, `No room found for workshop: ${item.title}`);  
+                item.room = {
+                    name: 'unknown',
+                    orig: 'unknown',
+                }
+            }
             finalData.data[day].push(item);
         }
         
@@ -417,19 +446,87 @@ const processData = (data: any) => {
 }
         
 
-const hasFile = fileExists('src/_data/orig.json')
-if(!hasFile) {
-    const cached = readFile('src/_data/orig.json');
-    const json = cached ? JSON.parse(cached) : {};
-    const hasItems = Object.keys(json).length > 0;
-    if(hasItems && IS_DEV){
-        LOG(OK, `Using cached data from src/_data/orig.json`);
-    } else {
-        LOG(WARNING, `No cached data found in src/_data/orig.json`);
-        const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
-        const finalData = processData(origData);
-            const cwd = process.cwd();
-            writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(finalData, null, 4));
-            writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(finalData, null, 4));
+
+// async iife
+export const normalizeData = (input: string) => {
+    let output = input;
+    output = output.replace(/\s+/g, ' ').trim().toLowerCase();
+    output = output.replace(/\\n/g, '');
+    output = output.replace(/\n/g, '');
+    output = output.replace(/\\t/g, '');
+    output = output.replace(/\t/g, '');
+    output = output.replace(/\\r/g, '');
+    output = output.replace(/\r/g, '');
+    output = output.replace(/[\.|,|\?|\!|\)|\()|\&|:|\-|\/]/g, '');
+    output = output.replace(/\d+\s*TN/ig, '');
+    output = output.replace('---', '');
+    
+    const words = output.split(' ');
+    for(const word of words) {
+        if(forbiddenWords.indexOf(word) !== -1){
+            output = output.replace(word, '');
+        } 
     }
-} 
+
+    return output.replace(/\s+/g, ' ').trim();
+}
+export const getRoomData = async () => {
+    const sheetData = await getDataBySheetName('10qeztK1buHrRBJW1gdaMwedR-UgOwD2HqQ5D0hU-IIs', 'data')
+    const keys = getHorizontalKeys(sheetData);
+    const items = parseHorizontalData(sheetData);
+    const rooms = {}
+    for(const key of keys){
+        if(!rooms[key]) {
+            rooms[key] = [];
+        }
+    }
+    for(const item of items) {
+        for(const key of keys) {
+            if(!(item[key] === undefined || item[key] === null) && item[key] !== key) {
+                const title = item[key];
+                const parts = title.split(/---/);
+                for(const part of parts) {
+
+                    rooms[key].push({ orig: part, normalized: normalizeData(part) });
+                    // rooms[key].push({ orig: item[key], normalized: normalizeData(item[key]) });
+                }
+            }
+        }
+    }
+    return rooms;
+}
+export const detectRoom = (workshop: string, rooms: any[]) => {
+    const normalizedWorkshop = normalizeData(workshop);
+    const keys = Object.keys(rooms);
+    for(const key of keys) {
+        for (const room of rooms[key]) {
+            const normalizedRoom = normalizeData(room.normalized);
+            if (normalizedWorkshop.indexOf(normalizedRoom) !== -1) {
+                return key;
+            }
+        }
+    }
+    return null;
+}
+
+(async () => {
+    const rooms = await getRoomData();
+    console.log(rooms)
+
+    const hasFile = fileExists('src/_data/orig.json')
+    if(!hasFile) {
+        const cached = readFile('src/_data/orig.json');
+        const json = cached ? JSON.parse(cached) : {};
+        const hasItems = Object.keys(json).length > 0;
+        if(hasItems && IS_DEV){
+            LOG(OK, `Using cached data from src/_data/orig.json`);
+        } else {
+            LOG(WARNING, `No cached data found in src/_data/orig.json`);
+            const origData = getWebsiteData(scheduleUrl[0], ['schedule', 'tags']);
+            const finalData = processData(origData, rooms);
+                const cwd = process.cwd();
+                writeFileSync(`${cwd}/src/_data/optimized.json`, JSON.stringify(finalData, null, 4));
+                writeFileSync(`${cwd}/src/_data/orig.json`, JSON.stringify(finalData, null, 4));
+        }
+    } 
+})();

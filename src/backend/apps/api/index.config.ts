@@ -1,0 +1,125 @@
+import { ID_MAP, ROOM_MAPPING } from './index.d';
+
+
+
+export const IDS: ID_MAP = {
+    date: ['date'],
+    time: ['time'],
+    start: ['start'],
+    end: ['end'],
+    category: ['event category'],
+    tags: ['event tags'],
+    register: ['click to register'],
+    organizer: ['organizer'],
+};
+export const DAYS: string[] = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag'];
+
+export const ROOM_NAMES: ROOM_MAPPING = {
+    'activity': 'Activity',
+    'salon1': 'Salon 1',
+    'salon2': 'Salon 2',
+    'bibliothek': 'Bibliothek',
+    'remise': 'Remise',
+    'tent': 'Hängematten Zelt',
+    'outside': 'Grass/ Yard/ Outside',
+    'cocolab': 'CocoLab',
+    'cafe': 'Café Apfel',
+    'sbahn': 'S- Bahn/ Terrasse',
+}
+export const ROOM_DETECTION = {
+    'activity': 'activity',
+    'salon1': 'salon 1',
+    'salon2': 'salon 2',
+    'bibliothek': 'bibliothek',
+    'remise': 'remise',
+    'hängematten': 'tent',
+    'zelt': 'tent',
+    'hängemattenzelt': 'tent',
+    'tent': 'tent',
+    'grass': 'outside',
+    'yard': 'outside',
+    'outside': 'outside',
+    'außenbereich': 'outside',
+    'cocolab': 'cocolab',
+    'café': 'cafe',
+    'cafeapfel': 'cafe',
+    'sbahn': 'sbahn',
+    's-bahn': 'sbahn',
+    'sbahnterrasse': 'sbahn',
+    's-bahnterrasse': 'sbahn',
+}
+export const SPEAKERS = [
+  "agni friedrich",
+  "aleksei hecht",
+  "amalia eismar",
+  "amanda cavalcanti lima",
+  "amira schneider",
+  "ami schütte",
+  "andrea, anne, yve",
+  "andreas seibert",
+  "annika harloff",
+  "annik trautzettel",
+  "ashia",
+  "benno",
+  "bengisu berispek",
+  "caroline schnapp",
+  "christine sommerschuh",
+  "claudia richardt",
+  "denny ehrlich",
+  "felicitas nadworniczek",
+  "heiko erhardt",
+  "ina giza",
+  "jacqueline gustke",
+  "jana goede",
+  "jannis riesz",
+  "julia dencker",
+  "manja balzer",
+  "mandy borowiak",
+  "marika rein",
+  "marie golücke",
+  "marie golüke",
+  "marlen deckwer",
+  "mirja zentgraf",
+  "moritz",
+  "noam",
+  "rebecca griesler",
+  "sascha badua",
+  "silke schoppe",
+  "stephanie nückel",
+  "stefanie görisch",
+  "stefanie peter",
+  "thomas uloth",
+  "tycho pfäfflin",
+  "vladimira valkova",
+  "wolf hingst",
+  "zil ricker",
+  "zordan jana lechky",
+  "kreativsause team",
+  "alexandra badua",
+  "agnes friedrich",
+  "anne haedke"
+];
+
+export const LOCATIONS = [
+  "????",
+  "bibliotek",
+  "bibliothek",
+  "café apfel??",
+  "cocolab",
+  "grass/ yard/ outside",
+  "grass/yard/outside",
+  "hängematten zelt",
+  "hangenmatten zelt",
+  "outside/forest",
+  "remise",
+  "salon 1",
+  "salon 1 and 2",
+  "salon 2",
+  "sbahn",
+  "sbahn/terrasse"
+];
+
+
+export const SHOW_DEV = process.env.NODE_ENV === 'development';
+export const SHEET_ID = '10qeztK1buHrRBJW1gdaMwedR-UgOwD2HqQ5D0hU-IIs';
+export const PROGRAM_URL = 'https://flaeminger.kreativsause.de/programm-2025/';

@@ -54,3 +54,16 @@ export const removeEmptyItems = (items: any) => {
         .map(item => typeof item === 'string' ? item.trim() : item)
         .filter(item => item)
 }
+export const removeHtmlTags = (htmlString: string) => {
+    if (!htmlString) {
+        return '';
+    }
+    return htmlString.replace(/<[^>]*>/g, '');
+}
+export const sortArrayByTime = (array: any[], key: string) => {
+    return array.sort((a: any, b: any) => {
+            const aTime = a[key] ? a[key].split(':').map(Number) : [0, 0];
+            const bTime = b[key] ? b[key].split(':').map(Number) : [0, 0];
+            return aTime[0] - bTime[0] || aTime[1] - bTime[1];
+        });
+    };

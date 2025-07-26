@@ -27,21 +27,19 @@ export default async function handler(req, res) {
       let i = 0;
       while (i < line.length) {
         const chunk = line.slice(i, i + 75);
-        parts.push(i === 0 ? chunk : ' ' + chunk); // Folgezeilen beginnen mit Leerzeichen
+        parts.push(i === 0 ? chunk : ' ' + chunk);
         i += 75;
       }
       return parts.join('\r\n');
     };
 
     const output = [];
-
     const pushLine = (line) => output.push(...foldLine(line).split('\r\n'));
 
     // Kalenderkopf
     pushLine('BEGIN:VCALENDAR');
     pushLine('VERSION:2.0');
     pushLine('PRODID:https://kreativsause-schedule.vercel.app/');
-    // pushLine('PRODID:-//kreativsause//ical export//DE');
     pushLine('CALSCALE:GREGORIAN');
     pushLine('X-WR-CALNAME:Kreativsause Zeitplan');
     pushLine('X-WR-TIMEZONE:Europe/Berlin');
@@ -74,7 +72,6 @@ export default async function handler(req, res) {
       for (const event of eventsAnTag) {
         const start = formatDate(event.startTimeInt);
         const end = formatDate(event.endTimeInt);
-
         if (!start || !end) {
           console.warn(`[calendar] ${tag}: Ungültige Zeit`, event);
           continue;
@@ -84,15 +81,11 @@ export default async function handler(req, res) {
         pushLine(`UID:event-${index}@kreativsause-schedule.vercel.app`);
         pushLine(`DTSTAMP:${start}`);
         pushLine(`DTSTART:${start}`);
-        pushLine(`TZID:Europe/Berlin`);
         pushLine(`DTEND:${end}`);
         pushLine(`SUMMARY:${escapeText(`${event.title}` || 'Unbenannt')}`);
-        // pushLine(`SUMMARY:${escapeText(`🦌 ${event.title}` || 'Unbenannt')}`);
-        
-        const maxLength = 75;
+
         const descriptionLines = [];
 
-        // Beschreibung
         if (event.description) {
           const descArray = Array.isArray(event.description)
             ? event.description
@@ -100,25 +93,21 @@ export default async function handler(req, res) {
           descriptionLines.push(...descArray.map(line => `📝 ${line}`));
         }
 
-        // Speaker
         if (Array.isArray(event.speakers) && event.speakers.length > 0) {
           descriptionLines.push('👤 Speaker: ' + event.speakers.join(', '));
         }
 
-        // Raum
         if (event.room?.orig) {
           descriptionLines.push('📍 Ort: ' + event.room.orig);
         }
 
-        // Registrierung
         if (event.register) {
           descriptionLines.push('🔗 Anmeldung: ' + event.register);
         }
 
         if (descriptionLines.length > 0) {
-            const fullDescription = descriptionLines.join('\n');
+          const fullDescription = descriptionLines.join('\n');
           pushLine(`DESCRIPTION: ${fullDescription}`);
-        //   pushLine(`DESCRIPTION:${escapeText(descriptionLines.join('\n'))}`);
         }
 
         pushLine('END:VEVENT');

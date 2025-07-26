@@ -90,7 +90,7 @@ export default async function handler(req, res) {
           const descArray = Array.isArray(event.description)
             ? event.description
             : [event.description];
-          descriptionLines.push(...descArray.map(line => `📝 ${line}`));
+          descriptionLines.push(...descArray.map(line => `${line}`));
         }
 
         if (Array.isArray(event.speakers) && event.speakers.length > 0) {
@@ -106,7 +106,7 @@ export default async function handler(req, res) {
         }
 
         if (descriptionLines.length > 0) {
-          const fullDescription = descriptionLines.join('\n');
+          const fullDescription = `📝 ${descriptionLines.join('\n')}`;
           pushLine(`DESCRIPTION: ${fullDescription}`);
         }
 

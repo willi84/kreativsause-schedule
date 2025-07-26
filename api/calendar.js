@@ -3,7 +3,7 @@ import { readFile } from 'fs/promises';
 import path from 'path';
 
 export const config = {
-  runtime: 'edge',
+//   runtime: 'edge',
 };
 
 function foldLine(line) {

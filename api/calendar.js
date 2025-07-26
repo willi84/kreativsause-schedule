@@ -86,7 +86,7 @@ export default async function handler(req, res) {
         pushLine(`DTSTART:${start}`);
         pushLine(`TZID:Europe/Berlin`);
         pushLine(`DTEND:${end}`);
-        pushLine(`SUMMARY: ${escapeText(`🦌 ${event.title}` || 'Unbenannt')}`);
+        pushLine(`SUMMARY:${escapeText(`🦌 ${event.title}` || 'Unbenannt')}`);
         
         const maxLength = 75;
         const descriptionLines = [];
@@ -115,7 +115,7 @@ export default async function handler(req, res) {
         }
 
         if (descriptionLines.length > 0) {
-            const fullDescription = descriptionLines.join('\n');
+            const fullDescription = descriptionLines.join('\\n');
           pushLine(`DESCRIPTION: ${fullDescription}`);
         //   pushLine(`DESCRIPTION:${escapeText(descriptionLines.join('\n'))}`);
         }

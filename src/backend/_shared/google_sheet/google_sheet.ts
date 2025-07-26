@@ -35,7 +35,7 @@ export const getGlobalData = async (logs, DOCUMENT_ID) => {
         return data; // return empty object if no data found
     }
     const newData = await getData(logs, DOCUMENT_ID, sheetNameGlobal, true);
-    console.log(newData);
+    // console.log(newData);
     const keys = newData.keys || Object.keys(newData.items[0] );
     for(const item of newData.items) {
         const key = item[keys[0]]; // first key is the key
@@ -153,7 +153,7 @@ export const parseHorizontalData = (data) => {
         //     }
         // }
     }
-    console.log(result);
+    // console.log(result);
     return result;
 }
 

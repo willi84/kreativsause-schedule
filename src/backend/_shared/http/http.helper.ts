@@ -32,7 +32,7 @@ export const normalizeResponses = (MOCKED_HTTP_STATUS: any) => {
 }
 export const getMockedResponse = (request: string): string => {
     const url = request.replace('curl -I ', '').replace(` ${CURL_CONFIG_STATUS}`, '').trim();
-    console.log(url);
+    // console.log(url);
     const scenarios = Object.keys(MOCKED_RESPONSES);
     let result = HTTP_UNKNOWN;
     scenarios.forEach((scenarioKey: string) => {

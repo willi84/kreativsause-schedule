@@ -76,7 +76,7 @@ export const getRoomData2 = async () => {
                 }
             }
         }
-        if(workshopItem.title.toLowerCase().trim() === ('extra tasks')) {
+        if(workshopItem.title && workshopItem.title.toLowerCase().trim() === ('extra tasks')) {
             ignoreNext = true;
         }
         if(!ignoreNext){
@@ -86,10 +86,9 @@ export const getRoomData2 = async () => {
                 LOG(ERROR, `Duplicate workshop title found: ${workshopItem.title}`);
             }
         }
-        if(workshopItem.title.toLowerCase().trim() === ('workshop')) {
+        if(workshopItem.title && workshopItem.title.toLowerCase().trim() === ('workshop')) {
             ignoreNext = false;
         }
-        // console.log(item);
     }
     writeFileSync('src/_data/rooms2_optimized.json', JSON.stringify(result, null, 4));
     return result;

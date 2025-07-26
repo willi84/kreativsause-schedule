@@ -7,10 +7,7 @@ createSearch('data-search', 'talks', '[data-talk]');
 
 
 function updateLiveTalks() {
-    console.log('Updating live talks...');
-    console.log(Date.now());
   const now = Date.now() ; // Unix timestamp in Sekunden
-console.log(new Date(now));
   document.querySelectorAll('.talk-card').forEach(card => {
       const start = parseInt(card.getAttribute('data-start-time'), 10);
       const end = parseInt(card.getAttribute('data-end-time'), 10);
